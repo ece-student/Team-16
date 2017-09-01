@@ -1,4 +1,6 @@
   
+ECE 3400, Semester (Fall 2017) Team # 16
+
 Team Members  
   * Lois Lee          (LL556)
   * Firehiwot Gurara  (FWG24)
@@ -8,9 +10,8 @@ Team Members
   * Jidenna Nwosu     (JN388)
   
 
-ECE 3400, Semester (Fall 2017) Team # 16
-
 TEAM CONTRACT
+
 Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
 
 Team Procedures
