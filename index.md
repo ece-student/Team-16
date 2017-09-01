@@ -9,7 +9,6 @@ Team Members
   * Asad Marghoob     (AM2242)
   * Jidenna Nwosu     (JN388)
   
-
 TEAM CONTRACT
 
 Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
