@@ -64,6 +64,7 @@ Describe how, as a group, you would handle individuals who do not live up to thi
 Describe what your team will do if these infractions continue: Worse punishments. (No physical or verbal abuse or cruelty)
 
 Team Leadership
+
 Every person on the team will have to take the role as a leader for at least two weeks. The role of the leader will be to organize meetings and make sure that everything is submitted in a timely manner. Here are some hints on what the leader 
 should do. Please note here who will be responsible when:
 
