@@ -69,10 +69,15 @@ Every person on the team will have to take the role as a leader for at least two
 should do. Please note here who will be responsible when:
 
 Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot Gurara
+
 Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit Bandaru
+
 Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois Lee  
+
 Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
+
 Nov 4th - Nov 17th (Milestone 4): John Sarnecki
+
 Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
 (If you are more or less than 6 people, please adjust the time periods accordingly).
 
