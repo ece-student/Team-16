@@ -9,6 +9,7 @@ Team Members
   
 
 ECE 3400, Semester (Fall 2017) Team # 16
+
 TEAM CONTRACT
 Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
 
