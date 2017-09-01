@@ -1,5 +1,5 @@
   
-ECE 3400, Semester (Fall 2017) Team # 16
+                                    ECE 3400, Semester (Fall 2017) Team # 16
 
 Team Members  
   * Lois Lee          (LL556)
