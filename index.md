@@ -98,10 +98,15 @@ I understand that if I do not abide by these terms and conditions, I will suffer
 
 
 LOIS LEE				     	date September 1st 2017
+
 JOHN SARNECKI 				date September 1st 2017
+
 FIREHIWOT GURARA  date September 1st 2017
+
 JIDENNA NWOSU     date September 1st 2017
+
 Asad Marghoob  			date September 1st, 2017
+
 Rohit Bandaru     date   September 1st, 2017
 
 
