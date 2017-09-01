@@ -79,8 +79,6 @@ Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
 Nov 4th - Nov 17th (Milestone 4): John Sarnecki
 
 Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
-(If you are more or less than 6 people, please adjust the time periods accordingly).
-
 
 I participated in formulating the standards, roles, and procedures as stated in this contract.
 I understand that I am obligated to abide by these terms and conditions.
