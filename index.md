@@ -11,7 +11,9 @@ ECE 3400 Fall 2017
 
 
 ECE 3400, Semester (Fall 2017) Team # 16
-Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
+
+Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, 
+John Sarnecki, Asad Marghoob, Jidenna Nwosu
 
 Team Procedures
 
@@ -37,6 +39,7 @@ All members should agree to a preferred method of communication (e.g., e-mail, c
 and be individually responsible for answering in good time as agreed upon in the team. Please note what 
 method(s) and response delay you agree on. Groupme, email. 3-4 hours is good responding time during the 
 day when we have classes. 2-3 for other times. 
+
 
 Team Expectations
 
@@ -75,7 +78,11 @@ Describe how, as a group, you would handle individuals who do not live up to thi
 Punish them. Will be decided at that time.
 Describe what your team will do if these infractions continue: Worse punishments. (No physical or verbal abuse or cruelty)
 Team Leadership
-Every person on the team will have to take the role as a leader for at least two weeks. The role of the leader will be to organize meetings and make sure that everything is submitted in a timely manner. Here are some hints on what the leader should do. Please note here who will be responsible when:
+Every person on the team will have to take the role as a leader for at least two weeks. The role of the leader will be to organize meetings and make sure that everything is submitted in a timely manner. Here are some hints on what the leader 
+should do. Please note here who will be responsible when:
+
+
+
 Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot
 Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit
 Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois
@@ -84,9 +91,12 @@ Nov 4th - Nov 17th (Milestone 4): John
 Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
 (If you are more or less than 6 people, please adjust the time periods accordingly).
 
+
 I participated in formulating the standards, roles, and procedures as stated in this contract.
 I understand that I am obligated to abide by these terms and conditions.
 I understand that if I do not abide by these terms and conditions, I will suffer the consequences as stated in this contract.
+
+
 LOIS LEE				     	date September 1st 2017
 JOHN SARNECKI 				date September 1st 2017
 FIREHIWOT GURARA  date September 1st 2017
