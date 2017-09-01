@@ -85,13 +85,13 @@ I understand that I am obligated to abide by these terms and conditions.
 I understand that if I do not abide by these terms and conditions, I will suffer the consequences as stated in this contract.
 
 
-LOIS LEE				     	date September 1st 2017
+Lois Lee				     	date September 1st 2017
 
-JOHN SARNECKI 				date September 1st 2017
+John Sarnecki 				date September 1st 2017
 
-FIREHIWOT GURARA  date September 1st 2017
+Firehiwot Gurara  date September 1st 2017
 
-JIDENNA NWOSU     date September 1st 2017
+Jidenna Nwosu     date September 1st 2017
 
 Asad Marghoob  			date September 1st, 2017
 
