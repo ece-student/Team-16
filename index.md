@@ -8,6 +8,7 @@ Team Members
   * Asad Marghoob     (AM2242)
   * Jidenna Nwosu     (JN388)
   
+  
 Lab Section: Fridays 1:30-4:30pm
 
 TEAM CONTRACT
