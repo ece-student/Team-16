@@ -1,8 +1,9 @@
-TEAM CONTRACT
+# TEAM CONTRACT
 
-Team Members: Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
+## Team Members: 
+Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
 
-Team Procedures
+## Team Procedures
 
 It is important to keep all members of the team aware of the time and date of all meetings. 
 It is a good idea to pick a day, time, and place for regular team meetings. We will meet every 
@@ -20,7 +21,7 @@ Always keep a written record of what was agreed upon in the meeting. Who will be
 
 All members should agree to a preferred method of communication (e.g., e-mail, cell phone, face-to-face), and be individually responsible for answering in good time as agreed upon in the team. Please note what method(s) and response delay you agree on. We will communicate using Groupme, email and 3-4 hours is good responding time during the day when we have classes. 2-3 for other times. 
 
-Team Expectations
+## Team Expectations
 
 Work Quality
 Agree on a (realistic) level of quality for website updates, individual work/design, peer reviews, etc. One person is taking responsibility for the general layout, but specific individuals will write up separate parts corresponding to their assignments. We will discuss the website update times; however, we should do frequent modifications on the website. 
@@ -53,22 +54,25 @@ Describe how, as a group, you would handle individuals who do not live up to thi
 
 Describe what your team will do if these infractions continue: Worse punishments. (No physical or verbal abuse or cruelty)
 
-Team Leadership
+
+## Team Leadership
 
 Every person on the team will have to take the role as a leader for at least two weeks. The role of the leader will be to organize meetings and make sure that everything is submitted in a timely manner. Here are some hints on what the leader 
 should do. Please note here who will be responsible when:
 
-Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot Gurara
 
-Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit Bandaru
+  * Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot Gurara
 
-Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois Lee  
+  * Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit Bandaru
 
-Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
+  * Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois Lee  
 
-Nov 4th - Nov 17th (Milestone 4): John Sarnecki
+  * Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
 
-Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
+  * Nov 4th - Nov 17th (Milestone 4): John Sarnecki
+
+  * Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
+  
 
 I participated in formulating the standards, roles, and procedures as stated in this contract.
 I understand that I am obligated to abide by these terms and conditions.
@@ -79,11 +83,14 @@ Lois Lee				     	date September 1st 2017
 
 John Sarnecki 				date September 1st 2017
 
-Firehiwot Gurara  date September 1st 2017
+Firehiwot Gurara      date September 1st 2017
 
-Jidenna Nwosu     date September 1st 2017
+Jidenna Nwosu         date September 1st 2017
 
-Asad Marghoob  			date September 1st, 2017
+Asad Marghoob  		  	date September 1st, 2017
 
-Rohit Bandaru     date   September 1st, 2017
+Rohit Bandaru         date September 1st, 2017
+
+
+###### This is an <h6> tag
 
