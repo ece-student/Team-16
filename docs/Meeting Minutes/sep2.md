@@ -4,7 +4,7 @@ Meeting day will be Tuesday 7pm ECE lounge
 
 The lab will be graded in terms of the following: [Lab Grading](https://cei-lab.github.io/ece3400/Grading/Lab_score.html) 
 
-##Task Division
+## Task Division
 
 * 2 points: Blinking an internal LED - (Jidenna)
 
