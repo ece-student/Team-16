@@ -39,7 +39,7 @@ Work Quality
 
 ###### Strategies for encouraging/including ideas from all team members (team maintenance): If anyone has an idea write on the groupme.
 
-###### Strategies for keeping on task (task maintenance): shared online calender outlining tasks (which will be updated every week after team meetings) and a google drive. This is the link for our team calendar: [Team#16 Calendar] (https://teamup.com/kshx1ageh1yif5gske)
+###### Strategies for keeping on task (task maintenance): shared online calender outlining tasks (which will be updated every week after team meetings) and a google drive. This is the link for our team calendar: [Team#16 Calendar](https://teamup.com/kshx1ageh1yif5gske)
 
 ###### Strategies to get help if you’re stuck: Office hours, polls in groupme, ask for help.
 
