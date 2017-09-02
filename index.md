@@ -21,6 +21,9 @@ Lab Section: Fridays 1:30-4:30pm
   
   
  * [Meeting Minutes 9-1](./docs/sep1.md)
+ 
+ 
+ * [Meeting Minutes 9-2](./docs/sep2.md)
   
 
 
