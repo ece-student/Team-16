@@ -14,7 +14,7 @@ In today’s meeting we
 
 *Decided the meeting weekly meeting place and time (Uris library or ECE lounge at 5pm-7pm)
 
-*Checked office hours times.[3400 Office Hour Times](https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)
+*Checked office hours times. [3400 Office Hour Times](https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)
 
 *Created New website: [Team#16 Website](https://ece-student.github.io/Team-16/)
 
