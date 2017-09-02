@@ -32,7 +32,9 @@ In today’s meeting we
 
 *Lab1 report in the website will be divided among team members
 
-Plans for the next week
+
+
+## Plans for the next week
 
 *Finish lab1 and start working on milestone 1
 
