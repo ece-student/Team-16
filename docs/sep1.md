@@ -10,13 +10,13 @@ In today’s meeting we
 
 *Decided our main method of communication: groupme and email
 
-*Made team calendar https://teamup.com/kshx1ageh1yif5gske
+*Made team calendar [(https://teamup.com/kshx1ageh1yif5gske)]
 
 *Decided the meeting weekly meeting place and time (Uris library or ECE lounge at 5pm-7pm)
 
-*Checked office hours times. (https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1 )
+*Checked office hours times. [(https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)]
 
-*Created New website: https://ece-student.github.io/Team-16/
+*Created New website: [(https://ece-student.github.io/Team-16/)]
 
 *Weekly meetings will take place on Tuesdays at 5:00 in the ECE lounge in Phillips, Uris library or lab.
 
