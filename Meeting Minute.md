@@ -1,6 +1,7 @@
 Meeting minutes for 9/1/2017
 Activities
 In today’s meeting we
+
 Filled out the team contract
 Decided who will be in charge of website management
 Decided our main method of communication: groupme and email
@@ -19,6 +20,7 @@ Our team will have meetings on Saturday (09/02/2017) to finish up work for lab1
 Lab1 report in the website will be divided among team members
 
 Plans for the next week
+
 Finish lab1 and start working on milestone 1
 Learn more about how to build website on github and update the website
 
