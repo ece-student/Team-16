@@ -14,13 +14,13 @@ In today’s meeting we
 
 *Decided the meeting weekly meeting place and time (Uris library or ECE lounge at 5pm-7pm)
 
-*Checked office hours times. [3400 Office Hour Times](https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)
+*Checked office hours times [3400 Office Hour Times](https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)
 
 *Created New website: [Team#16 Website](https://lois-lee.github.io/Team-16/)
 
 *Weekly meetings will take place on Tuesdays at 5:00 in the ECE lounge in Phillips, Uris library or lab.
 
-Team RolesRoles for this week:
+Team Roles for this week:
 
 *Jidenna will make the youtube account and Asad will upload the videos for lab1
 
