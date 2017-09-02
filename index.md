@@ -3,14 +3,19 @@ Lab Section: Fridays 1:30-4:30pm
 
 ## Team Members  
   > Lois Lee          (LL556)
+  
   > Firehiwot Gurara  (FWG24)
+  
   > Rohit Bandaru     (RB696)
+  
   > John Sarnecki     (JAS889)
+  
   > Asad Marghoob     (AM2242)
+  
   > Jidenna Nwosu     (JN388)
   
   
- ## Table of Contents
+## Table of Contents
   
  * [Team Contract](./TeamContract.md)
   
