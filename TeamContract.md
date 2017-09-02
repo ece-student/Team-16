@@ -1,6 +1,9 @@
 # Team Contract
 
 
+
+
+
 ## Team Members: 
 Lois Lee, Firehiwot Gurara, Rohit Bandaru, John Sarnecki, Asad Marghoob, Jidenna Nwosu
 
