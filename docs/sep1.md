@@ -16,7 +16,7 @@ In today’s meeting we
 
 *Checked office hours times. [3400 Office Hour Times](https://calendar.google.com/calendar/embed?src=ece34002017@gmail.com&ctz=America/New_York&pli=1)
 
-*Created New website: [Team#16 Website](https://ece-student.github.io/Team-16/)
+*Created New website: [Team#16 Website](https://lois-lee.github.io/Team-16/)
 
 *Weekly meetings will take place on Tuesdays at 5:00 in the ECE lounge in Phillips, Uris library or lab.
 
