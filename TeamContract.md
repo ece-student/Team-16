@@ -67,17 +67,17 @@ Personal Accountability:
 ###### should do. Please note here who will be responsible when:
 
 
-  * Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot Gurara
+  * ###### Aug 28th - Sep 15th (Lab 1, work on lab 2): Firehiwot Gurara
 
-  * Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit Bandaru
+  * ###### Sep 16th - Sep 29th (Lab 2, Milestone 1 and 2): Rohit Bandaru
 
-  * Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois Lee  
+  * ###### Sep 30th - Oct 20th (Lab 3, work on lab 4): Lois Lee  
 
-  * Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
+  * ###### Oct 21st - Nov 3rd (Lab 4 and Milestone 3): Asad Marghoob
 
-  * Nov 4th - Nov 17th (Milestone 4): John Sarnecki
+  * ###### Nov 4th - Nov 17th (Milestone 4): John Sarnecki
 
-  * Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
+  * ###### Nov 18th - Dec 5th (Final competition and deadline for the website): Jidenna Nwosu
   
 
 ###### I participated in formulating the standards, roles, and procedures as stated in this contract.
@@ -85,17 +85,17 @@ Personal Accountability:
 ###### I understand that if I do not abide by these terms and conditions, I will suffer the consequences as stated in this ###### contract.
 
 
-Lois Lee				     	date September 1st 2017
+  * ###### Lois Lee				     	date September 1st 2017
 
-John Sarnecki 				date September 1st 2017
+  * ###### John Sarnecki 				date September 1st 2017
 
-Firehiwot Gurara      date September 1st 2017
+  * ###### Firehiwot Gurara      date September 1st 2017
 
-Jidenna Nwosu         date September 1st 2017
+  * ###### Jidenna Nwosu         date September 1st 2017
 
-Asad Marghoob  		  	date September 1st, 2017
+  * ###### Asad Marghoob  		  	date September 1st, 2017
 
-Rohit Bandaru         date September 1st, 2017
+  * ###### Rohit Bandaru         date September 1st, 2017
 
 
 
