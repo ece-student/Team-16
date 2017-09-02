@@ -16,7 +16,7 @@ In today’s meeting we:
 
    * Created New website: [Team#16 Website](https://lois-lee.github.io/Team-16/)
 
-   * Weekly meetings will take place on Tuesdays 5:00-7:00pm in the ECE lounge in Phillips, Uris library or lab.
+   * Weekly meetings will take place on Tuesdays 7:00pm in the ECE lounge 
 
 ## Team Roles for this week
 
