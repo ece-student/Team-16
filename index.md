@@ -20,10 +20,10 @@ Lab Section: Fridays 1:30-4:30pm
  * [Team Contract](./TeamContract.md)
   
   
- * [Meeting Minutes 9-1](./docs/sep1.md)
+ * [Meeting Minutes 9-1](./docs/Meeting Minutes/sep1.md)
  
  
- * [Meeting Minutes 9-2](./docs/sep2.md)
+ * [Meeting Minutes 9-2](./docs/Meeting Minutes/sep2.md)
   
 
 
