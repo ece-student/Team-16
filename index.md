@@ -7,12 +7,13 @@ Team Members
   * John Sarnecki     (JAS889)
   * Asad Marghoob     (AM2242)
   * Jidenna Nwosu     (JN388)
+  
   
   
   [Team Contract](./TeamContract.md)
   
   
-  [Meeting Minutes 9/1](./docs/sep1.md)
+  [Meeting Minutes 9-1](./docs/sep1.md)
   
 
 Lab Section: Fridays 1:30-4:30pm
