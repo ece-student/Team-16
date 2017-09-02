@@ -10,7 +10,7 @@ In today’s meeting we
 
 *Decided our main method of communication: groupme and email
 
-*Made team calendar [Team 16 Calendar](https://teamup.com/kshx1ageh1yif5gske)
+*Made team calendar [Team#16 Calendar](https://teamup.com/kshx1ageh1yif5gske)
 
 *Decided the meeting weekly meeting place and time (Uris library or ECE lounge at 5pm-7pm)
 
