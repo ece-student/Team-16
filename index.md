@@ -10,7 +10,8 @@ Team Members
   
   
   [Contract](./TeamContract.md)
-  [Meeting Minutes 9/1](./meetings/0901.md)
+  
+  [Meeting Minutes 9/1](./minutes0901.md)
   
 Lab Section: Fridays 1:30-4:30pm
 
