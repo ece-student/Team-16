@@ -5,13 +5,13 @@
 This lab was an introductory lab aimed to help us gain familiarity with the Arduino Uno and the Arduino IDE. Using these alongside other external components allowed us to ultimately create an autonomous robot that moved in a square path. Each part to this lab is outlined below, as well as the intermediate steps we took.
 
 
-### Part 1: Blinking an internal LED - 
+### Part 1: Blinking an internal LED 
 ###### (Jidenna)
 
 coming soon
 
 
-### Part 2: Blinking an external LED- 
+### Part 2: Blinking an external LED 
 ###### (Jidenna)
 
 coming soon
