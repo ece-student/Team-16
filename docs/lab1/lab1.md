@@ -35,7 +35,7 @@ The rotation of the servos can be contorlled by changing the angle values.
    * We first controlled the movement by manually entering different values for the angles from the key board. (90 to stop, 0 and 180 rotate in opposite direction as shown in the figure below)
    
   
-   ![ServoAngles](docs/images/ServoAngles.png)
+   ![ServoAngles](/docs/images/ServoAngles.png)
   
    
    
