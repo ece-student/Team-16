@@ -34,12 +34,12 @@ coming soon
 The rotation of the servos can be contorlled by changing the angle values:
    * First angle values were changed by entering numbers from 0 to 180 from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead)
 
-![ServoAngles](/docs/images/ServoAngles.png)
+![ServoAngles](./docs/images/ServoAngles.png)
      
    * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
    * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
 
-![ServoandPot](/docs/images/ServoandPot.png)
+![ServoandPot](./docs/images/ServoandPot.png)
    
    * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
