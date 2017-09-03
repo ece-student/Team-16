@@ -32,7 +32,7 @@ coming soon
 ### Part 5: Map the value of the potentiometer to the servo 
 ###### (Firehiwot)
 The rotation of the servos can be contorlled by changing the angle values.
-   * First angle values were changed by entering numbers from 0 to 180 from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead):
+   ##### * First angle values were changed by entering numbers from 0 to 180 from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead):
 
 ![ServoAngles](/docs/images/ServoAngles.png)
      
@@ -41,7 +41,7 @@ The rotation of the servos can be contorlled by changing the angle values.
 
 ![ServoandPot](/docs/images/ServoandPot.png)
    
-   * We also used the frequecncy of the signal which was around 50 Hz and the duty cycle increased as the angle increases.(Checkout the demos below)
+   * We also used the frequecncy of the signal which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
 
 ### Part 6: Assemble your robot 
