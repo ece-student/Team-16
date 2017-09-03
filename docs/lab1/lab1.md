@@ -52,4 +52,4 @@ coming soon
 
 
 ## Helpful links and References
-This page gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
+This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
