@@ -32,11 +32,14 @@ coming soon
 ### Part 5: Map the value of the potentiometer to the servo 
 ###### (Firehiwot)
 The rotation of the servos can be contorlled by changing the angle values.
-   * We first controlled the movement by manually entering different values for the angles from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead):
+   * First angle values were changed by entering numbers from 0 to 180 from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead):
 
 ![ServoAngles](/docs/images/ServoAngles.png)
      
-   * The potentiometer provides a signal which controls the rotation speed and direction. 
+   * Then we used the potentiometer to provide a signal which controls the rotation speed and direction.
+   * A map function was used to map resistance readings from potentiometer (0 to 1023) to between 0 to 180 range.
+
+
    
 
 ### Part 6: Assemble your robot 
