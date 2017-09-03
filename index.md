@@ -20,7 +20,7 @@ Lab Section: Fridays 1:30-4:30pm
  * [Team Contract](./TeamContract.md)
  
  
- * [Lab 1](./docs/lab1/lab1.md)
+ * [Lab 1: Microcontrollers](./docs/lab1/lab1.md)
   
   
  * [Meeting Minutes 9-1](./docs/MeetingMinutes/sep1.md)
