@@ -1,5 +1,5 @@
 # Lab 1: Microcontroller
-[link to lab 1] (https://cei-lab.github.io/ece3400/lab1.html)
+[link to lab 1](https://cei-lab.github.io/ece3400/lab1.html)
 
 
 This lab was an introductory lab aimed to help us gain familiarity with the Arduino Uno and the Arduino IDE. Using these alongside other external components allowed us to ultimately create an autonomous robot that moved in a square path. Each part to this lab is outlined below, as well as steps we took.
