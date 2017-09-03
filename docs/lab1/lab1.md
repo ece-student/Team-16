@@ -36,12 +36,12 @@ The rotation of the servos can be contorlled by changing the angle values:
 
 ![ServoAngles](/docs/images/ServoAngles.png)
      
-   * Then we used the potentiometer to provide a signal which controls the rotation speed and direction
+   * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
    * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
 
 ![ServoandPot](/docs/images/ServoandPot.png)
    
-   * We also used the frequecncy of the signal which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
+   * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
 
 ### Part 6: Assemble your robot 
