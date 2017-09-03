@@ -34,7 +34,7 @@ coming soon
 The rotation of the servos can be contorlled by changing the angle values.
   * We first controlled the movement by manually entering different values for the angles from the key board. (90 to stop, 0 and 180 rotate in opposite direction as showen in the figure below)
   
-  ![Servo Angles](docs/Images/servoangles.png)
+  ![Servo Angles](images/servoangles.png)
   
   * The potentiometer was used to vary the voltage supplied to the voltmeter in order to connect the rotation speed and direction. 
 
