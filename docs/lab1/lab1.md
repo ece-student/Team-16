@@ -5,36 +5,43 @@
 This lab was an introductory lab aimed to help us gain familiarity with the Arduino Uno and the Arduino IDE. Using these alongside other external components allowed us to ultimately create an autonomous robot that moved in a square path. Each part to this lab is outlined below, as well as the intermediate steps we took.
 
 
-### Part 1: Blinking an internal LED - ###### (Jidenna)
+### Part 1: Blinking an internal LED - 
+###### (Jidenna)
 
 coming soon
 
 
-### Part 2: Blinking an external LED- ###### (Jidenna)
+### Part 2: Blinking an external LED- 
+###### (Jidenna)
 
 coming soon
 
 
-### Part 3: Reading the value of a potentiometer via the serial port ######  (Asad)
+### Part 3: Reading the value of a potentiometer via the serial port 
+######  (Asad)
 
 coming soon
 
 
-### Part 4: Map the value of the potentiometer to the LED ###### (Lois)
+### Part 4: Map the value of the potentiometer to the LED 
+###### (Lois)
 
 coming soon
 
 
-### Part 5: Map the value of the potentiometer to the servo ###### (Firehiwot)
+### Part 5: Map the value of the potentiometer to the servo 
+###### (Firehiwot)
 
 coming soon
 
 
-### Part 6: Assemble your robot ###### (Rohit)
+### Part 6: Assemble your robot 
+###### (Rohit)
 
 coming soon
 
 
-### Part 7: Driving your robot autonomously ###### (John)
+### Part 7: Driving your robot autonomously 
+###### (John)
 
 coming soon
