@@ -37,7 +37,7 @@ The rotation of the servos can be contorlled by changing the angle values.
    ![ServoAngles](/docs/images/ServoAngles.png)
   
    
-   * The potentiometer was used to vary the voltage supplied to the voltmeter to control the rotation speed and direction. 
+   * The potentiometer provides a signal which controls the rotation speed and direction. 
 
 ### Part 6: Assemble your robot 
 ###### (Rohit)
