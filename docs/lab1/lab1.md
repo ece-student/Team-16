@@ -23,6 +23,11 @@ coming soon
 coming soon
 
 
+
+
+
+
+
 ### Part 4: Map the value of the potentiometer to the LED 
 ###### (Lois)
 
@@ -39,6 +44,11 @@ As you can see in the image below, we printed the potentiometer readings as befo
 Also, you may notice we used analogWrite. The reason for this is that the potentiometer readings obviously don’t directly translate into LED intensities. We had to map the values of the potentiometer to the brightness levels of the LED separately.
 
 To see the demo of the LED changing intensity, look below in the demo section. 
+
+
+
+
+
 
 
 
