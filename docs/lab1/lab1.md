@@ -84,3 +84,5 @@ This website gives an overview of servos and rotation angles: [Servo](http://www
 
 ## Demos
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
+
+* [LED intensity adjustment using potentiometer reading](https://youtu.be/VkdjhSLH_bo)
