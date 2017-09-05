@@ -29,7 +29,6 @@ coming soon
 
 
 ### Part 4: Map the value of the potentiometer to the LED 
-###### (Lois)
 
 This next exercise is a wonderful way to understand the different inputs and outputs of the arduino. So in the previous exercise we’ve read the value of the potentiometer via the serial port, but for this next step we want to use the potentiometer to change the intensity of an LED light. 
 
@@ -52,7 +51,7 @@ To see the demo of the LED changing intensity, look below in the demo section
 
 
 ### Part 5: Map the value of the potentiometer to the servo 
-###### (Firehiwot)
+
 The rotation of the servos can be controlled by changing the angle values:
    * First angle values were changed by entering numbers from 0 to 180 from the key board. (90 -stop, 0 - full speed reverse, 180 - full speed ahead)
 
@@ -75,7 +74,7 @@ We used:
   * 9V battery to power the servos, which we attached under the chassis board with velcro. 
   * a velcro to attach a rechargable battery pack to the top of the board to power the arduino and a breadboard on top of the battery pack. 
 
-The wiring was simple and done on the breadboard. The PWM digital output pins 5 and 6 were used to control the servos. Each servo used identical circuitry. The digital pins were connected to the servos through a 300 Ohm resistor. The 9V battery supplied the voltage for the servos and the ground on the breadboard was connected to the ground in the arduino.
+The wiring was simple and done on the breadboard. The PWM digital output pins 5 and 6 were used to control the servos. Each servo used identical circuitry. The digital pins were connected to the servos through a 300 Ohm resistor. The 9V battery supplied the voltage for the servos and the ground on the breadboard was connected to the ground on the arduino.
 
 
 ### Part 7: Driving your robot autonomously 
