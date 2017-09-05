@@ -43,8 +43,7 @@ As you can see in the image below, we printed the potentiometer readings as befo
 
 Also, you may notice we used analogWrite. The reason for this is that the potentiometer readings obviously don’t directly translate into LED intensities. We had to map the values of the potentiometer to the brightness levels of the LED separately.
 
-To see the demo of the LED changing intensity, look below in the demo section. 
-
+To see the demo of the LED changing intensity, look below in the demo section
 
 
 
@@ -80,7 +79,7 @@ The wiring was simple and done on the breadboard. The PWM digital output pins 5 
 ### Part 7: Driving your robot autonomously 
 ###### (John)
 
-coming soon
+Once the assembly of the robot was completed, we decided that the robot should make a square. The robot would start at the center of the square and move outward to make the square. The robot would travel one second outward from the center to one of the sides of the square. The robot turns to the left onto one of the sides of the square. The robot then travels for another second to reach the first corner of the square. After exiting the center of the square, the loop controls the robot to travel in a square. At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
 
 
 ## Helpful links and References
