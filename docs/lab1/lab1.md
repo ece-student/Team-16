@@ -14,7 +14,9 @@ coming soon
 ### Part 2: Blinking an external LED 
 ###### (Jidenna)
 
-coming soon
+The next part of the lab was modifying the code so that it would work with an external LED that was set up on a breadboard. This part allowed us to practice writing our own code and taught us how to check that each digital pin of the Uno worked correctly. To do this we set up the external LED, making sure to also put a resistor in series with the light as pins can malfunction if you run too much current from them. Use a minimal of a 300 ohm resistor to prevent this from happening. 
+
+Then we altered the code to test all 14 digital pins present on the Uno by connecting the LED to a single pin on the Uno, then changing the code to initialize that specific pin. Compile and upload the code and the external LED should light up! Repeat this for all 14 pins to ensure that each digital pin works correctly. 
 
 
 ### Part 3: Reading the value of a potentiometer via the serial port 
