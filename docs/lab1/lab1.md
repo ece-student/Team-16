@@ -68,9 +68,13 @@ The rotation of the servos can be controlled by changing the angle values:
    
 
 ### Part 6: Assemble your robot 
-###### (Rohit)
+###### (Rohit) will add images
 
-coming soon
+We began assembly of the robot by mounting two servos under the chassis board with premade servo mounts. We choice wheels that would fit the servos without additional adjustments. The wheels sit on the back of the robot, so we needed something to hold up the front. We used a ball bearing in the front. We ran into issues with the height of the ball bearning and had to use a longer 3D printed ball bearing mount to keep the ball bearing and chassis level to the floor. 
+
+We used a 9V battery to power the servos, which we attached under the chassis board with velcro. We used velcro to attach a rechargable battery pack to the top of the board to power the Arduino. We used velcro to attach the arduino and a breadboard on top of the battery pack. 
+
+The wiring was simple and done on the breadboard. The PWM digital output pins 5 and 6 were used to control the servos. Each servo used identical circuitry. The digital pins were connected to the servos through a 300 Ohm resistor. The 9V battery supplied the voltage for the servos and the ground on the breadboard was connected to the ground in the arduino.
 
 
 ### Part 7: Driving your robot autonomously 
