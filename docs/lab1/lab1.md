@@ -24,7 +24,7 @@ The previous exercise made use of setting a digital pin to output mode, in order
 
 The potentiometer has three pins, two of which were connected to PWR or GND. The third pin was connected to our analog pin and set as an input (to receive and read voltages). Similar to our other circuit iterations, we placed a ~300 Ω resister in series with the input pin (A1) that directly interfaces with the breadboard. A1 was passed into the analogRead() function to periodically read the circuit's voltage. To display our results, the serial monitor was initialzied in the setup() block with a baud rate of 9600, and the read voltage value was written to the serial port after every half second interval.
 
-Upon uploading our code, the serial port outputted a value from 0 to 1023 every half second; these readings could be adjusted depending on the knob position of the potentiometer. To see teh varying voltage levels caused by the tuning of the potentiometer, please see the demo below.
+Upon uploading our code, the serial port outputted a value from 0 to 1023 every half second; these readings could be adjusted depending on the knob position of the potentiometer. To see the varying voltage levels caused by the tuning of the potentiometer, please see the demo below.
 
 
 
