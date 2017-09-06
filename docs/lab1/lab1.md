@@ -20,7 +20,16 @@ coming soon
 ### Part 3: Reading the value of a potentiometer via the serial port 
 ######  (Asad)
 
-coming soon
+The previous exercise made use of setting a digital pin to output mode, in order to blink the LED using a simple resistor circuit. This exercises, on the other hand, incorporated the UNO's analog pins and set them to input mode towards the purposes of reading voltage levels. A potentiometer was used to vary the the voltage levels supplied to the UNO. 
+
+The potentiometer has three pins, two of which were connected to PWR or GND. The third pin was connected to our analog pin and set as an input (to receive and read voltages). Similar to our other circuit iterations, we placed a ~300 Ω resister in series with the input pin (A1) that directly interfaces with the breadboard. A1 was passed into the analogRead() function to periodically read the circuit's voltage. To display our results, the serial monitor was initialzied in the setup() block with a baud rate of 9600, and the read voltage value was written to the serial port after every half second interval.
+
+Upon uploading our code, the serial port outputted a value from 0 to 1023 every half second; these readings could be adjusted depending on the knob position of the potentiometer. To see teh varying voltage levels caused by the tuning of the potentiometer, please see the demo below.
+
+
+
+
+
 
 
 
@@ -54,8 +63,8 @@ The rotation of the servos can be controlled by changing the angle values:
      
    * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
    * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
-
-``` void setup() {
+   ```
+   void setup() {
   Serial.begin(9600);
   myservo.attach(LED); 
 }
@@ -72,9 +81,8 @@ void loop() {
   Serial.print(" : ");
   Serial.print(" speed and direction ");
   Serial.println(Y);
-} 
-``` 
- ![PotReading](imagesLab1/PotReading.png)
+}
+   ``` ![PotReading](imagesLab1/PotReading.png)
    
    * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
@@ -101,6 +109,7 @@ Once the assembly of the robot was completed, we decided that the robot should m
 
 ## Helpful links and References
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
+This website helped with embedding code: [Embed Code](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
 ## Demos
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
