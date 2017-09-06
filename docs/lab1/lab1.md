@@ -63,11 +63,12 @@ The rotation of the servos can be controlled by changing the angle values:
      
    * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
    * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
-   ```
-   void setup() {
+   
+   ```arduino
+  void setup() {
   Serial.begin(9600);
   myservo.attach(LED); 
-}
+   }
 // the loop function runs over and over again forever
 void loop() {
  
@@ -82,7 +83,8 @@ void loop() {
   Serial.print(" speed and direction ");
   Serial.println(Y);
 }
-   ``` ![PotReading](imagesLab1/PotReading.png)
+   ``` 
+![PotReading](imagesLab1/PotReading.png)
    
    * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
