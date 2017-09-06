@@ -10,7 +10,7 @@ This lab was an introductory lab aimed to help us gain familiarity with the Ardu
 
 The first part of the lab was necessary for us to get a feel of how to code in Arduino and how the IDE and Uno communicate with each other. The goal was to write code that turned on and off the internal LED installed onto the Arduino UNO board itself. To achieve this we first used the USB A/B to connect the board to our computer, then opened up the Arduino IDE and selected the previously written example code named Blink, as you can see below.
 
-![Blink tutorial](./docs/lab1/imagesLab1/blinktutorial.png)
+![Blink tutorial](imagesLab1/blink.png)
 
 This will generate the code that turns on and off the LED on the Uno board. At this point we took a second to understand the mechanics of the code and how it actually connected to each component. We realized that it was necessary to have a setup function in which all necessary components are initialized and a loop function that carries out the desired task. 
 
