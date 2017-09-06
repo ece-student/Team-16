@@ -108,7 +108,7 @@ Once the assembly of the robot was completed, we decided that the robot should m
 
 Here is how the robot navigates:
 
- * The robot would start at the center of the square and move outward to make the square. 
+ * It would start at the center of the square and move outward to make the square. 
  
  * It would travel one second outward from the center to one of the sides of the square. 
  
