@@ -98,6 +98,8 @@ Once the assembly of the robot was completed, we decided that the robot should m
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
 
 ## Demos
+  <iframe width="560" height="420" src="https://youtu.be/xxHM0qjRCVw"></iframe>
+
   * [Internal blinking LED](https://youtu.be/CbI8GjtLzWQ)  [External blinking LED](https://youtu.be/xxHM0qjRCVw)
 
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
