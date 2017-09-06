@@ -84,7 +84,7 @@ void loop() {
   Serial.println(Y);
 }
    ``` 
-![PotReading](imagesLab1/PotReading.png)
+![PotReading](imagesLab1/pot.png)
    
    * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
