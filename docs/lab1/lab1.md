@@ -104,13 +104,23 @@ The wiring was simple and done on the breadboard. The PWM digital output pins 5 
 ### Part 7: Driving your robot autonomously 
 ###### (John)
 
-Once the assembly of the robot was completed, we decided that the robot should make a square. The robot would start at the center of the square and move outward to make the square. The robot would travel one second outward from the center to one of the sides of the square. 
-  * The robot turns to the left onto one of the sides of the square and then it travels for another second to reach the first corner of the square. 
-  * After exiting the center of the square, the loop controls the robot to travel in a square. At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
+Once the assembly of the robot was completed, we decided that the robot should make a square. 
+
+Here is how the robot navigates:
+
+ * The robot would start at the center of the square and move outward to make the square. 
+ 
+ * It would travel one second outward from the center to one of the sides of the square. 
+ 
+ * It turns to the left onto one of the sides of the square and then it travels for another second to reach the first corner of the square. 
+ * After exiting the center of the square, the loop controls the robot to travel in a square. 
+
+At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
 
 
 ## Helpful links and References
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
+
 This website helped with embedding code: [Embed Code](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
 ## Demos
