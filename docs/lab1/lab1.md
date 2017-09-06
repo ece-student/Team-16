@@ -24,10 +24,6 @@ coming soon
 
 
 
-
-
-
-
 ### Part 4: Map the value of the potentiometer to the LED 
 
 This next exercise is a wonderful way to understand the different inputs and outputs of the arduino. So in the previous exercise we’ve read the value of the potentiometer via the serial port, but for this next step we want to use the potentiometer to change the intensity of an LED light. 
@@ -58,8 +54,8 @@ The rotation of the servos can be controlled by changing the angle values:
      
    * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
    * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
-   ```
-   void setup() {
+
+``` void setup() {
   Serial.begin(9600);
   myservo.attach(LED); 
 }
@@ -76,8 +72,9 @@ void loop() {
   Serial.print(" : ");
   Serial.print(" speed and direction ");
   Serial.println(Y);
-}
-   ``` ![PotReading](imagesLab1/PotReading.png)
+} 
+``` 
+ ![PotReading](imagesLab1/PotReading.png)
    
    * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
    
@@ -104,7 +101,6 @@ Once the assembly of the robot was completed, we decided that the robot should m
 
 ## Helpful links and References
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
-This website helped with embedding code: [Embed Code](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
 ## Demos
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
