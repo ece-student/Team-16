@@ -32,7 +32,7 @@ Lab Section: Fridays 1:30-4:30pm
  * [Meeting Minutes 9-5](./docs/MeetingMinutes/sep5.md)
  
  
- ## Tutorials
+## Tutorials
  
  * [How To Make A Website Using Github](./docs/tutorials/1.md)
   
