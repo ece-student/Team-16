@@ -83,6 +83,15 @@ Once the assembly of the robot was completed, we decided that the robot should m
   * The robot turns to the left onto one of the sides of the square and then it travels for another second to reach the first corner of the square. 
   * After exiting the center of the square, the loop controls the robot to travel in a square. At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
 
+```arduino
+  rightServoAngle = 180;
+  leftServoAngle = 0;
+  
+  rightMotor.write(rightServoAngle);
+  leftMotor.write(leftServoAngle);
+
+  delay(1000);
+```
 
 ## Helpful links and References
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
