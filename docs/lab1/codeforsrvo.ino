@@ -7,10 +7,8 @@ int Y=0;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  myservo.attach(LED);
-  
+  myservo.attach(LED); 
 }
-
 // the loop function runs over and over again forever
 void loop() {
  
@@ -24,5 +22,4 @@ void loop() {
   Serial.print(" : ");
   Serial.print(" speed and direction ");
   Serial.println(Y);
-  
 }
