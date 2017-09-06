@@ -61,8 +61,8 @@ The rotation of the servos can be controlled by changing the angle values:
 
 ![ServoAngles](imagesLab1/ServoAngles.png)
      
-   * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction
-   * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range
+   * Then we used the potentiometer to provide an analog signal which controls the rotation speed and direction.
+   * A map function was used to map resistance readings from potentiometer (0 to 1023) to 0 to 180 range.
    
    ```arduino
   void setup() {
