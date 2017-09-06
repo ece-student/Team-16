@@ -8,13 +8,25 @@ This lab was an introductory lab aimed to help us gain familiarity with the Ardu
 ### Part 1: Blinking an internal LED 
 ###### (Jidenna)
 
-coming soon
+The first part of the lab was necessary for us to get a feel of how to code in Arduino and how the IDE and Uno communicate with each other. The goal was to write code that turned on and off the internal LED installed onto the Arduino UNO board itself. To achieve this we first used the USB A/B to connect the board to our computer, then opened up the Arduino IDE and selected the previously written example code named Blink, as you can see below.
+
+![Blink tutorial](./docs/lab1/imagesLab1/Screen Shot 2017-09-05 at 3.53.43 PM.png)
+
+This will generate the code that turns on and off the LED on the Uno board. At this point we took a second to understand the mechanics of the code and how it actually connected to each component. We realized that it was necessary to have a setup function in which all necessary components are initialized and a loop function that carries out the desired task. 
+
+The final step is to compile the code by clicking the checkmark and then upload it to the Uno by clicking the right arrow next to the checkmark. Shortly, the LED on the Uno should begin to flicker! If the LED doesn’t light up, make sure to check that the UNO is connected to the correct COM port by looking at the Tools > Serial Port list.
+
 
 
 ### Part 2: Blinking an external LED 
 ###### (Jidenna)
 
-coming soon
+
+The next part of the lab was modifying the code so that it would work with an external LED that was set up on a breadboard. This part allowed us to practice writing our own code and taught us how to check that each digital pin of the Uno worked correctly. To do this we set up the external LED, making sure to also put a resistor in series with the light as pins can malfunction if you run too much current from them. Use a minimal of a 300 ohm resistor to prevent this from happening. 
+
+Then we altered the code to test all 14 digital pins present on the Uno by connecting the LED to a single pin on the Uno, then changing the code to initialize that specific pin. Compile and upload the code and the external LED should light up! Repeat this for all 14 pins to ensure that each digital pin works correctly. 
+
+See the demos below to look at the LEDs!
 
 
 ### Part 3: Reading the value of a potentiometer via the serial port 
