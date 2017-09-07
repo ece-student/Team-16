@@ -87,7 +87,8 @@ void loop() {
   VAL=analogRead(PINNAME);
   analogWrite(LED,VAL);
   Y = map(VAL, 0, 1023, 0, 180);//map 0-1023 to 0-180 range
-  myservo.write(Y);
+
+myservo.write(Y);
   delay(500);
   Serial.print("pot reading  ");
   Serial.print(VAL);
@@ -128,6 +129,8 @@ Here is how the robot navigates:
  * After exiting the center of the square, the loop controls the robot to travel in a square. 
 
 At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
+
+In our implementation of the robot, we kept track of the "angle" for each of the servo motors. To go in either the forward or the backwards direction, the servo "angles" must be in opposite directions from the 90-degree center. For example to go forward, the right servo angle is 180-degrees while the left servo angle is 0-degrees. This is because the servo motors are not oriented in the same direction. To turn left, we set the servo "angle" to 0-degrees for motors. The angle of the turn was determined by how long the robot is in the turning state. To get about a 90-degree turning angle, we set the delay to 600 milliseconds.
 
 See below for the demo!
 
