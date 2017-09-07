@@ -129,6 +129,8 @@ Here is how the robot navigates:
 
 At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
 
+See below for the demo!
+
 
 ## Helpful links and References
 This website gives an overview of servos and rotation angles: [Servo](http://www.seattlerobotics.org/guide/servos.html)
