@@ -133,12 +133,15 @@ At first, the robot was making a triangle, but after tuning the timing of the tu
 In our implementation of the robot, we kept track of the "angle" for each of the servo motors. To go in either the forward or the backwards direction, the servo "angles" must be in opposite directions from the 90-degree center. For example to go forward, the right servo angle is 180-degrees while the left servo angle is 0-degrees. This is because the servo motors are not oriented in the same direction. 
 
 ```arduino
+ // This code makes the robot go forward for 2 seconds
  // Variables to hold servo angles
  rightServoAngle = 180;
  leftServoAngle = 0;
   
  rightMotor.write(rightServoAngle);
  leftMotor.write(leftServoAngle);
+ 
+ delay(2000);
 ```
 
 To turn left, we set the servo "angle" to 0-degrees for motors. The angle of the turn was determined by how long the robot is in the turning state. To get about a 90-degree turning angle, we set the delay to 600 milliseconds.
