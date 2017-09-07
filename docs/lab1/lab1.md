@@ -107,7 +107,7 @@ myservo.write(Y);
 
 We began assembly of the robot by mounting two servos under the chassis board with premade servo mounts. We choice wheels that would fit the servos without additional adjustments. The wheels sit on the back of the robot, so we needed something to hold up the front. We used a ball bearing in the front. We ran into issues with the height of the ball bearning and had to use a longer 3D printed ball bearing mount to keep the ball bearing and chassis level to the floor. 
 
-We used:
+ We used:
   * 9V battery to power the servos, which we attached under the chassis board with velcro. 
   * a velcro to attach a rechargable battery pack to the top of the board to power the arduino and a breadboard on top of the battery pack. 
 
@@ -130,7 +130,18 @@ Here is how the robot navigates:
 
 At first, the robot was making a triangle, but after tuning the timing of the turns we got the robot to make more of the square. However, with our current implementation the “square” rotates.
 
-In our implementation of the robot, we kept track of the "angle" for each of the servo motors. To go in either the forward or the backwards direction, the servo "angles" must be in opposite directions from the 90-degree center. For example to go forward, the right servo angle is 180-degrees while the left servo angle is 0-degrees. This is because the servo motors are not oriented in the same direction. To turn left, we set the servo "angle" to 0-degrees for motors. The angle of the turn was determined by how long the robot is in the turning state. To get about a 90-degree turning angle, we set the delay to 600 milliseconds.
+In our implementation of the robot, we kept track of the "angle" for each of the servo motors. To go in either the forward or the backwards direction, the servo "angles" must be in opposite directions from the 90-degree center. For example to go forward, the right servo angle is 180-degrees while the left servo angle is 0-degrees. This is because the servo motors are not oriented in the same direction. 
+
+```arduino
+ // Variables to hold servo angles
+ rightServoAngle = 180;
+ leftServoAngle = 0;
+  
+ rightMotor.write(rightServoAngle);
+ leftMotor.write(leftServoAngle);
+```
+
+To turn left, we set the servo "angle" to 0-degrees for motors. The angle of the turn was determined by how long the robot is in the turning state. To get about a 90-degree turning angle, we set the delay to 600 milliseconds.
 
 See below for the demo!
 
