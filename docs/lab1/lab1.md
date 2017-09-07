@@ -142,3 +142,5 @@ This website helped with embedding code: [Embed Code](https://help.github.com/ar
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
 
 * [LED intensity adjustment using potentiometer reading](https://youtu.be/VkdjhSLH_bo)
+
+* [Robot moving in square path](https://www.youtube.com/watch?v=yF6Pmu4LxbU)
