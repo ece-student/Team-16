@@ -6,7 +6,6 @@ This lab was an introductory lab aimed to help us gain familiarity with the Ardu
 
 
 ### Part 1: Blinking an internal LED 
-###### (Jidenna)
 
 The first part of the lab was necessary for us to get a feel of how to code in Arduino and how the IDE and Uno communicate with each other. The goal was to write code that turned on and off the internal LED installed onto the Arduino UNO board itself. To achieve this we first used the USB A/B to connect the board to our computer, then opened up the Arduino IDE and selected the previously written example code named Blink, as you can see below.
 
@@ -19,8 +18,6 @@ The final step is to compile the code by clicking the checkmark and then upload 
 
 
 ### Part 2: Blinking an external LED 
-###### (Jidenna)
-
 
 The next part of the lab was modifying the code so that it would work with an external LED that was set up on a breadboard. This part allowed us to practice writing our own code and taught us how to check that each digital pin of the Uno worked correctly. To do this we set up the external LED, making sure to also put a resistor in series with the light as pins can malfunction if you run too much current from them. Use a minimal of a 300 ohm resistor to prevent this from happening. 
 
@@ -30,7 +27,6 @@ See the demos below to look at the LEDs!
 
 
 ### Part 3: Reading the value of a potentiometer via the serial port 
-######  (Asad)
 
 The previous exercise made use of setting a digital pin to output mode, in order to blink the LED using a simple resistor circuit. This exercises, on the other hand, incorporated the UNO's analog pins and set them to input mode towards the purposes of reading voltage levels. A potentiometer was used to vary the the voltage levels supplied to the UNO. 
 
@@ -115,7 +111,6 @@ The wiring was simple and done on the breadboard. The PWM digital output pins 5 
 
 
 ### Part 7: Driving your robot autonomously 
-###### (John)
 
 Once the assembly of the robot was completed, we decided that the robot should make a square. 
 
