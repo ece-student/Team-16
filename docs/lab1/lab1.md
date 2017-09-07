@@ -23,7 +23,7 @@ The next part of the lab was modifying the code so that it would work with an ex
 
 Then we altered the code to test all 14 digital pins present on the Uno by connecting the LED to a single pin on the Uno, then changing the code to initialize that specific pin. Compile and upload the code and the external LED should light up! Repeat this for all 14 pins to ensure that each digital pin works correctly. 
 
-See the demos below to look at the LEDs!
+See the Demos below to look at the LEDs!
 
 
 ### Part 3: Reading the value of a potentiometer via the serial port 
@@ -95,7 +95,7 @@ myservo.write(Y);
    ``` 
 ![PotReading](imagesLab1/pot.png)
    
-   * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section)
+   * We also measured the frequecncy of the signal using oscilloscope which was around 50 Hz and the duty cycle increased as the angle increased.(Checkout the Demos section!)
    
 
 ### Part 6: Assemble your robot 
