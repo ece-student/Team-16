@@ -36,6 +36,6 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [How To Make A Website Using Github](./docs/tutorials/1.md)
  
-* [HTML experimentation](./html/experimental.html)
+* [HTML experimentation](./h/exp.html)
  
 
