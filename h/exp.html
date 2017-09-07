@@ -2,8 +2,32 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="styles.css">
+    <script language="javascript">
+       /* Set the width of the side navigation to 250px */
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+            
+      /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
-    
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+}
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+} 
+    </script>   
 </head>
     <body>
         <div id="mySidenav" class="sidenav">
@@ -13,13 +37,16 @@
         <a href="#">Meeting Minutes</a>
         <a href="#">Tutorials</a>
         </div>
+        
+        <span onclick="openNav()">open</span>
+<div id="main">
 
         <br>
         <br>
         <br>
         <br>
        
-        <p>
+        <!-- <p>
           
             <font color="gray">
                <font face = "Arial" size = 5>
@@ -34,9 +61,10 @@
                asad marghoob (am2242)<br>
                jidenna nwosu (jn388)<br>
             </font>
-        </p>
+        </p> -->
         
         
+    </div>
     <style>
       
     body {  
