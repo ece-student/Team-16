@@ -30,11 +30,30 @@ See the Demos below to look at the LEDs!
 
 The previous exercise made use of setting a digital pin to output mode, in order to blink the LED using a simple resistor circuit. This exercises, on the other hand, incorporated the UNO's analog pins and set them to input mode towards the purposes of reading voltage levels. A potentiometer was used to vary the the voltage levels supplied to the UNO. 
 
-The potentiometer has three pins, two of which were connected to PWR or GND. The third pin was connected to our analog pin and set as an input (to receive and read voltages). Similar to our other circuit iterations, we placed a ~300 Ω resister in series with the input pin (A1) that directly interfaces with the breadboard. A1 was passed into the analogRead() function to periodically read the circuit's voltage. To display our results, the serial monitor was initialzied in the setup() block with a baud rate of 9600, and the read voltage value was written to the serial port after every half second interval.
+The potentiometer has three pins, two of which were connected to PWR or GND. The third pin was connected to our analog pin and set as an input (to receive and read voltages). Similar to our other circuit iterations, we placed a ~300 Ω resister in series with the input pin (A5) that directly interfaces with the breadboard. A5 was passed into the analogRead() function to periodically read the circuit's voltage. To display our results, the serial monitor was initialzied in the setup() block with a baud rate of 9600, and the read voltage value was written to the serial port after every half second interval.
 
 Upon uploading our code, the serial port outputted a value from 0 to 1023 every half second; these readings could be adjusted depending on the knob position of the potentiometer. Below is an image of the circuit we constructed for this exercise.
 
 ![PotentiometerCircuit](imagesLab1/IMG_2465.JPG)
+
+The code used to carry out the function exaplained above is shown here.
+
+```arduino
+const int analogInPin = A5;
+
+int sensorValue = 0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  sensorValue = analogRead(analogInPin);
+  Serial.print("sensor = ");
+  Serial.println(sensorValue);
+  delay(500);
+}
+```
 
 ### Part 4: Map the value of the potentiometer to the LED 
 
@@ -50,10 +69,6 @@ To review, the potentiometer inputs different analog voltages that we can adjust
   * You may also notice we used analogWrite. The reason for this is that the potentiometer readings obviously don’t directly translate into LED intensities. We had to map the values of the potentiometer to the brightness levels of the LED separately.
 
   * To see the demo of the LED changing intensity, look below in the demo section
-
-
-
-
 
 
 
