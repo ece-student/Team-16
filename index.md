@@ -26,7 +26,7 @@ Lab Section: Fridays 1:30-4:30pm
  
 ## Tutorials
  
- * [How To Make A Website Using Github](./docs/tutorials/GitHub TUTORIAL#1.pdf)
+ * [How To Make A Website Using Github](./docs/tutorials/GitHubTUTORIAL#1.pdf)
  
  * [HTML experimentation](./h/exp.html)
  
