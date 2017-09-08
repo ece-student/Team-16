@@ -1,7 +1,5 @@
 # Lab 1: Microcontroller
 
-[Lab 1 Handout](https://cei-lab.github.io/ece3400/lab1.html)
-
 This lab was an introductory lab aimed to help us gain familiarity with the Arduino Uno and the Arduino IDE. Using these alongside other external components allowed us to ultimately create an autonomous robot that moved in a four sided path. Each part to this lab is outlined below, as well as the intermediate steps we took.
 
 
@@ -36,7 +34,7 @@ Upon uploading our code, the serial port outputted a value from 0 to 1023 every 
 
 ![PotentiometerCircuit](imagesLab1/IMG_2465.JPG)
 
-The code used to carry out the function exaplained above is shown here.
+The code used to carry out the function explained above is shown here.
 
 ```arduino
 const int analogInPin = A5;
