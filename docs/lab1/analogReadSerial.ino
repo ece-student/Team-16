@@ -1,4 +1,4 @@
-const int analogInPin = A0;
+const int analogInPin = A5;
 
 int sensorValue = 0;
 
