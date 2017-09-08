@@ -90,11 +90,10 @@ The rotation of the servos can be controlled by changing the angle values:
 // the loop function runs over and over again forever
 void loop() {
  
-  VAL=analogRead(PINNAME);
+  VAL=analogRead(PINNAME); // potentiometer reading
   analogWrite(LED,VAL);
   Y = map(VAL, 0, 1023, 0, 180);//map 0-1023 to 0-180 range
-
-myservo.write(Y);
+  myservo.write(Y);
   delay(500);
   Serial.print("pot reading  ");
   Serial.print(VAL);
