@@ -109,8 +109,6 @@ myservo.write(Y);
    
 
 ### Part 6: Assemble your robot 
-###### (Rohit) will add images
-
 
 We began assembly of the robot by mounting two servos under the chassis board with premade servo mounts. We choice wheels that would fit the servos without additional adjustments. The wheels sit on the back of the robot, so we needed something to hold up the front. We used a ball bearing in the front. We ran into issues with the height of the ball bearning and had to use a longer 3D printed ball bearing mount to keep the ball bearing and chassis level to the floor. 
 
