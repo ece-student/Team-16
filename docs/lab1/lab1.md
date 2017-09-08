@@ -67,7 +67,9 @@ To review, the potentiometer inputs different analog voltages that we can adjust
   * You may also notice we used analogWrite. The reason for this is that the potentiometer readings obviously don’t directly translate into LED intensities. We had to map the values of the potentiometer to the brightness levels of the LED separately.
 
   * To see the demo of the LED changing intensity, look below in the demo section
-
+  
+  * We observed the PWM output using the oscilloscope. The amplitude of the voltage is constant, but increasing the "analog" voltage of the PWM will change the pulse widths of the voltages in this square function.
+  ![Oscilloscope](imagesLab1/IMG_4397.JPG)
 
 
 ### Part 5: Map the value of the potentiometer to the servo 
