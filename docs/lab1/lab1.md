@@ -149,12 +149,15 @@ This website gives an overview of servos and rotation angles: [Servo](http://www
 
 This website helped with embedding code: [Embed Code](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
-## Demos
-  * [Internal blinking LED](https://youtu.be/CbI8GjtLzWQ) [External Blinking LED](https://youtu.be/xxHM0qjRCVw)
+This was used for website formatting:[Formatting Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
 
+## Demos
+  * [Internal blinking LED](https://youtu.be/CbI8GjtLzWQ) 
+  
+  * [External Blinking LED](https://youtu.be/xxHM0qjRCVw)
 
   * [Oscilloscope measurements for 0, 90 and 180 degree rotations](https://www.youtube.com/watch?v=w-dbIPHahbE&feature=youtu.be)
 
-* [LED intensity adjustment using potentiometer reading](https://youtu.be/VkdjhSLH_bo)
+  * [LED intensity adjustment using potentiometer reading](https://youtu.be/VkdjhSLH_bo)
 
-* [Robot moving in square path](https://www.youtube.com/watch?v=yF6Pmu4LxbU)
+  * [Robot moving in square path](https://www.youtube.com/watch?v=yF6Pmu4LxbU)
