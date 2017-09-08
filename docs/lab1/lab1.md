@@ -149,7 +149,7 @@ This website gives an overview of servos and rotation angles: [Servo](http://www
 
 This website helped with embedding code: [Embed Code](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
-This was used for website formatting:[Formatting Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
+This was used for website formatting: [Formatting Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
 
 ## Demos
   * [Internal blinking LED](https://youtu.be/CbI8GjtLzWQ) 
