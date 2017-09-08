@@ -26,7 +26,7 @@ Lab Section: Fridays 1:30-4:30pm
  
 ## Tutorials
 
-### Sep 08/2017
+  #### Sep 08/2017
  
  * [How To Make a Website Using GitHub](./docs/tutorials/GitHubTUTORIAL1.pdf)
  
