@@ -21,6 +21,8 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [Lab 1: Microcontrollers](./docs/lab1/lab1.md)
  
+ * [Milestone 1](./docs/milestones/1.md)
+ 
  * [Meeting Minutes](./MeetingMinutes.md)
  
  
