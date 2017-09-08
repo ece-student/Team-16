@@ -14,7 +14,7 @@ Servo leftMotor;
 const int leftServoMotor = 5;
 const int rightServoMotor = 6;
 
-int rightServoAngle = 90;
+int rightServoAngle = 90; // stop
 int leftServoAngle = 90;
 
 void setup() {
