@@ -6,3 +6,5 @@
  
  
  * [Meeting Minutes 9-5](./docs/MeetingMinutes/sep5.md)
+ 
+ * [Meeting Minutes 9-8](./docs/MeetingMinutes/sep5.md)
