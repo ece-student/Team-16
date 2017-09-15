@@ -2,6 +2,7 @@ Meeting minute 9/12
 
 ## Goals
 Try to finish milestone1
+
 Divide role for lab2
 
 ### Acoustic Team
