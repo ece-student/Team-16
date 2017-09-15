@@ -20,7 +20,8 @@ Divide role for lab2
   * General overview : -Lois 
   
  #### Line following
-  * Forward() Firehiwot
+ * Forward() Firehiwot
+ 
  #### Figure 8
   * Overview -Asad
   * Schematic for turns - Lois
