@@ -19,10 +19,10 @@ Divide role for lab2
   * Circuit image -Jidenna
   * General overview : -Lois 
   
- #### Line following
+#### Line following
  * Forward() Firehiwot
  
- #### Figure 8
+#### Figure 8
   * Overview -Asad
   * Schematic for turns - Lois
   * Label intersections using 0,1,2
