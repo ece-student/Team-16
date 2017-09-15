@@ -32,7 +32,7 @@ const int ledPin = 13;
 
 const int threshold = 800; 
 
-const int delayTime = 4;
+const int delayTime = 2;
 
 int leftServoAngle = 90;
 int rightServoAngle = 90;
@@ -52,13 +52,20 @@ void rightturn() {
   rightServoAngle = rightServoMap(0);
   leftServo.write(leftServoAngle);
   rightServo.write(rightServoAngle);
-  delay(10);
+  delay(300);
 
-  while ((analogRead(outerLeftVal) < threshold) && (analogRead(outerRightVal) < threshold)){
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
     leftServo.write(leftServoAngle);
     rightServo.write(rightServoAngle);
     delay(delayTime);
   }
+  
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(200);
+    
   intersection += 1;
 }
 
@@ -67,30 +74,37 @@ void leftturn(){
   rightServoAngle = rightServoMap(180);
   leftServo.write(leftServoAngle);
   rightServo.write(rightServoAngle);
-  delay(100);
+  delay(300);
 
-  while ((analogRead(outerLeftVal) < threshold) && (analogRead(outerRightVal) < threshold)){
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
     leftServo.write(leftServoAngle);
     rightServo.write(rightServoAngle);
     delay(delayTime);
   }
+  
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(200);
+  
   intersection += 1;
 }
 
 void setup() {
   rightServo.attach(rightServoPin);
   leftServo.attach(leftServoPin);
-  delay(2000); //Wait 2 seconds
+  
   //Serial.begin(9600);
 
   leftServoAngle = 90;
   rightServoAngle = rightServoMap(90);
-
+  
   pinMode(ledPin, OUTPUT);
 
   rightServo.write(rightServoAngle);
   leftServo.write(leftServoAngle);
-  delay(10);
+  delay(2000); //Wait 2 seconds
 }
 
 void loop() {
@@ -108,31 +122,41 @@ void loop() {
   outerLeftVal = analogRead(outerLeftPin);
   outerRightVal = analogRead(outerRightPin);
 
+  /*
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  rightServo.write(rightServoAngle);
+  leftServo.write(leftServoAngle);
+  */
+  //delay(5);
+  
   // greater than 750 on the line
   // less than 750 off the line
+
   if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 98;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(delayTime);
-  }
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 95;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
 
-  if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
-    rightServoAngle = rightServoMap(98);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(delayTime);
-  }
+    if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
+      rightServoAngle = rightServoMap(95);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
 
-  if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(delayTime);
-  }
+    if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
+  
 
 // intersection
   if((outerLeftVal > threshold) && (outerRightVal > threshold)){
@@ -149,6 +173,11 @@ void loop() {
     
     int currTurn = turns[intersection];
     if(currTurn == 0){
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(150);
       intersection += 1;
     } //straight
     if(currTurn == 1){
@@ -159,4 +188,7 @@ void loop() {
     }
     digitalWrite(ledPin, LOW);
   }
+  
+      
+  
 }
