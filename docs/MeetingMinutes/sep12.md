@@ -26,7 +26,8 @@ Divide role for lab2
 #### Figure 8
   * Overview -Asad
   * Schematic for turns - Lois
-  * Label intersections using 0,1,2
+     ** Label intersections using 0,1,2
+  * Recognizing an intersection- Lois 
   * Right turn- Rohit
   * Left turn-Rohit
   * (forward-> same as line following explain changes) Lois
