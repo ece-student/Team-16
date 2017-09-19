@@ -21,6 +21,8 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [Lab 1: Microcontrollers](./docs/lab1/lab1.md)
  
+ * [Lab 2: Analog Circuitry and FFTs](./docs/lab2/lab2.md)
+ 
  * [Milestone 1](./docs/milestones/1.md)
  
  * [Meeting Minutes](./MeetingMinutes.md)
@@ -28,8 +30,7 @@ Lab Section: Fridays 1:30-4:30pm
  
 ## Tutorials
 
-  #### Sep 08/2017
- 
+
  * [How To Make a Website Using GitHub](./docs/tutorials/GitHubTUTORIAL1.pdf)
  
  * [HTML experimentation](./h/exp.html)
