@@ -10,7 +10,7 @@
 
 ### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to:
 
-###   > a correct FFT analysis, 
+###   > do a correct FFT analysis, 
 ###   > have a working amplifier circuit and 
 ###   > also be able to distinguish a 660 hz from a 585hz and 735 hz. 
 
@@ -44,8 +44,7 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 Bar graph image
 
-*Bar graph image explanation*
-
+*Bar graph image explanation:*
 To start off, note first that the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 
@@ -56,8 +55,8 @@ We still need to make the amplifier however, because the sound had to be relativ
 Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what we wanted our Bode plot to look like, such that our 660 Hz signal would be amplified but all others would be minimized. We first started off with a gain of 40db, or 100, however we decided to decrease this value to 20db, or 10. The website then outputs a bandpass filter circuit schematic.
 Note that on the website it will output a circuit for voltage range from 5V to -5V, however we want from 5V to 0V. If you change this value, they will give you a REF schematic as well. However this is unnecessary. We simply used a voltage divider to connect the REF and give each 2.5V.
 
-Bode plot pic
-filter circuit pic
+![bode](bode.png)
+![circuit_filter](circuit_filter.png)
 
 
 
