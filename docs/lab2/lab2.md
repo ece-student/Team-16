@@ -7,7 +7,7 @@
 
 ## Acoustic Team:
 
-### The goal of this sublab was to enable our robot to detect a 660hz frequency. IN order to do this we had to alsoo have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz.
+### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to also have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz.
 
 and distinguish it from a Correct FFT analysis
 2 points: Working amplifier circuit
