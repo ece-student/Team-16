@@ -1,20 +1,19 @@
 
 # Lab 2: 
-### For this lab, we split up into 2 subteams blah blah blah
+For this lab, we split up into 2 subteams blah blah blah
 [Original Lab Manual Here](https://cei-lab.github.io/ece3400/lab2.html) 
 
 
 
 
-## Acoustic Team:
+### Acoustic Team:
 
-### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to:
+The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to:
+  * do a correct FFT analysis, 
+  * have a working amplifier circuit and 
+  * also be able to distinguish a 660 hz from a 585hz and 735 hz. 
 
-###   > do a correct FFT analysis, 
-###   > have a working amplifier circuit and 
-###   > also be able to distinguish a 660 hz from a 585hz and 735 hz. 
-
-### This acoustic aspect of the lab is important because later on the robot will use this 660Hz signal as its start signal.
+This acoustic aspect of the lab is important because later on the robot will use this 660Hz signal as its start signal.
 
 
 **Introduction**
