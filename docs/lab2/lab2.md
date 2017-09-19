@@ -9,9 +9,6 @@
 
 ### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to also have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz. This is important because later on the robot will use this signal as its start signal.
 
-and distinguish it from a Correct FFT analysis
-2 points: Working amplifier circuit
-3 points: Distinguish a 660Hz tone (from tones at 585Hz and 735Hz)
 
 **Introduction**
 
@@ -36,12 +33,13 @@ Now to filter out other signals, we decided to use analogRead. Note that when we
 We have the the even index 1 equal to the analogRead from pin A0, an i+1 index (the odd one) equal to zero.
 Then the for loop is incremented by two for each bin.
 
-To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excell and created a bar graph for each bin and signal.
+To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excell and created a bar graph for each bin and signal. 
 
+Bar graph image
 
-Afterwards we want to map the data onto a graph and see if the bin at 660 hz, aka 17.6 is the highest. 
+Bargraph image explanation
 
-However, it ended up for us being in the 20th bin, however it should not matter, since it works relatively and we knew for sure that we used the 660 hz
+As you can see, the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 
 **Amplifier Circuit**
