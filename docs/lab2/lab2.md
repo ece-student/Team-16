@@ -46,6 +46,38 @@ Bar graph image
 
 To start off, note first that the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
+The following is our complete code:
+
+```
+#define LOG_OUT 1 // use the log output function
+#define FFT_N 256 // set to 256 point fft
+int analogPin = 0;
+#include <FFT.h> // include the library
+
+void setup() {
+  Serial.begin(115200); // use the serial port
+
+}
+
+void loop() {
+  Serial.println("here");
+    cli();  // UDRE interrupt slows this way down on arduino1.0
+    for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
+      fft_input[i] = analogRead(analogPin); // put real data into even bins
+      fft_input[i+1] = 0; // set odd bins to 0
+    }
+    fft_window(); // window the data for better frequency response
+    fft_reorder(); // reorder the data before doing the fft
+    fft_run(); // process the data in the fft
+    fft_mag_log(); // take the output of the fft
+    sei();
+    Serial.println("start");
+    for (byte i = 0 ; i < FFT_N/2 ; i++) { 
+      Serial.println(fft_log_out[i]); // send out the data
+    }
+}
+
+```
 
 **Amplifier Circuit**
 
@@ -55,7 +87,7 @@ Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what
 
 Note that on the website it will output a circuit for voltage range from 5V to -5V, however we want from 5V to 0V. If you change this value, they will give you a REF schematic as well. However this is unnecessary. We simply used a voltage divider to connect the REF and give each 2.5V.
 
-![circuit_filter](circuit.png)
+
 
 
 
