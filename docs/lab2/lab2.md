@@ -1,13 +1,20 @@
 
 # Lab 2: 
 ### For this lab, we split up into 2 subteams blah blah blah
+[Original Lab Manual Here](https://cei-lab.github.io/ece3400/lab2.html) 
 
 
 
 
 ## Acoustic Team:
 
-### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to also have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz. This is important because later on the robot will use this signal as its start signal.
+### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to:
+
+###  * a correct FFT analysis, 
+###  * have a working amplifier circuit and 
+###  * also be able to distinguish a 660 hz from a 585hz and 735 hz. 
+
+### This acoustic aspect of the lab is important because later on the robot will use this 660Hz signal as its start signal.
 
 
 **Introduction**
@@ -37,9 +44,9 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 Bar graph image
 
-Bargraph image explanation
+*Bar graph image explanation*
 
-As you can see, the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
+To start off, note first that the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 
 **Amplifier Circuit**
