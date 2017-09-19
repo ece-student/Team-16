@@ -1,6 +1,7 @@
 
 # Lab 2: 
 For this lab, we split up into 2 subteams blah blah blah
+
 [Original Lab Manual Here](https://cei-lab.github.io/ece3400/lab2.html) 
 
 
@@ -20,9 +21,7 @@ This acoustic aspect of the lab is important because later on the robot will use
 
 For this lab, we needed a microphone, arduino uno, and some resistors and capacitors. We did not have to assemble the microphone circuit as in past years since the microphone we used (MAX4466) already came with a low pass filter, which meant that we would not have to use the capacitor and 3 kohm resistor. 
 
-However, we still wanted to check if the microphone worked properly, so we connected it to the arduino (don't forget to power the arduino).
-
-Then we hooked it up to the oscilloscope, turned on the 660 Hz (moving around the potentiometer to change gain) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that it has read the correct value.
+However, we still wanted to check if the microphone worked properly, so we connected it to the arduino (don't forget to power the arduino) and then we hooked it up to the oscilloscope, turned on the 660 Hz (moving around the potentiometer to change gain) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that it has read the correct value.
 
 video
 
@@ -44,14 +43,16 @@ To check the code and make sure it was working correctly, we hooked it up to the
 Bar graph image
 
 *Bar graph image explanation:*
+
 To start off, note first that the bar graph has a peak in the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 
 **Amplifier Circuit**
 
-We still need to make the amplifier however, because the sound had to be relatively close to the microphone for it to pick up any signal. However rather than making a filter and an amplifier separately, we decided to make a bandpass filter with gain.
+We still need to make the amplifier however, because the sound had to be relatively close to the microphone for it to pick up any signal. We later graphed both the 585hz and the 735hz next to the 660hz, however there was some overlap, which is why we decided we still needed the filter. However rather than making a filter and an amplifier separately, we decided to make a bandpass filter with gain.
 
-Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what we wanted our Bode plot to look like, such that our 660 Hz signal would be amplified but all others would be minimized. We first started off with a gain of 40db, or 100, however we decided to decrease this value to 20db, or 10. The website then outputs a bandpass filter circuit schematic.
+Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what we wanted our Bode plot to look like, such that our 660 Hz signal would be amplified but all others would be minimized. We first started off with a gain of 40db, or 100. The website then outputs a bandpass filter circuit schematic.
+
 Note that on the website it will output a circuit for voltage range from 5V to -5V, however we want from 5V to 0V. If you change this value, they will give you a REF schematic as well. However this is unnecessary. We simply used a voltage divider to connect the REF and give each 2.5V.
 
 ![circuit_filter](circuit.png)
