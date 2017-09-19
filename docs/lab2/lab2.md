@@ -39,7 +39,7 @@ Now to filter out other signals, we decided to use analogRead. Note that when we
 We have the the even index 1 equal to the analogRead from pin A0, an i+1 index (the odd one) equal to zero.
 Then the for loop is incremented by two for each bin.
 
-To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excell and created a bar graph for each bin and signal. 
+To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excel and created a bar graph for each bin and signal. 
 
 Bar graph image
 
