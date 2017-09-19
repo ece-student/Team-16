@@ -1,5 +1,5 @@
 
-## Lab 2: 
+# Lab 2: 
 ### For this lab, we split up into 2 subteams blah blah blah
 
 
@@ -7,7 +7,7 @@
 
 ## Acoustic Team:
 
-### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to also have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz.
+### The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to also have a correct FFT analysis, have a working amplifier circuit and also be able to distinguish a 660 hz from a 585hz and 735 hz. This is important because later on the robot will use this signal as its start signal.
 
 and distinguish it from a Correct FFT analysis
 2 points: Working amplifier circuit
@@ -17,22 +17,27 @@ and distinguish it from a Correct FFT analysis
 
 For this lab, we needed a microphone, arduino uno, and some resistors and capacitors. We did not have to assemble the microphone circuit as in past years since the microphone we used (MAX4466) already came with a low pass filter, which meant that we would not have to use the capacitor and 3 kohm resistor. 
 
-However, we still wanted to check if the microphone worked properly, so we connected it to the arduino and connected the arduino to the laptop to power it.
+However, we still wanted to check if the microphone worked properly, so we connected it to the arduino (don't forget to power the arduino).
 
 Then we hooked it up to the oscilloscope, turned on the 660 Hz (moving around the potentiometer to change gain) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that it has read the correct value.
 
+video
+
 **FFT analysis**
 
-We decided to use analogRead. Note that when we use fft_input, each index i that is even represents a real signal, whereas the odd signals are the imaginary components. Thus in the loop
+Now to filter out other signals, we decided to use analogRead. Note that when we use fft_input, each index i that is even represents a real signal, whereas the odd signals are the imaginary components. Thus in the loop:
 
+```
  for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
       fft_input[i] = analogRead(A0); // put real data into even bins
       fft_input[i+1] = 0; // set odd bins to 0
+```
 
 We have the the even index 1 equal to the analogRead from pin A0, an i+1 index (the odd one) equal to zero.
-Then the for loop is incremented by two.
+Then the for loop is incremented by two for each bin.
 
-To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well.
+To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excell and created a bar graph for each bin and signal.
+
 
 Afterwards we want to map the data onto a graph and see if the bin at 660 hz, aka 17.6 is the highest. 
 
