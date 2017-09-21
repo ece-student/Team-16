@@ -17,7 +17,7 @@ The goal of this sublab was to enable our robot to detect a 660hz frequency. In 
 This acoustic aspect of the lab is important because later on the robot will use this 660Hz signal as its start signal.
 The following is a visual overview of what we want to accomplish
 
-![filter](filter.png)
+![filter](filter1.png)
 
 **Introduction**
 
