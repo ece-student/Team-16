@@ -24,7 +24,7 @@ The following is a visual overview of what we want to accomplish
 For this lab, we needed a microphone, arduino uno, and some resistors and capacitors. 
 In the past years, the class used a different mic, which is why they previously made a separate microphone circuit. The microphone we used (MAX4466) already came with a low pass filter, which meant that we would not have to do this first step.
 
-Next we want to check if the microphone worked properly, so we connected it to the arduino and hooked it up to the oscilloscope, turned on a 660hz tone (adjusting the potentiometer on the microphone slightly) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that the microphone is working, and it has read the correct 660hz value we played.
+Next we want to check if the microphone worked properly, so we connected it to the arduino and hooked it up to the oscilloscope, turned on a 660hz tone (adjusting the potentiometer on the microphone slightly) and adjusted the scale. In the video, the oscilloscope reads very close to 660 Hz, reconfirming that the microphone is working, and it has read the correct 660hz value we played.
 
 [microphone check video](someyoutubelink)
 
