@@ -1,5 +1,5 @@
 
-# Lab 2: 
+![title](title.png)
 For this lab, we split up into 2 subteams blah blah blah
 
 [Original Lab Manual Here](https://cei-lab.github.io/ece3400/lab2.html) 
