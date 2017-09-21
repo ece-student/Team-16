@@ -21,11 +21,12 @@ The following is a visual overview of what we want to accomplish
 
 **Introduction**
 
-For this lab, we needed a microphone, arduino uno, and some resistors and capacitors. We did not have to assemble the microphone circuit as in past years since the microphone we used (MAX4466) already came with a low pass filter, which meant that we would not have to use the capacitor and 3 kohm resistor. 
+For this lab, we needed a microphone, arduino uno, and some resistors and capacitors. 
+In the past years, the class used a different mic, which is why they previously made a separate microphone circuit. The microphone we used (MAX4466) already came with a low pass filter, which meant that we would not have to do this first step.
 
-However, we still wanted to check if the microphone worked properly, so we connected it to the arduino (don't forget to power the arduino) and then we hooked it up to the oscilloscope, turned on the 660 Hz (moving around the potentiometer to change gain) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that it has read the correct value.
+Next we want to check if the microphone worked properly, so we connected it to the arduino and hooked it up to the oscilloscope, turned on a 660hz tone (adjusting the potentiometer on the microphone slightly) and adjusted the scale. In the video, in the oscilloscope measurement you can see it says 660 Hz, reconfirming that the microphone is working, and it has read the correct 660hz value we played.
 
-video
+[microphone check video](someyoutubelink)
 
 **FFT analysis**
 
@@ -40,7 +41,7 @@ For this part of the lab we decided to use analogRead. Note that when we use fft
 We have the the even index 1 equal to the analogRead from pin A0, an i+1 index (the odd one) equal to zero.
 Then the for loop is incremented by two for each bin.
 
-To check the code and make sure it was working correctly, we hooked it up to the function generator. We also hooked up the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excel and created a bar graph for each bin and signal. 
+To check the code and make sure it was working correctly, we hooked it up to the function generator and the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excel and created a bar graph for each bin and signal. 
 
 Bar graph image
 
@@ -83,7 +84,7 @@ In review, the signal that inputs into the microphone gets preliminarily filtere
 
 The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 19th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Thus when we want to reference the 19th bin, we actually have to call the 38th as we did in the above code.
 
-You can see in [this video](add video link)that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our coe worked best with the 60.
+You can see in [this video](add video link) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our coe worked best with the 60.
 
 **Full code for acoustic team**
 
