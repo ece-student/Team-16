@@ -39,7 +39,7 @@ To check if the microphone worked properly, we connected it to the arduino and h
 
 For this part of the lab we decided to use analogRead. Note that when we use fft_input, each index i that is even represents a real signal, whereas the odd signals are the imaginary components. Thus in the loop:
 
-```
+``` arduino
  for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
       fft_input[i] = analogRead(A0); // put real data into even bins
       fft_input[i+1] = 0; // set odd bins to 0
@@ -82,7 +82,7 @@ The 2.5 V virtual ground was created by connecting two resistors in parallel. Wh
 
 In review, the signal that inputs into the microphone gets preliminarily filtered and amplified by our bypass filter with gain. Then the filter outputs into the A0 input pin of the arduino. The arduino code has different amplitudes in each bin, and we can recall that the 660hz amplitude was around the bin 19 and 20. We then added the following code:
 
-```
+``` arduino
     for (byte i = 0 ; i < FFT_N/2 ; i++) { 
       Serial.println(fft_log_out[i]); // send out the data
       if (fft_input[38] > 60)
@@ -93,8 +93,5 @@ In review, the signal that inputs into the microphone gets preliminarily filtere
 The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 19th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Thus when we want to reference the 19th bin, we actually have to call the 38th as we did in the above code.
 
 You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our code worked best with the 60.
-
-**Full code for acoustic team**
-
 
 
