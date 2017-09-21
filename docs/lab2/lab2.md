@@ -67,8 +67,8 @@ Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what
 
 Note that on the website it will output a circuit for voltage range from 5V to -5V, however we want from 5V to 0V. If you change this value, they will give you a REF schematic as well. However this is unnecessary. We simply used a voltage divider to connect the REF and give each 2.5V.
 
-*image of actual physical circuit
 
+![circ](circ.png)
 
 **Distinguishing the 660hz from 585hz and 735hz**
 
