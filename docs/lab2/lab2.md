@@ -6,7 +6,7 @@ For this lab, we split up into 2 subteams blah blah blah
 
 
 
-![acoustic](pa.png)
+![acoustic](aco.png)
 
 The goal of this sublab was to enable our robot to detect a 660hz frequency. In order to do this we had to:
   * do a correct FFT analysis, 
