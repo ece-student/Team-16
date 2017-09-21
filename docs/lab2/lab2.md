@@ -31,7 +31,7 @@ First we coded an FFT using the example sketch available in the Open Music Lab l
 
 To check if the microphone worked properly, we connected it to the arduino and hooked it up to the oscilloscope, turned on a 660hz tone (adjusting the potentiometer on the microphone slightly) and adjusted the scale. In the video, the oscilloscope reads very close to 660 Hz, reconfirming that the microphone is working, and it has read the correct 660hz value we played.
 
-[mictest](mictest.pdf)
+[mictest](mictest.png)
 
 [microphone check video](https://www.youtube.com/watch?v=bH1wr-NfdV0)
 
