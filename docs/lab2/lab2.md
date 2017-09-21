@@ -2,7 +2,7 @@
 ![title](title1.png)
 For this lab, we split up into 2 subteams blah blah blah
 
-[Original Lab Manual Here](https://cei-lab.github.io/ece3400/lab2.html) 
+[Find the original lab manual here.](https://cei-lab.github.io/ece3400/lab2.html) 
 
 
 
@@ -61,8 +61,9 @@ Rather than making a filter and an amplifier separately, we decided to make a ba
 
 Using [this website](analog.com/designtools/en/filterwizard/) we mapped out what we wanted our Bode plot to look like, such that our 660 Hz signal would be amplified but all others would be minimized. We first started off with a gain of 40db, or 100. The website then outputs a bandpass filter circuit schematic.
 
-*image of bode plot
-*image of circuit schematic
+
+![schematic](s.png)
+
 
 Note that on the website it will output a circuit for voltage range from 5V to -5V, however we want from 5V to 0V. If you change this value, they will give you a REF schematic as well. However this is unnecessary. We simply used a voltage divider to connect the REF and give each 2.5V.
 
