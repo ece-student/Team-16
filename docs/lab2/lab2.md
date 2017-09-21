@@ -43,16 +43,13 @@ Then the for loop is incremented by two for each bin.
 
 To check the code and make sure it was working correctly, we hooked it up to the function generator and the oscilloscope to make sure the function generator was outputting as well. We had the arduino print out the values, then we transfered that data to excel and created a bar graph for each bin and signal. 
 
-Bar graph image
 
+![graph](graph.png)
 *Bar graph image explanation:*
 
-To start off, note first that the bar graph has a peak in either the 19th or the 20th bin, this is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
+To start off, note first the left bar graph which has a peak in either the 19th or the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
-However, this was not good enough to distinguish from the 585hz and the 735hz. If you look closely at the following plot:
-
-*plot of 585 and 735 with 660
-
+However, this was not good enough to distinguish from the 585hz and the 735hz. If you look closely at the plot next to it,
 you can see that the 585hz and 735hz has overlap somewhat with the 660hz. Thus it is necessary for us to further filter and amplify the signal.
 
 
