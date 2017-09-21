@@ -4,7 +4,7 @@ For this lab, we split up into 2 subteams blah blah blah
 
 [Find the original lab manual here.](https://cei-lab.github.io/ece3400/lab2.html) 
 
-**Background**'
+**Background**
 
 Fourier transform is an analysis technique which allows us to observe signal in time domain or its reciprocal domain which is frequency. For this lab we used fast fourier analysis. The difference between the two techniques is computation speed of the algorithm with, fft being fast. 
 
