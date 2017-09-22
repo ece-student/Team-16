@@ -24,8 +24,8 @@ void setup() {
 }
 
 void loop() {
-  while(1) { // reduces jitter
-    // do fft for mic
+    // do fft signal for mic once
+  
     cli();  // UDRE interrupt slows this way down on arduino1.0
     for (int i = 0 ;  i < 512 ; i+= 2) { // save 256 samples
       fft_input[i] = analogRead(analogPin); // put real data into even bins
@@ -45,8 +45,9 @@ void loop() {
     
     Serial.println("end mic")
     
-  
-    // do fft for treasure sensor
+     
+    // do fft for treasure sensor continuously
+    while(1) { // reduces jitter
     cli();  
     for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
       while(!(ADCSRA & 0x10)); // wait for adc to be ready
