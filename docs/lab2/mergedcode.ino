@@ -27,9 +27,9 @@ void loop() {
   while(1) { // reduces jitter
     // do fft for mic
     cli();  // UDRE interrupt slows this way down on arduino1.0
-    for (int m = 0 ;  m < 512 ; j += 2) { // save 256 samples
-      fft_input[m] = analogRead(analogPin); // put real data into even bins
-      fft_input[m+1] = 0; // set odd bins to 0
+    for (int i = 0 ;  i < 512 ; i+= 2) { // save 256 samples
+      fft_input[i] = analogRead(analogPin); // put real data into even bins
+      fft_input[i+1] = 0; // set odd bins to 0
     }
     fft_window(); // window the data for better frequency response
     fft_reorder(); // reorder the data before doing the fft
@@ -37,7 +37,7 @@ void loop() {
     fft_mag_log(); // take the output of the fft
     sei();
     Serial.println("start mic");
-    for (byte m = 0 ; m < FFT_N/2 ; i++) { 
+    for (byte i = 0 ; i < FFT_N/2 ; i++) { 
       Serial.println(fft_log_out[i]); // send out the data
       if (fft_input[38] > 60)
         digitalWrite(LED_BUILTIN, HIGH);      
