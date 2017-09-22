@@ -99,4 +99,6 @@ You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not 
 
 
 ![op](o.png)
+Our IR sensor circuit was connected as follows where the long lead was connected to 5 volts and the other lead was connectd to the resistor.
 ![irsense](IR-Sense.png)
+This configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit.
