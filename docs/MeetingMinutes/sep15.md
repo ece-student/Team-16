@@ -5,11 +5,13 @@
   * Possibly fix diagrams so more exact C
   * Change configuration to make more clear to reader
 
-## Team Roles change for the next two weeks
+### Team Roles change for the next two weeks
   * Team Leader: Rohit
   * Quality Assurance: Asad
   * Scribe: Lois
-Today
+
+### Today
   * Work on the prelab for lab 2 until lab opens
+  
 
 
