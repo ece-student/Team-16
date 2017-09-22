@@ -53,7 +53,7 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 ![graph](graph.png)
 
-To start off, note first the left bar graph which has a peak in either the 19th or the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
+To start off, note first the left bar graph which has a peak in the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
 
 We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
@@ -80,7 +80,7 @@ The 2.5 V virtual ground was created by connecting two resistors in parallel. Wh
 
 **Distinguishing the 660hz from 585hz and 735hz**
 
-In review, the signal that inputs into the microphone gets preliminarily filtered and amplified by our bypass filter with gain. Then the filter outputs into the A0 input pin of the arduino. The arduino code has different amplitudes in each bin, and we can recall that the 660hz amplitude was around the bin 19 and 20. We then added the following code:
+In review, the signal that inputs into the microphone gets preliminarily filtered and amplified by our bypass filter with gain. Then the filter outputs into the A0 input pin of the arduino. The arduino code has different amplitudes in each bin, and we can recall that the 660hz amplitude was around bin 20. We then added the following code:
 
 ``` arduino
     for (byte i = 0 ; i < FFT_N/2 ; i++) { 
@@ -89,7 +89,7 @@ In review, the signal that inputs into the microphone gets preliminarily filtere
         digitalWrite(LED_BUILTIN, HIGH);      
 ```
 
-The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 19th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Thus when we want to reference the 19th bin, we actually have to call the 38th as we did in the above code.
+The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 20th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Also, zero is considered the first bin, thus when we want to reference the 20th bin, we actually have to call the 38th as we did in the above code.
 
 You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our code worked best with the 60.
 
