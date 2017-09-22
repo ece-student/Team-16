@@ -118,6 +118,8 @@ When the signal is applied to the phototransistor, certain frequency bins peak. 
 | 12 kHz        | 79, 80, 81    |
 | 17 kHz        | 113, 114, 115 |
 
+The reasoning for having a range of bins for each of the frequencies is that that windowing function introduces some frequency smearing between bins. 
+
 We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. 
 
 This is how we detect 7 kHz frequencies.
