@@ -126,4 +126,9 @@ This is how we detect 7 kHz frequencies.
 ```
 There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. 
 
+**Merged Code**
+
+Since we used two different methods for the FFT, analogRead and the modified free-running sketch from the library, it was fairly easy to merge the code. The only real thing we have to take into consideration is how the loop works.
+
+The acoustic part has to loop until it hears the 660hz after which the loop should end, since the 660hz is only necessary to start the robot. Then we should concentrate our efforts solely on the optical loop, and ignore the acoustic part for the remaining time.
 
