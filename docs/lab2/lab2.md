@@ -97,7 +97,13 @@ You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not 
 
 
 ![op](o.png)
+
+Our IR sensor was connected as follows where the long lead was connected to 5 volts and the other lead was connected to the resistor.
+
 ![irsense](IR-Sense.png)
+
+
+Being that the sensor is NPN phototransistor, this configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit.
 
 We used a different method to get the values for FFT than the Acoustic subteam did. On the Open Music Lab Library, we used the sketch they had (fft_adc), rather than use analogRead we made it free-running. [Click here to see the fft_adc sketch](http://wiki.openmusiclabs.com/wiki/Example)
 
