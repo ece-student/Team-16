@@ -25,6 +25,8 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [Milestone 1](./docs/milestones/1.md)
  
+ * [Milestone 2](./docs/milestone2/milestone2.md)
+  
  * [Meeting Minutes](./MeetingMinutes.md)
  
  
