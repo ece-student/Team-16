@@ -98,7 +98,7 @@ void loop() {
     else{
       Serial.println("none");
     }
-    Serial.println(" opt end")
+    Serial.println("opt end")
     Serial.println("");
      // send out the data
   }
