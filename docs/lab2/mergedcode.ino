@@ -13,6 +13,7 @@ visualizing the data.
 #define FFT_N 256 // set to 256 point fft
 
 #include <FFT.h> // include the library
+int flag =0;
 
 void setup() {
   Serial.begin(115200); // use the serial port
@@ -25,7 +26,7 @@ void setup() {
 
 void loop() {
     // do fft signal for mic once
-  
+    do{
     cli();  // UDRE interrupt slows this way down on arduino1.0
     for (int i = 0 ;  i < 512 ; i+= 2) { // save 256 samples
       fft_input[i] = analogRead(analogPin); // put real data into even bins
@@ -39,11 +40,16 @@ void loop() {
     Serial.println("start mic");
     for (byte i = 0 ; i < FFT_N/2 ; i++) { 
       Serial.println(fft_log_out[i]); // send out the data
-      if (fft_input[38] > 60)
+      if (fft_input[38] > 60){ //38 refers to the 20th bin
         digitalWrite(LED_BUILTIN, HIGH);      
+        flag=1;
+      }
     }
-    
     Serial.println("end mic")
+    } while(flag != 1)
+    
+    
+   
     
      
     // do fft for treasure sensor continuously
