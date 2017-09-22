@@ -99,7 +99,7 @@ You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not 
 ![op](o.png)
 ![irsense](IR-Sense.png)
 
-We used a different method to get the values for FFT than the Acoustic subteam did. On the Open Music Lab Library, we used the sketch they had (fft_adc), rather than use analogRead. This made it free-running. [Click here to see the fft_adc sketch](http://wiki.openmusiclabs.com/wiki/Example)
+We used a different method to get the values for FFT than the Acoustic subteam did. On the Open Music Lab Library, we used the sketch they had (fft_adc), rather than use analogRead we made it free-running. [Click here to see the fft_adc sketch](http://wiki.openmusiclabs.com/wiki/Example)
 
 The goal of the optical subteam was to have the Arduino recognize 7kHz, 12kHz, and 17kHz frequency IR signals. The signals were outputted by an adjustable treasure board. A phototransistor circuit is used to detect these frequencies. V_A3 is measured by the Arduino. FFT analysis is applied to see the strength of the signal at different frequency bins. The result is read to the serial monitor as an array of bin amplitudes.
 
@@ -111,7 +111,7 @@ By testing the device at different frequencies, we were able to determine which 
 | 12 kHz        | 79, 80, 81    |
 | 17 kHz        | 113, 114, 115 |
 
-We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. 
+We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. In the code below the conditional checks if the FFT bin value is above the hardcoded threshold of 60. This code only works when the signal is very close. When it is far away, all the values are scaled down. We tried a different approach in which the target frequency bins are compared to an arbitrary non-peak bin value. For example, a bin is considered a peak if it is at least 1.5*(frequency of non peak bin). This approach worked but not as well as the hardcoded absolute value approach. We will need to tune, optimize, and test this algorithm for different amplitude/distance signals in the future.
 
 This is how we detect 7 kHz frequencies.
 ``` arduino
@@ -124,7 +124,7 @@ This is how we detect 7 kHz frequencies.
         }
     }
 ```
-There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. 
+There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. The goal of this algorithm is so that is one bin is high in the 7 kHz rate, but three bins are high in the 12 kHz range, then 12 kHz is selected.
 
 
 **Merged Code**
