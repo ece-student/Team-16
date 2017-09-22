@@ -8,3 +8,6 @@
  * [Meeting Minutes 9-8](./docs/MeetingMinutes/sep8.md)
  
  * [Meeting Minutes 9-12](./docs/MeetingMinutes/sep12.md)
+
+ * [Meeting Minutes 9-15](./docs/MeetingMinutes/sep15.md)
+ 
