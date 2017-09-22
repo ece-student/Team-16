@@ -55,6 +55,8 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 To start off, note first the left bar graph which has a peak in either the 19th or the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
 
+![](baba.png)
+
 We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 However, this was not good enough to distinguish from the 585hz and the 735hz. If you look closely at the plot next to it,
