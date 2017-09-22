@@ -44,8 +44,10 @@ void loop() {
     }
     
     Serial.println("end mic")
-        
+    
+  
     // do fft for treasure sensor
+    cli();  
     for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
       while(!(ADCSRA & 0x10)); // wait for adc to be ready
       ADCSRA = 0xf5; // restart adc
@@ -100,6 +102,5 @@ void loop() {
     }
     Serial.println("opt end")
     Serial.println("");
-     // send out the data
   }
 }
