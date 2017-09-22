@@ -53,7 +53,7 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 ![graph](graph.png)
 
-To start off, note first the left bar graph which has a peak in the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
+To start off, note first the left bar graph which has a peak in either the 19th or the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
 
 We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
@@ -80,7 +80,7 @@ The 2.5 V virtual ground was created by connecting two resistors in parallel. Wh
 
 **Distinguishing the 660hz from 585hz and 735hz**
 
-In review, the signal that inputs into the microphone gets preliminarily filtered and amplified by our bypass filter with gain. Then the filter outputs into the A0 input pin of the arduino. The arduino code has different amplitudes in each bin, and we can recall that the 660hz amplitude was around bin 20. We then added the following code:
+In review, the signal that inputs into the microphone gets preliminarily filtered and amplified by our bypass filter with gain. Then the filter outputs into the A0 input pin of the arduino. The arduino code has different amplitudes in each bin, and we can recall that the 660hz amplitude was around the bin 19 and 20. We then added the following code:
 
 ``` arduino
     for (byte i = 0 ; i < FFT_N/2 ; i++) { 
@@ -89,17 +89,24 @@ In review, the signal that inputs into the microphone gets preliminarily filtere
         digitalWrite(LED_BUILTIN, HIGH);      
 ```
 
-The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 20th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Also, zero is considered the first bin, thus when we want to reference the 20th bin, we actually have to call the 38th as we did in the above code.
+The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 19th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Thus when we want to reference the 19th bin, we actually have to call the 38th as we did in the above code.
 
 You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our code worked best with the 60.
 
 **Merged Code**
 
 ![op](o.png)
-![irsense](IR-Sense.png)
+
 
 **Introduction**
 The purpose of this part of lab 2 was to enable the Uno to recognize three different frequnecies in IR signals: 7kHz, 12kHz, and 17kHz. A treasure board with ajdustable IR intensity was used as the source for the frequencies, and a phototransistor circuit connected to the Uno was used to detect the frequencies. An Open Music Lab FFT library (as used above) was used to configure relative frequencies into distinct "bins" in order to more feasibly identify different frequencies from one another. Designated bins values were mapped to a range of 0Hz to 0.5*(sampling frequency). V_A3 is measured by the Arduino. This value is measured by the Arduino and FFT analysis is applied. The result is read to the serial monitor as an array of frequency bin amplitudes.
+
+Our IR sensor circuit was connected as follows where the long lead was connected to 5 volts and the other lead was connected to the resistor.  
+
+![irsense](IR-Sense.png)
+
+Being that the sensor is NPN phototransistor, this configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit. In testing our circuit, we have found the do not need an amplifier to detect the IR treasures, but may need to in the future.
+
 
 By testing the device at different frequencies, we were able to determine which bins correspond to the frequencies. We used the serial plots to observe which freqenncies are affected by the signal.
 ![irsense](lab2_irgraph.png)
@@ -126,9 +133,4 @@ This is how we detect 7 kHz frequencies.
 ```
 There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. 
 
-**Merged Code**
-
-Since we used two different methods for the FFT, analogRead and the modified free-running sketch from the library, it was fairly easy to merge the code. The only real thing we have to take into consideration is how the loop works.
-
-The acoustic part has to loop until it hears the 660hz after which the loop should end, since the 660hz is only necessary to start the robot. Then we should concentrate our efforts solely on the optical loop, and ignore the acoustic part for the remaining time.
 
