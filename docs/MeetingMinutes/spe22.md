@@ -1,4 +1,4 @@
-Meeting Minute 9/18
+Meeting Minute 9/22
 
   * We moved around some things on the Milestone 1.
   
