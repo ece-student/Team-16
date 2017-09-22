@@ -98,6 +98,8 @@ You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not 
 ![op](o.png)
 ![irsense](IR-Sense.png)
 
+Since there was a lot of overlap in the acoustic and the optical, we will not go into detail again about the overlapping areas. See above for information on FFTs.
+
 The goal of the optical subteam was to have the Arduino recognize 7kHz, 12kHz, and 17kHz frequency IR signals. The signals were outputted by an adjustable treasure board. A phototransistor circuit is used to detect these frequencies. V_A3 is measured by the Arduino. FFT analysis is applied to see the strength of the signal at different frequency bins. The result is read to the serial monitor as an array of bin amplitudes.
 
 By testing the device at different frequencies, we were able to determine which bins correspond to the frequencies. 
