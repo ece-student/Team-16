@@ -55,6 +55,8 @@ To check the code and make sure it was working correctly, we hooked it up to the
 
 To start off, note first the left bar graph which has a peak in either the 19th or the 20th bin. This is supposed to be around the 17th or 18th, but in our case, it does not change our process or matter that much since everything will be relative, and since we have measured with the oscilloscope that it was recieving the same 660Hz created by the function generator. 
 
+![](baba.png)
+
 We have the other peaks that are the multiples of 660Hz, so that we can be sure the spacing between each peak is equidistant and that the 20 bin number is correct after all.
 
 However, this was not good enough to distinguish from the 585hz and the 735hz. If you look closely at the plot next to it,
@@ -93,13 +95,17 @@ The purpose of this was to be able to show physically that the arduino responded
 
 You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our code worked best with the 60.
 
-**Merged Code**
 
 ![op](o.png)
+
+Our IR sensor was connected as follows where the long lead was connected to 5 volts and the other lead was connected to the resistor.
+
 ![irsense](IR-Sense.png)
 
-**Introduction**
-The purpose of this part of lab 2 was to enable the Uno to recognize three different frequnecies in IR signals: 7kHz, 12kHz, and 17kHz. A treasure board with ajdustable IR intensity was used as the source for the frequencies, and a phototransistor circuit connected to the Uno was used to detect the frequencies. An Open Music Lab FFT library (as used above) was used to configure relative frequencies into distinct "bins" in order to more feasibly identify different frequencies from one another. Designated bins values were mapped to a range of 0Hz to 0.5*(sampling frequency). 
+
+Being that the sensor is NPN phototransistor, this configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit.
+
+We used a different method to get the values for FFT than the Acoustic subteam did. On the Open Music Lab Library, we used the sketch they had (fft_adc), rather than use analogRead we made it free-running. [Click here to see the fft_adc sketch](http://wiki.openmusiclabs.com/wiki/Example)
 
 The goal of the optical subteam was to have the Arduino recognize 7kHz, 12kHz, and 17kHz frequency IR signals. The signals were outputted by an adjustable treasure board. A phototransistor circuit is used to detect these frequencies. V_A3 is measured by the Arduino. FFT analysis is applied to see the strength of the signal at different frequency bins. The result is read to the serial monitor as an array of bin amplitudes.
 
@@ -111,7 +117,7 @@ By testing the device at different frequencies, we were able to determine which 
 | 12 kHz        | 79, 80, 81    |
 | 17 kHz        | 113, 114, 115 |
 
-We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. 
+We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. In the code below the conditional checks if the FFT bin value is above the hardcoded threshold of 60. This code only works when the signal is very close. When it is far away, all the values are scaled down. We tried a different approach in which the target frequency bins are compared to an arbitrary non-peak bin value. For example, a bin is considered a peak if it is at least 1.5*(frequency of non peak bin). This approach worked but not as well as the hardcoded absolute value approach. We will need to tune, optimize, and test this algorithm for different amplitude/distance signals in the future.
 
 This is how we detect 7 kHz frequencies.
 ``` arduino
@@ -124,6 +130,11 @@ This is how we detect 7 kHz frequencies.
         }
     }
 ```
-There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. 
+There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. The goal of this algorithm is so that is one bin is high in the 7 kHz rate, but three bins are high in the 12 kHz range, then 12 kHz is selected.
 
 
+**Merged Code**
+
+Since we used two different methods for the FFT, analogRead and the modified free-running sketch from the library, it was fairly easy to merge the code. The only real thing we have to take into consideration is how the loop works. 
+
+The acoustic part has to loop until it hears the 660hz after which the loop should end, since the 660hz is only necessary to start the robot. Then we should concentrate our efforts solely on the optical loop, and ignore the acoustic part for the remaining time.
