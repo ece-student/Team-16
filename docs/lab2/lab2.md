@@ -135,7 +135,7 @@ This is how we detect 7 kHz frequencies.
 ```
 There are three integer variables range7, range12, and range17. If all three are zero, there is no signal detected. Otherwise, the greatest integer value is selected. For example, if range7 has the highest non-zero value, a 7 kHz signal is detected. 
 
-![](pepe.png)
+![pic](pepe.png)
 
 Since we used two different methods for the FFT, analogRead and the modified free-running sketch from the library, it was fairly easy to merge the code. The only real thing we have to take into consideration is how the loop works.
 
