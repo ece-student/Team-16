@@ -117,6 +117,8 @@ By testing the device at different frequencies, we were able to determine which 
 | 12 kHz        | 79, 80, 81    |
 | 17 kHz        | 113, 114, 115 |
 
+The reasoning for having a range of bins for each of the frequencies is that that windowing function introduces some frequency smearing between bins. 
+
 We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. In the code below the conditional checks if the FFT bin value is above the hardcoded threshold of 60. This code only works when the signal is very close. When it is far away, all the values are scaled down. We tried a different approach in which the target frequency bins are compared to an arbitrary non-peak bin value. For example, a bin is considered a peak if it is at least 1.5*(frequency of non peak bin). This approach worked but not as well as the hardcoded absolute value approach. We will need to tune, optimize, and test this algorithm for different amplitude/distance signals in the future.
 
 This is how we detect 7 kHz frequencies.
