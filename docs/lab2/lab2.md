@@ -87,7 +87,6 @@ In review, the signal that inputs into the microphone gets preliminarily filtere
       Serial.println(fft_log_out[i]); // send out the data
       if (fft_input[38] > 60)
         digitalWrite(LED_BUILTIN, HIGH);      
-
 ```
 
 The purpose of this was to be able to show physically that the arduino responded to the 660hz, rather than the 585hz or the 735hz. We did this by making the arduino LED light up when it detected an amplitude higher than 60 in the 19th bin. Recall that the function fft_input allocates two different indexes for each bin, one real and one imaginary. Thus when we want to reference the 19th bin, we actually have to call the 38th as we did in the above code.
@@ -96,12 +95,16 @@ You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not 
 
 **Merged Code**
 
-
-
 ![op](o.png)
-Our IR sensor circuit was connected as follows where the long lead was connected to 5 volts and the other lead was connectd to the resistor.
-
 ![irsense](IR-Sense.png)
 
+The goal of the optical subteam was to have the Arduino recognize 7kHz, 12kHz, and 17kHz frequency IR signals. The signals were outputted by an adjustable treasure board. A phototransistor circuit is used to detect these frequencies. V_A3 is measured by the Arduino. FFT analysis is applied to see the strength of the signal at different frequency bins. The result is read to the serial monitor as an array of bin amplitudes.
 
-This configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit.
+By testing the device at different frequencies, we were able to determine which bins correspond to the frequencies. 
+
+| Frequency     | Bins          |
+| ------------- | ------------- |
+| 7 kHz         | 45, 46, 47    |
+| 12 kHz        | 79, 80, 81    |
+| 17 kHz        | 113, 114, 115 |
+
