@@ -11,3 +11,5 @@
 
  * [Meeting Minutes 9-15](./docs/MeetingMinutes/sep15.md)
  
+ * [Meeting Minutes 9-22](./docs/MeetingMinutes/sep22.md)
+ 
