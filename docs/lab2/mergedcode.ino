@@ -27,7 +27,7 @@ void loop() {
   while(1) { // reduces jitter
     // do fft for mic
     cli();  // UDRE interrupt slows this way down on arduino1.0
-    for (int m = 0 ;  m 512 ; j += 2) { // save 256 samples
+    for (int m = 0 ;  m < 512 ; j += 2) { // save 256 samples
       fft_input[m] = analogRead(analogPin); // put real data into even bins
       fft_input[m+1] = 0; // set odd bins to 0
     }
