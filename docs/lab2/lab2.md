@@ -141,4 +141,4 @@ Since we used two different methods for the FFT, analogRead and the modified fre
 
 The acoustic part has to loop until it hears the 660hz after which the loop should end, since the 660hz is only necessary to start the robot. Then we should concentrate our efforts solely on the optical loop, and ignore the acoustic part for the remaining time.
 
-[Merged Code](.docs/lab2/mergedcode.ino)
+[Merged Code](mergedcode.ino)
