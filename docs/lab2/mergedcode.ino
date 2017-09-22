@@ -43,6 +43,8 @@ void loop() {
         digitalWrite(LED_BUILTIN, HIGH);      
     }
     
+    Serial.println("end mic")
+        
     // do fft for treasure sensor
     for (int i = 0 ; i < 512 ; i += 2) { // save 256 samples
       while(!(ADCSRA & 0x10)); // wait for adc to be ready
@@ -66,6 +68,8 @@ void loop() {
     int range12 = 0;
     int range17 = 0;
   
+    Serial.println(" opt start")
+    
     for(int i = 10; i < 128; i++){
       if(fft_log_out[i]>60){
         Serial.print(fft_log_out[i]);
@@ -94,6 +98,7 @@ void loop() {
     else{
       Serial.println("none");
     }
+    Serial.println(" opt end")
     Serial.println("");
      // send out the data
   }
