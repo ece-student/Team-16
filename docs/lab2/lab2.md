@@ -108,3 +108,4 @@ By testing the device at different frequencies, we were able to determine which 
 | 12 kHz        | 79, 80, 81    |
 | 17 kHz        | 113, 114, 115 |
 
+We designed an algorithm to detect which bins the signals peak at, and how to classify the frequency. Initially, we set a hard FFT cutoff of 70. Values above that threshold were peak values. However, peaks are relative not absolute. 
