@@ -93,7 +93,7 @@ The purpose of this was to be able to show physically that the arduino responded
 
 You can see in [this video](https://youtu.be/VzxNFTudYdM) that the LED does not light up during the 585 and 735hz tones. This is because we filtered and amplified only the 660hz, so that the amplitude of the 660hz would be the only one with a significantly high amplitude. The 60 value can be adjusted, however we found that our code worked best with the 60.
 
-**Merged Code**
+
 
 ![op](o.png)
 
