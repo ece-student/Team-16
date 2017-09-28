@@ -58,4 +58,4 @@ We added the short range distance sensing implementation to our previous from la
 
 For the future, we will also add the wall sensors to the sides of the robot which will assist the navigation of the robot along with the side line sensors. 
 
-<img src="placement.png" alt="alt text" width="600" height="600">
+<img src="placement.png" alt="alt text" width="800" height="800">
