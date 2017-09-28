@@ -50,7 +50,7 @@ Much of what we've done in the treasure detection part of this milestone was cov
 
 ![](header.png)
 
-The wall detection is done using a proximity sensor.
+The wall detection is done using a proximity sensor[datasheet](http://www.sharp-world.com/products/device/lineup/data/pdf/datasheet/gp2y0a41sk_e.pdf).
 
 ![](placement.png)
 
