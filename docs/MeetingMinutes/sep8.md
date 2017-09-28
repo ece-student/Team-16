@@ -1,5 +1,7 @@
 Meeting minutes 
-Plans
+
+Plans 
+
 This week
 
   * Work on milestone 1 and try to finish it 
