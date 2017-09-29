@@ -54,15 +54,6 @@ The wall detection is done using a proximity sensor [datasheet](http://www.sharp
 
 We added the short range distance sensing implementation to our previous from lab2. A digital pin was used to take input from the wall sensor. If the wall sensor detects a wall, we write 90 to the robots to stop them. This is shown below in the demo video. 
 
-<iframe width="420" height="315"
-src="https://youtu.be/n05xAf3Eazs">
-</iframe> 
-
- <iframe width="420" height="315"
-src="https://www.youtube.com/embed/XGSy3_Czz8k">
-</iframe> 
-
-
 [![wall detection](walldetection.png)](https://youtu.be/n05xAf3Eazs)
 
 For the future, we will also add the wall sensors to the sides of the robot which will assist the navigation of the robot along with the side line sensors. 
