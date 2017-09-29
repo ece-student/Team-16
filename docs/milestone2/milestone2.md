@@ -53,6 +53,7 @@ Much of what we've done in the treasure detection part of this milestone was cov
 The wall detection is done using a proximity sensor [datasheet](http://www.sharp-world.com/products/device/lineup/data/pdf/datasheet/gp2y0a41sk_e.pdf). It emits an infrared radiation and looks for a change in filed/signal. If the object is outside the nominal range of the sensor then there is no change in field. If not the sensor generates voltage that corresponds to the detected distance of the object. 
 
 We added the short range distance sensing implementation to our previous from lab2. A digital pin was used to take input from the wall sensor. If the wall sensor detects a wall, we write 90 to the robots to stop them. This is shown below in the demo video. 
+
 <video width="460" height="270" controls preload> 
     <source src="https://youtu.be/n05xAf3Eazs"></source> 
 </video>
