@@ -56,7 +56,7 @@ We added the short range distance sensing implementation to our previous from la
 
 
 
-[<img align="center" width="600" height="400" src="walldetection.png" alt="alt text">](https://youtu.be/n05xAf3Eazs)
+[<img width="1000" height="400" src="walldetection.png" alt="alt text">](https://youtu.be/n05xAf3Eazs)
 
 
 
