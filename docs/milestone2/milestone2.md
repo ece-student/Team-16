@@ -2,6 +2,7 @@
 
 
 ![](tres.png)
+![](t.png)
 
 Much of what we've done in the treasure detection part of this milestone was covered in the [second lab](https://lois-lee.github.io/Team-16/docs/lab2/lab2.html). Here is a recap of what we did in lab2 for treasure detection. 
 
