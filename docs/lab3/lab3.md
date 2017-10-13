@@ -1,11 +1,15 @@
 
 Graphics Subteam
 
-The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. In order to do this, the lab was split into multiple steps: Reading external inputs to FPGA, correctly updating a 4-bit array dependent on the inputs, drawing one box on the screen, description of how the DAC on the provided VGA connectors works and how the resistor values were chosen, and mapping external inputs to four different outputs on the screen.
+The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. Inorder to do this, the lab was split into multiple steps: Reading external inputs to FPGA, correctly updating a 4-bit array dependent on the inputs, drawing one box on the screen, description of how the DAC on the provided VGA connectors works and how the resistor values were chosen, and mapping external inputs to four different outputs on the screen.
 
 
 For the first part, we simply wanted to show that the 
+## Reading external inputs to FPGA
 
+## Correctly updating a 4-bit array dependent on the inputs
+
+## Drawing one box on the screen
 
 ## Description of how resistor values were chosen
 
@@ -13,7 +17,7 @@ For the first part, we simply wanted to show that the
 * The resistor values were calcuated by using voltage divider concept. 
 * We calcualted the voltage drop across the 50 Ohm resistor (labeled R4) by turining on only one resitor connected to the VGA pin. 
 * The voltage drop across a bit is twice the voltage of the next most significant bit. 
-* For Red and Blue colors
+* For Red and Green colors
 
    | Resistor    | Voltage       |  Voltage  |calculated | Measured|
    | ----------- | ------------- |-----------|---------- |-------- |
@@ -37,7 +41,7 @@ For the first part, we simply wanted to show that the
    
    _Vi = [R4/(R4+Ri)] x Vin , i= 1,2,3_ 
    
-  * For Green color
+  * For Blue color
   
    | Resistor    | Voltage    |  Voltage  |Calcualted|
    | ----------- | -----------|-----------|----------|
@@ -53,10 +57,10 @@ For the first part, we simply wanted to show that the
    *3V2= 1V*
    
    *V2= 1/3V*
-   
+   c
    ### External Input
    Reistor values 464.8 Ohms and 895 Ohms
-   divider voltag value 3.37 volts
+   divider voltage value 3.37 volts
   
   
   
