@@ -22,6 +22,9 @@ For the first part, we simply wanted to show that the
    | R3  (3rd MSB| V3            |   
    
    *V1+V2+V3 = 1V*
+   
    *4V3+2V3+V3 = 1V*
+   
    *7V3= 1V*
+   
    *V3= 1/7V*
