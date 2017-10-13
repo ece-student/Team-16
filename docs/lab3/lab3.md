@@ -15,12 +15,13 @@ For the first part, we simply wanted to show that the
 * The voltage drop across a bit is twice the voltage of the next most significant bit. 
 * For Red and Blue colors
 
-   | Resistor    | Voltage       |  Voltage  |
-   | ----------- | ------------- |-----------|
-   | R1  (MSB)   | V1=2V2=4V3    | 4/7       |
-   | R2  (2nd MSB| V2=2V3        | 2/7       |
-   | R3  (3rd MSB| V3            | 1/7       |
+   | Resistor    | Voltage       |  Voltage  |calculated | Measured|
+   | ----------- | ------------- |-----------|---------- |-------- |
+   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75Ohms |         |
+   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5Ohms  |         |
+   | R3  (3rd MSB| V3            | 1/7V      |1105Ohms   |         |
    
+   * How each voltages were computed:
    *V1+V2+V3 = 1V*
    
    *4V3+2V3+V3 = 1V*
@@ -29,13 +30,20 @@ For the first part, we simply wanted to show that the
    
    *V3= 1/7V*
    
+   * How each resitances were computed:
+   
+   _Vin= 3.3V (input to FPGA)
+   
+   _Vi = [R4/(R4+Ri)] x Vin , i= 1,2,3_ 
+   
   * For Green color
   
-   | Resistor    | Voltage    |  Voltage  |
-   | ----------- | -----------|-----------|
-   | R1  (MSB)   | V1=2V2     | 2/3       |
-   | R2  (2nd MSB| V2         | 1/3       |
+   | Resistor    | Voltage    |  Voltage  |Calcualted|
+   | ----------- | -----------|-----------|----------|
+   | R1  (MSB)   | V1=2V2     | 2/3       |197.5Ohms |
+   | R2  (2nd MSB| V2         | 1/3       |445Ohms   |
    
+   How each voltages were computed:
    
    *V1+V2 = 1V*
    
@@ -44,6 +52,7 @@ For the first part, we simply wanted to show that the
    *3V2= 1V*
    
    *V2= 1/3V*
+   
    
   
   
