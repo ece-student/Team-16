@@ -54,7 +54,10 @@ For the first part, we simply wanted to show that the
    
    *V2= 1/3V*
    
-   
+   ### External Input
+   Reistor values 464.8 Ohms and 895 Ohms
+   divider voltag value 3.37 volts
+  
   
   
    
