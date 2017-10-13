@@ -13,13 +13,13 @@ For the first part, we simply wanted to show that the
 
 ## Description of how resistor values were chosen
 
-* We had three resisotrs for red and blue and two resistors for green color output from the VGA.
+* We had three resisotrs for red and green and two resistors for blue color output from the VGA.
 * The resistor values were calcuated by using voltage divider concept. 
 * We calcualted the voltage drop across the 50 Ohm resistor (labeled R4) by turining on only one resitor connected to the VGA pin. 
-* The voltage drop across a bit is twice the voltage of the next most significant bit. 
+* The voltage drop across R4 is determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
 * For Red and Green colors
 
-   | Resistor    | Voltage       |  Voltage  |calculated | Measured|
+   | Resistor    | Voltage output|  Voltage  |calculated | Measured|
    | ----------- | ------------- |-----------|---------- |-------- |
    | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75Ohms |         |
    | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5Ohms  |         |
