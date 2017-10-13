@@ -22,6 +22,7 @@ For the first part, we simply wanted to show that the
    | R3  (3rd MSB| V3            | 1/7V      |1105Ohms   |         |
    
    * How each voltages were computed:
+   
    *V1+V2+V3 = 1V*
    
    *4V3+2V3+V3 = 1V*
@@ -32,7 +33,7 @@ For the first part, we simply wanted to show that the
    
    * How each resitances were computed:
    
-   _Vin= 3.3V (input to FPGA)
+   _Vin= 3.3V (input to FPGA)_
    
    _Vi = [R4/(R4+Ri)] x Vin , i= 1,2,3_ 
    
