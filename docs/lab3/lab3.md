@@ -15,11 +15,11 @@ For the first part, we simply wanted to show that the
 * The voltage drop across a bit is twice the voltage of the next most significant bit. 
 * For Red and Blue colors
 
-   | Resistor    | Voltage       |  
-   | ----------- | ------------- |
-   | R1  (MSB)   | V1=2V2=4V3    |     
-   | R2  (2nd MSB| V2=2V3        |    
-   | R3  (3rd MSB| V3            |   
+   | Resistor    | Voltage       |  Voltage  |
+   | ----------- | ------------- |-----------|
+   | R1  (MSB)   | V1=2V2=4V3    | 4/7       |
+   | R2  (2nd MSB| V2=2V3        | 2/7       |
+   | R3  (3rd MSB| V3            | 1/7       |
    
    *V1+V2+V3 = 1V*
    
@@ -28,3 +28,21 @@ For the first part, we simply wanted to show that the
    *7V3= 1V*
    
    *V3= 1/7V*
+   
+  * For Green color
+   | Resistor    | Voltage    |  Voltage  |
+   | ----------- | -----------|-----------|
+   | R1  (MSB)   | V1=2V2     | 2/3       |
+   | R2  (2nd MSB| V2         | 1/3       |
+   
+   *V1+V2 = 1V*
+   
+   *2V2+V2 = 1V*
+   
+   *3V2= 1V*
+   
+   *V2= 1/3V*
+   
+  
+  
+   
