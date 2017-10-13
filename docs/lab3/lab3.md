@@ -30,10 +30,12 @@ For the first part, we simply wanted to show that the
    *V3= 1/7V*
    
   * For Green color
+  
    | Resistor    | Voltage    |  Voltage  |
    | ----------- | -----------|-----------|
    | R1  (MSB)   | V1=2V2     | 2/3       |
    | R2  (2nd MSB| V2         | 1/3       |
+   
    
    *V1+V2 = 1V*
    
