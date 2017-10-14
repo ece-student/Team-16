@@ -116,6 +116,34 @@ Also here is an image of our voltage divider connected to the arduino and FPGA.
 
 ## Drawing one box on the screen
 
+Drawing one box on the screen is independent of the work we've done so part, which we will add in later when we use external inputs to change what happens on the screen.
+
+For this first part, we only need to program using Verilog. First from the VGA driver, we receive some pixel x and y coordinate which we declare as a wire in verilog as such:
+
+```
+    wire [9:0]  PIXEL_COORD_X; // current x-coord from VGA driver
+    wire [9:0]  PIXEL_COORD_Y; // current y-coord from VGA driver
+   
+```
+
+We then under structural coding added the following:
+
+```
+always @ (*) begin 
+	  if(PIXEL_COORD_X < 10'd64 && PIXEL_COORD_Y < 10'd64) begin
+		PIXEL_COLOR <= 8'b000_000_00;
+	  end
+	  else begin
+		PIXEL_COLOR <= 8'b111_000_00;
+	  end
+end
+
+```
+
+which basically sets up a boundary, such that for each pixel from the VGA driver, if it is located somewhere inside of the 10'd64 box, it will be black, and else it will be a different color, red.
+
+![](red.png)
+
 ## Description of how resistor values were chosen
 
 * We had three resistors for red and green and two resistors for blue color output from the VGA.
