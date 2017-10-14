@@ -55,7 +55,7 @@ In our Verilog code for the FPGA, we merely had to equate the LED's current stat
 
 Note in the above code, GPIO_O_D[0] was our external input and led_state refers to the LED's current state.
 
-[See the demo here]()
+[See the demo here](https://youtu.be/QqNK1ildkJI)
 
 
 ## Correctly updating a 4-bit array dependent on the inputs
@@ -110,7 +110,7 @@ For the Verilog code, the only thing that would change is that we need to add an
 		  end
 
 ```
-[See the demo here]()
+[See the demo here](https://youtu.be/0PuzwThnux0)
 
 ## Drawing one box on the screen
 
