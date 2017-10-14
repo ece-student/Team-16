@@ -1,7 +1,7 @@
 
-Graphics Subteam
+![](c.png)
 
-The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. In order to do this, the lab was split into multiple steps: 
+The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. In order to do this, the lab was split into multiple steps, each of which will help us achieve that ultimate goal in a later lab: 
 
 - Reading external inputs to FPGA, 
 - Correctly updating a 4-bit array dependent on the inputs, 
@@ -112,6 +112,9 @@ For the Verilog code, the only thing that would change is that we need to add an
 ```
 [See the demo here](https://youtu.be/0PuzwThnux0)
 
+Also here is an image of our voltage divider connected to the arduino and FPGA.
+![](vd.png)
+
 ## Drawing one box on the screen
 
 ## Description of how resistor values were chosen
@@ -166,5 +169,5 @@ For the Verilog code, the only thing that would change is that we need to add an
    divider voltage value 3.37 volts
   
   
-  
+  ![](d.png)
    
