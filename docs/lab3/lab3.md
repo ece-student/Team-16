@@ -90,10 +90,10 @@ delay(2000);                  // waits for 2 seconds
 
 ## Description of how resistor values were chosen
 
-* We had three resisotrs for red and green and two resistors for blue color output from the VGA.
-* The resistor values were calcuated by using voltage divider concept. 
-* We calcualted the voltage drop across the 50 Ohm resistor (labeled R4) by turining on only one resitor connected to the VGA pin. 
-* The voltage drop across R4 is determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
+* We had three resistors for red and green and two resistors for blue color output from the VGA.
+* The resistor values were calcuated by using the concept of voltage division. 
+* We calcualted the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
+* The voltage drop across R4 was determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
 * For Red and Green colors
 
    | Resistor    | Voltage output|  Voltage  |calculated | Measured|
@@ -102,7 +102,7 @@ delay(2000);                  // waits for 2 seconds
    | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5Ohms  |         |
    | R3  (3rd MSB| V3            | 1/7V      |1105Ohms   |         |
    
-   * How each voltages were computed:
+   * Voltage computations:
    
    *V1+V2+V3 = 1V*
    
@@ -112,7 +112,7 @@ delay(2000);                  // waits for 2 seconds
    
    *V3= 1/7V*
    
-   * How each resitances were computed:
+   * Resistance computations:
    
    _Vin= 3.3V (input to FPGA)_
    
@@ -125,7 +125,7 @@ delay(2000);                  // waits for 2 seconds
    | R1  (MSB)   | V1=2V2     | 2/3       |197.5Ohms |
    | R2  (2nd MSB| V2         | 1/3       |445Ohms   |
    
-   How each voltages were computed:
+   Voltage computations:
    
    *V1+V2 = 1V*
    
