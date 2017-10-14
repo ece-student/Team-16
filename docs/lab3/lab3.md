@@ -12,7 +12,6 @@ The ultimate goal is to be able to map the robot's path through the maze on a sc
 
 ## Reading external inputs to FPGA
 
-
 For the first part, we basically want to show the FPGA is reading an external input. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
 
 So now we have to decide what we want to use to produce the external input. In the end, we decided to use pins on the arduino, since this would allow the flexibility and easy manipulation of outputs since we can code it all via Arduino programming. 
@@ -167,6 +166,9 @@ Also here is an image of our voltage divider connected to the arduino and FPGA.
    ### External Input
    Reistor values 464.8 Ohms and 895 Ohms
    divider voltage value 3.37 volts
+   ## Mapping external inputs to four different outputs on the screen.
+   
+   [See the demo here](Mapping external inputs to four different outputs on the screen.)
   
   
   ![](d.png)
