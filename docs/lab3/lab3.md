@@ -1,20 +1,30 @@
 
 Graphics Subteam
 
-The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. Inorder to do this, the lab was split into multiple steps: Reading external inputs to FPGA, correctly updating a 4-bit array dependent on the inputs, drawing one box on the screen, description of how the DAC on the provided VGA connectors works and how the resistor values were chosen, and mapping external inputs to four different outputs on the screen.
+The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. In order to do this, the lab was split into multiple steps: 
+
+- Reading external inputs to FPGA, 
+- Correctly updating a 4-bit array dependent on the inputs, 
+- Drawing one box on the screen
+- Description of how the DAC on the provided VGA connectors works and how the resistor values were chosen, 
+- Mapping external inputs to four different outputs on the screen.
 
 
 ## Reading external inputs to FPGA
 
 
-For the first part, reading external inputs to FPGA, we simply wanted to show that we could use external inputs to invoke some reaction on the FPGA. In order to do this, we chose to use an arduino to create the external input.
+For the first part, we basically want to show the FPGA is reading an external input. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
 
-The arduino will output some coded voltage to a voltage divider, since the arduino can only output 5V but the FPGA can only accept inputs of roughly 3.3V. Then we input that value into the FPGA. We then code using Verilog to turn on or off an LED based on whether or not the value from the arduino is high or low.
+So now we have to decide what we want to use to produce the external input. In the end, we decided to use pins on the arduino, since this would allow the flexibility and easy manipulation of outputs since we can code it all via Arduino programming. 
+
+However, one note here is that the arduino pins output 5V, but the FPGA only accepts up to 3.3V. In order to make up for this difference, we used a voltage divider with resistances of roughly 800ohms and 500ohms to turn a 5V based output from the arduino into a 3.3V based input for the FPGA.
+
+To review, we program the arduino outputs, which subsequently go through the voltage divider, which then enter the FPGA as an external input. We will then code the FPGA to toggle the LED on or off based on the external input. 
 
 
-We toggled the arduino output pin from LOW to HIGH every 2 seconds using the following code:
+To best demonstrate this, we programmed the arduino pin to toggle from LOW to HIGH every 2 seconds using the following code within the loop:
 
-'''
+```
   //External input to FPGA
   //should toggle from HIGH to LOW every 2 seconds
   
@@ -25,7 +35,22 @@ We toggled the arduino output pin from LOW to HIGH every 2 seconds using the fol
   digitalWrite(LED_BUILTIN, HIGH); //sets the LED high (just a marker)
   delay(2000);                     // waits for 2 seconds
 
-'''
+```
+
+In our Verilog code for the FPGA, we merely had to equate the LED's current state, led_state, with the external input, such that the HIGH of the external input corresponds to the HIGH of the led_state, and the LOW with the LOW. We did this using the following code:
+```
+  always @ (posedge CLOCK_50) begin
+        CLOCK_25 <= ~CLOCK_25; 
+  		  if (GPIO_0_D[0]== 1'b0) begin
+				led_state   <= 1'b0;
+		  end
+		  else if (GPIO_0_D[0]==1'b1) begin	
+				led_state   <= 1'b1;
+		  end 
+	 end
+```
+
+Note in the above code, GPIO_O_D[0] was our external input and led_state refers to the LED's current state.
 
 [See the demo here]()
 
@@ -35,7 +60,7 @@ We toggled the arduino output pin from LOW to HIGH every 2 seconds using the fol
 This is similar to the external input to the FPGA with one added aspect. Since we want a 4 bit array, or essentially a 2 by 2 grid array, we can use two inputs from the arduino and map each part of the grid to the corresponding LED on the FPGA.
 
 For the arduino code, we had two outputs, but we wanted to use these outputs to create a total of 4 combinations, as seen on the diagram.
-'''
+```
   //4 bit array mapped to LEDs on FPGA
   //should iterate through 00, 01, 10, 11 
   //2 second intervals
@@ -57,7 +82,7 @@ delay(2000);                  // waits for 2 seconds
 digitalWrite(Pin1, HIGH);     // sets both pins high
 digitalWrite(Pin2, HIGH);     
 delay(2000);                  // waits for 2 seconds
-'''
+```
 
 [See the demo here]()
 
