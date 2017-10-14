@@ -23,6 +23,8 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [Lab 2: Analog Circuitry and FFTs](./docs/lab2/lab2.md)
  
+ * [Lab 3: FPGA Video Controller and Sound Generation](./docs/lab3/lab3.md)
+ 
  * [Milestone 1](./docs/milestones/1.md)
  
  * [Milestone 2](./docs/milestone2/milestone2.md)
