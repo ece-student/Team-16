@@ -19,6 +19,9 @@ So now we have to decide what we want to use to produce the external input. In t
 
 However, one note here is that the arduino pins output 5V, but the FPGA only accepts up to 3.3V. In order to make up for this difference, we used a voltage divider with resistances of roughly 800ohms and 500ohms to turn a 5V based output from the arduino into a 3.3V based input for the FPGA.
 
+
+![](a.png)
+
 To review, we program the arduino outputs, which subsequently go through the voltage divider, which then enter the FPGA as an external input. We will then code the FPGA to toggle the LED on or off based on the external input. 
 
 
@@ -59,7 +62,10 @@ Note in the above code, GPIO_O_D[0] was our external input and led_state refers 
 
 This is similar to the external input to the FPGA with one added aspect. Since we want a 4 bit array, or essentially a 2 by 2 grid array, we can use two inputs from the arduino and map each part of the grid to the corresponding LED on the FPGA.
 
-For the arduino code, we had two outputs, but we wanted to use these outputs to create a total of 4 combinations, as seen on the diagram.
+![](b.png)
+
+For the arduino code, we had two outputs, but we wanted to use these outputs to create a total of 4 combinations, as seen on the diagram. As such, we programmed it to toggle through LOW LOW, LOW HIGH, HIGH LOW, and finally HIGH HIGH for output pins 1 and two respectively. This can be seen in the following code.
+
 ```
   //4 bit array mapped to LEDs on FPGA
   //should iterate through 00, 01, 10, 11 
@@ -83,7 +89,27 @@ digitalWrite(Pin1, HIGH);     // sets both pins high
 digitalWrite(Pin2, HIGH);     
 delay(2000);                  // waits for 2 seconds
 ```
+For the Verilog code, the only thing that would change is that we need to add another external input and equate it to a second led_state as seen in the following:
 
+```
+    always @ (posedge CLOCK_50) begin
+
+        CLOCK_25 <= ~CLOCK_25; 
+  		  if (GPIO_0_D[0]== 1'b0) begin
+				led_state   <= 1'b0;
+		  end
+		  else if (GPIO_0_D[0]==1'b1) begin	
+				led_state   <= 1'b1;
+		  end 
+		  
+		  if (GPIO_0_D[1]== 1'b0) begin
+				led_state2  <= 1'b0;
+		  end
+		  else if (GPIO_0_D[1]==1'b1) begin
+				led_state2  <= 1'b1;
+		  end
+
+```
 [See the demo here]()
 
 ## Drawing one box on the screen
