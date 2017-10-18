@@ -198,6 +198,10 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    ## Mapping external inputs to four different outputs on the screen.
    
+   ![](ac.png)
+   ![](coloredbox.png)
+   
+   
    [See the demo here](Mapping external inputs to four different outputs on the screen.)
   
   
