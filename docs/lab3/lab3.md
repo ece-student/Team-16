@@ -3,20 +3,20 @@
 
 The ultimate goal is to be able to map the robot's path through the maze on a screen using a FPGA and a VGA. In order to do this, the lab was split into multiple steps, each of which will help us achieve that ultimate goal in a later lab: 
 
-- Reading external inputs to FPGA, 
-- Correctly updating a 4-bit array dependent on the inputs, 
+- Reading external inputs to FPGA
+- Correctly updating a 4-bit array dependent on the inputs 
 - Drawing one box on the screen
-- Description of how the DAC on the provided VGA connectors works and how the resistor values were chosen, 
-- Mapping external inputs to four different outputs on the screen.
+- Description of how the DAC on the provided VGA connectors works and how the resistor values were chosen
+- Mapping external inputs to four different outputs on the screen
 
 
 ## Reading external inputs to FPGA
 
-For the first part, we basically want to show the FPGA is reading an external input. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
-
-So now we have to decide what we want to use to produce the external input. In the end, we decided to use pins on the arduino, since this would allow the flexibility and easy manipulation of outputs since we can code it all via Arduino programming. 
+First before we do anything further, we have to decide what we want to use to produce the external input. In the end, we decided to use the arduino, since this would allow for flexibility and easy manipulation of the output pins since we can code it all via Arduino programming. 
 
 However, one note here is that the arduino pins output 5V, but the FPGA only accepts up to 3.3V. In order to make up for this difference, we used a voltage divider with resistances of roughly 800ohms and 500ohms to turn a 5V based output from the arduino into a 3.3V based input for the FPGA.
+
+FOr this first part, we basically want to show that the FPGA is reading the input from the arduino. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
 
 
 ![](a.png)
@@ -146,9 +146,9 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
 
 ## Description of how resistor values were chosen
 
-* We had three resistors for red and green and two resistors for blue color output from the VGA.
-* The resistor values were calcuated by using the concept of voltage division. 
-* We calcualted the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
+* We had three resistors for the red and green color output and two for the blue color output from the VGA.
+* The resistor values were calculated using the concept of voltage division. 
+* We calculated the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
 * The voltage drop across R4 was determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
 * For Red and Green colors
 
@@ -194,6 +194,8 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    ### External Input
    Reistor values 464.8 Ohms and 895 Ohms
    divider voltage value 3.37 volts
+   
+   
    ## Mapping external inputs to four different outputs on the screen.
    
    [See the demo here](Mapping external inputs to four different outputs on the screen.)
