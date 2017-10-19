@@ -216,7 +216,9 @@ We then used the code we had initially written to draw one box and updated it so
   ![](d.png)
    
 In this portion of the lab, we were task with generating audio via an FPGA and an 8-bit R2R DAC. The DAC was connected to the FPGA on pins 15, 17, 19, 21, 23, 25, 27, and 31 on GPIO-0 header. These pins were then connected to DAC pins 1 through 8. The output (pin 16) from the DAC was connected to a 1uF capacitor to block DC voltage from the speaker. The capacitor is then connected to a stereo 3.5mm audio jack. In switching the audio signal on and off we used KEY[1]. The pin that we used when we used the Arduino to trigger the FPGA to play the tune was pin 33.
-   
+
+![](FPGADAC.png)
+
 ## Multiple frequency tune
 After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSMs (finite state machines). We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
 
