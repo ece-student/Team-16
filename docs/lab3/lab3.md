@@ -26,7 +26,7 @@ To review, we program the arduino outputs, which subsequently go through the vol
 
 To best demonstrate this, we programmed the arduino pin to toggle from LOW to HIGH every 2 seconds using the following code within the loop:
 
-```
+``` arduino 
   //External input to FPGA
   //should toggle from HIGH to LOW every 2 seconds
   
@@ -40,7 +40,7 @@ To best demonstrate this, we programmed the arduino pin to toggle from LOW to HI
 ```
 
 In our Verilog code for the FPGA, we merely had to equate the LED's current state, led_state, with the external input, such that the HIGH of the external input corresponds to the HIGH of the led_state, and the LOW with the LOW. We did this using the following code:
-```
+``` verilog
   always @ (posedge CLOCK_50) begin
         CLOCK_25 <= ~CLOCK_25; 
   		  if (GPIO_0_D[0]== 1'b0) begin
@@ -65,7 +65,7 @@ This is similar to the external input to the FPGA with one added aspect. Since w
 
 For the arduino code, we had two outputs, but we wanted to use these outputs to create a total of 4 combinations, as seen on the diagram. As such, we programmed it to toggle through LOW LOW, LOW HIGH, HIGH LOW, and finally HIGH HIGH for output pins 1 and two respectively. This can be seen in the following code.
 
-```
+``` arduino
   //4 bit array mapped to LEDs on FPGA
   //should iterate through 00, 01, 10, 11 
   //2 second intervals
@@ -90,7 +90,7 @@ delay(2000);                  // waits for 2 seconds
 ```
 For the Verilog code, the only thing that would change is that we need to add another external input and equate it to a second led_state as seen in the following:
 
-```
+``` verilog
     always @ (posedge CLOCK_50) begin
 
         CLOCK_25 <= ~CLOCK_25; 
@@ -120,7 +120,7 @@ Drawing one box on the screen is independent of the work we've done so far. We w
 
 For this first part, we only need to program using Verilog. First from the VGA driver, we receive some pixel x and y coordinate which we declare as a wire in verilog as such:
 
-```
+``` verilog
     wire [9:0]  PIXEL_COORD_X; // current x-coord from VGA driver
     wire [9:0]  PIXEL_COORD_Y; // current y-coord from VGA driver
    
@@ -128,7 +128,7 @@ For this first part, we only need to program using Verilog. First from the VGA d
 
 We then under structural coding added the following:
 
-```
+``` verilog
 always @ (*) begin 
 	  if(PIXEL_COORD_X < 10'd64 && PIXEL_COORD_Y < 10'd64) begin
 		PIXEL_COLOR <= 8'b000_000_00;
@@ -225,42 +225,6 @@ After being able to play a tune, we wanted the ability to play a short song, whi
 We had four states for each tone: STATE_1, STATE_2, STATE_3, and STATE_4. We also had an initial state at which nothing is playing and the tone is waiting for the signal to start.
 
 There are two registers to hold state: the current state and the next state. At every positive clock edge there are three cases to check:
-
-```Verilog
-localparam STATE_Initial = 3'b000, //pre-DONE signal
-	STATE_1 = 3'b001, // Low E
-	STATE_2 = 3'b010, // Low E
-	STATE_3 = 3'b011, // Low F
-	STATE_4 = 3'b100; // Low D	
-reg[2:0] currState;
-reg[2:0] nextState;
-
-always @(posedge CLOCK) begin
-	if (RESET) begin
-		pastOut <= 8'b00000000;
-		counter1 <= FREQ1;
-		...
-		currState <= STATE_Initial;
-	end
-	else if(DONE) begin
-		nextState <= STATE_1;
-	end
-	else begin
-		currState <= nextState;
-		case(currState)
-			STATE_Initial: begin
-				nextState <= STATE_Initial;
-			end
-			STATE_1: begin
-				if(counter1 < 1) begin
-					counter1 <= FREQ1;
-					pastOut <= pastOut + 1;
-				end
-				else begin
-					counter1 <= counter1-1;
-				end
-				...
-```
 
 1. RESET is high. In this case all the registers including the states are set to their initial values.
 2. DONE is high. DONE signals for the tone to start. When it is high, nextState is set to STATE_1. This allows the state to transition from the initial state to the first tone state at the next positive clock edge.
