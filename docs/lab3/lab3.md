@@ -190,13 +190,11 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    *3V2= 1V*
    
-   *V2= 1/3V*   c
-   ### External Input
-   Reistor values 464.8 Ohms and 895 Ohms
-   divider voltage value 3.37 volts
+   *V2= 1/3V*   
    
+
    
-   ## Mapping external inputs to four different outputs on the screen.
+## Mapping external inputs to four different outputs on the screen.
    
 Once we had completed the tasks of correctly updating a 4-bit array with inputs and drawing boxes on the screen, we were finally ready to combine all we had accomplished thus far and map the external inputs to outputs on the computer screen. 
 
