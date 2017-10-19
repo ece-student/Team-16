@@ -16,7 +16,7 @@ First before we do anything further, we have to decide what we want to use to pr
 
 However, one note here is that the arduino pins output 5V, but the FPGA only accepts up to 3.3V. In order to make up for this difference, we used a voltage divider with resistances of roughly 800ohms and 500ohms to turn a 5V based output from the arduino into a 3.3V based input for the FPGA. ( [use this link to find resistor values for a voltage divider](http://www.ohmslawcalculator.com/voltage-divider-calculator) )
 
-FOr this first part, we basically want to show that the FPGA is reading the input from the arduino. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
+For this first part, we basically want to show that the FPGA is reading the input from the arduino. We decided to do this by toggling one of the FPGA LEDs to turn on if the external input was running high, and off if the external input was low. 
 
 
 ![](a.png)
@@ -116,7 +116,7 @@ Also here is an image of our voltage divider connected to the arduino and FPGA.
 
 ## Drawing one box on the screen
 
-Drawing one box on the screen is independent of the work we've done so part, which we will add in later when we use external inputs to change what happens on the screen.
+Drawing one box on the screen is independent of the work we've done so far. We will use this later when we use external inputs to change what happens on the screen.
 
 For this first part, we only need to program using Verilog. First from the VGA driver, we receive some pixel x and y coordinate which we declare as a wire in verilog as such:
 
