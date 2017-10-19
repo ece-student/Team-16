@@ -221,7 +221,7 @@ After being able to play a tune, we wanted the ability to play a short song, whi
 
 Our formula to calculate how long between each step
 
-$$\[\frac{25Mhz}{256 * desired frequency} - 1 = step duration\]$$
+*25Mhz/(256 * desired frequency) - 1 = step duration*
 
 //calculations of tune frequencies
 
