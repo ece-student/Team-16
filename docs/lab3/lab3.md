@@ -222,7 +222,11 @@ In this portion of the lab, we were task with generating audio via an FPGA and a
 ## Multiple frequency tune
 After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSMs (finite state machines). We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
 
-// calculations of tune frequencies
+Our formula to calculate how long between each step
+(25Mhz / (256 * desired frequency))- 1 = step duration
+
+//calculations of tune frequencies
+
 
 We had four states for each tone: STATE_1, STATE_2, STATE_3, and STATE_4. We also had an initial state at which nothing is playing and the tone is waiting for the signal to start.
 
