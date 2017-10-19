@@ -150,6 +150,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
 * The resistor values were calculated using the concept of voltage division. 
 * We calculated the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
 * The voltage drop across R4 was determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
+
 * For Red and Green colors
 
    | Resistor    | Voltage output|  Voltage  |calculated | Measured|
@@ -213,4 +214,6 @@ We then used the code we had initially written to draw one box and updated it so
   
   
   ![](d.png)
+   
+In this portion of the lab, we were task with generating audio via an FPGA and an 8-bit R2R DAC. The DAC was connected to the FPGA on pins 15, 17, 19, 21, 23, 25, 27, and 31 on GPIO-0 header. These pins were then connected to DAC pins 1 through 8. The output (pin 16) from the DAC was connected to a 1uF capacitor to block DC voltage from the speaker. The capacitor is then connected to a stereo 3.5mm audio jack. In switching the audio signal on and off we used KEY[1]. The pin that we used when we used the Arduino to trigger the FPGA to play the tune was pin 33.
    
