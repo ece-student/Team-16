@@ -190,8 +190,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    *3V2= 1V*
    
-   *V2= 1/3V*
-   c
+   *V2= 1/3V*   c
    ### External Input
    Reistor values 464.8 Ohms and 895 Ohms
    divider voltage value 3.37 volts
@@ -224,7 +223,7 @@ After being able to play a tune, we wanted the ability to play a short song, whi
 
 Our formula to calculate how long between each step
 
-*(25Mhz / (256 * desired frequency))- 1 = step duration*
+\[\frac{25Mhz}{256 * desired frequency} - 1 = step duration\]
 
 //calculations of tune frequencies
 
