@@ -204,10 +204,10 @@ We decided it would make sense to use a 2x2 grid as our output so that we can be
    
    ![](ac.png)
    
-We then used the code we had initially written to draw one box and updated it so that 4 boxes would appear in a 2x2 grid. Once we were satisfied with our 2x2 grid’s appearance, we then added extra code connecting each grid location to our same Arduino external input. Our logic was that if an external input was set high then not only will the LED light up, as was present in previous parts, but also the box corresponding to a location on the grid would be drawn.
+We then used the code we had initially written to draw one box and updated it so that 4 boxes would appear in a 2x2 grid. Once we were satisfied with our 2x2 grid’s appearance, we then added extra code connecting each box or grid location to our same Arduino external input. Our logic was that if the correct combination of external inputs was set high or low then not only will the LED light up, as was present in previous parts, but also the box corresponding to a location on the grid would be drawn.
    
    ![](coloredbox.png)
-   
+  
    
    [See the demo here](Mapping external inputs to four different outputs on the screen.)
   
