@@ -198,7 +198,14 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    ## Mapping external inputs to four different outputs on the screen.
    
+Once we had completed the tasks of correctly updating a 4-bit array with inputs and drawing boxes on the screen, we were finally ready to combine all we had accomplished thus far and map the external inputs to outputs on the computer screen. 
+
+We decided it would make sense to use a 2x2 grid as our output so that we can begin to work on what will eventually be a larger 4x5 grid in future labs. We declared an 8 bit 2x2 array named grid and then assigned each bit to a different color, which would correspond to a different location on the grid. 
+   
    ![](ac.png)
+   
+We then used the code we had initially written to draw one box and updated it so that 4 boxes would appear in a 2x2 grid. Once we were satisfied with our 2x2 grid’s appearance, we then added extra code connecting each grid location to our same Arduino external input. Our logic was that if an external input was set high then not only will the LED light up, as was present in previous parts, but also the box corresponding to a location on the grid would be drawn.
+   
    ![](coloredbox.png)
    
    
