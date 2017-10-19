@@ -209,7 +209,7 @@ We then used the code we had initially written to draw one box and updated it so
    ![](coloredbox.png)
   
    
-   [See the demo here](Mapping external inputs to four different outputs on the screen.)
+   [See the demo here](https://youtu.be/ltPyAFzCKdA)
   
   
   ![](d.png)
