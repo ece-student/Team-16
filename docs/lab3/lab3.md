@@ -225,6 +225,11 @@ Our formula to calculate how long between each step
 
 //calculations of tune frequencies
 
+E_2 *25MHz/(256 * 82.4069Hz) - 1 = 1184*
+
+F_2 *25MHz/(256 * 87.3071Hz) - 1 = 1117*
+
+D_2 *25MHz/(256 * 73.4162Hz) - 1 = 1329*
 
 We had four states for each tone: STATE_1, STATE_2, STATE_3, and STATE_4. We also had an initial state at which nothing is playing and the tone is waiting for the signal to start.
 
