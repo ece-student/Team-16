@@ -226,6 +226,42 @@ We had four states for each tone: STATE_1, STATE_2, STATE_3, and STATE_4. We als
 
 There are two registers to hold state: the current state and the next state. At every positive clock edge there are three cases to check:
 
+```Verilog
+localparam STATE_Initial = 3'b000, //pre-DONE signal
+	STATE_1 = 3'b001, // Low E
+	STATE_2 = 3'b010, // Low E
+	STATE_3 = 3'b011, // Low F
+	STATE_4 = 3'b100; // Low D	
+reg[2:0] currState;
+reg[2:0] nextState;
+
+always @(posedge CLOCK) begin
+	if (RESET) begin
+		pastOut <= 8'b00000000;
+		counter1 <= FREQ1;
+		...
+		currState <= STATE_Initial;
+	end
+	else if(DONE) begin
+		nextState <= STATE_1;
+	end
+	else begin
+		currState <= nextState;
+		case(currState)
+			STATE_Initial: begin
+				nextState <= STATE_Initial;
+			end
+			STATE_1: begin
+				if(counter1 < 1) begin
+					counter1 <= FREQ1;
+					pastOut <= pastOut + 1;
+				end
+				else begin
+					counter1 <= counter1-1;
+				end
+				...
+```
+
 1. RESET is high. In this case all the registers including the states are set to their initial values.
 2. DONE is high. DONE signals for the tone to start. When it is high, nextState is set to STATE_1. This allows the state to transition from the initial state to the first tone state at the next positive clock edge.
 3. // do we need to check DONE before going in here? 
