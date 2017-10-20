@@ -239,13 +239,10 @@ In generating a square wave, we just need to toggle all of the pins at the same 
 For the next step of this lab, we chose to generate a sawtooth wave. In the previously outlined square wave, to calculate the step duration of the wave, we used a similar calculation to the that of the square wave generator: [25MHz / (256 * desired frequency)] - 1. The 256 coefficient is needed because the ascent of our wave is split up into 256 steps (256 values for an 8-bit output declared in our Verilog code). We periodocially incremented the output value of the wave, which reverted back to zero after getting to 255 from 0. This range was the basis for our idea of using 256 steps. We subtracted 1 because this adjustment seemed to be just enough compensation for the function generator to consistently produce a wave form with our desired frequencies. 
 
 [see sawtooth wave demo here](https://www.youtube.com/watch?v=u8fw_ki_yeM)
+![](IMG_2763.JPG)
 
 ## Turning On/Off Your Sound With an Enable Signal
 For turning our sawtooth wave on and off, we used KEY[1]. Our on/off functionality is that if the button is pressed, then the sawtooth wave is off and the sawtooth wave is on when the button is not pressed. Our switch acts like a momentary switch.  
-
-[See sawtooth wave with switching demo here](https://www.youtube.com/watch?v=vuTFdfEg8vU)
-
-[See sawtooth wave with switching on the oscilloscope demo here](https://www.youtube.com/watch?v=8LLq48UJxWM)
 
 ## Multiple Frequency Tune
 After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSM. We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
