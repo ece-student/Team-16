@@ -19,7 +19,7 @@
  
  * [Meeting Minutes 10-6](./docs/MeetingMinutes/oct6.md)
  
- * [Meeting Minutes 10-13](./docs/MeetingMinutes/oct6.md)
+ * [Meeting Minutes 10-13](./docs/MeetingMinutes/oct13.md)
  
- * [Meeting Minutes 10-20](./docs/MeetingMinutes/oct6.md)
+ * [Meeting Minutes 10-20](./docs/MeetingMinutes/oct20.md)
   
