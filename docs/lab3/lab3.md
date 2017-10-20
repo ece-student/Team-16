@@ -160,11 +160,11 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1179.08 Ohms|
    
 * Green
-   | Resistor    | Voltage output|  Voltage  |calculated  | Measured   |
-   | ----------- | ------------- |-----------|----------- |------------|
-   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |268.14 Ohms |
-   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |559.4.89Ohms|
-   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1180.79 Ohms|
+   | Resistor    | Voltage output|  Voltage  |calculated  | Measured    |
+   | ----------- | ------------- |-----------|----------- |-------------|
+   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |268.14 Ohms  |
+   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |559.4.89 Ohms|
+   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1180.79 Ohms |
    
    
    * Voltage computations:
@@ -199,9 +199,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    *3V2= 1V*
    
    *V2= 1/3V*   
-   
-
-   
+      
 ## Mapping external inputs to four different outputs on the screen.
    
 Once we had completed the tasks of correctly updating a 4-bit array with inputs and drawing boxes on the screen, we were finally ready to combine all we had accomplished thus far and map the external inputs to outputs on the computer screen. 
