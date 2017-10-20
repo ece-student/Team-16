@@ -265,7 +265,28 @@ There are two registers to hold state: the current state and the next state. At 
 2. DONE is high. DONE signals for the tone to start. When it is high, nextState is set to STATE_1. This allows the state to transition from the initial state to the first tone state at the next positive clock edge.
 3. This is the actual tone state logic. It begins by assigning nextState to currState and then nextState will be set in the case statement. The case statement is on the current state. When it is in the initial state, nextState is assigned to STATE_Initial so nothing happens. This is when the tone is done playing and is waiting for another DONE signal to start again.
 
-States 1 to 3 have identical logic. Each state has a counter register associated with it. This counter initially stores the number of clock cycles each tone’s sawtooth is supposed to last. This counter value changes depending on the frequency of the tone. When the counter is less than 1, it is reset. Otherwise it is just decremented. Another register, duration is the number of clock cycles the entire state/tone is supposed to last. When it is less than 1, nextState is set to the next state and duration is reset. Otherwise, nextState is assigned to the current state and duration is decremented. State 4 is different in that it needs to handle termination. The only difference is that when duration is less than 1 and it is ready to move on, nextState is assigned to STATE_Initial which terminates the tune. 
+States 1 to 3 have identical logic. The state logic is shown below:
+```Verilog
+STATE_1: begin
+	if(counter1 < 1) begin
+		counter1 <= FREQ1;
+		pastOut <= pastOut + 1;
+	end
+	else begin
+		counter1 <= counter1-1;
+	end
+
+	if(duration<1)begin
+		nextState <= STATE_2;
+		duration <= TIME;
+	end
+	else begin
+		nextState <= STATE_1;
+		duration <= duration-1;
+	end
+end
+```
+Each state has a counter register associated with it. This counter initially stores the number of clock cycles each tone’s sawtooth is supposed to last. This counter value changes depending on the frequency of the tone. When the counter is less than 1, it is reset. Otherwise it is just decremented. Another register, duration is the number of clock cycles the entire state/tone is supposed to last. When it is less than 1, nextState is set to the next state and duration is reset. Otherwise, nextState is assigned to the current state and duration is decremented. State 4 is different in that it needs to handle termination. The only difference is that when duration is less than 1 and it is ready to move on, nextState is assigned to STATE_Initial which terminates the tune. 
 
 [see tune demo here](https://www.youtube.com/watch?v=vP39ln-51xc)
 
