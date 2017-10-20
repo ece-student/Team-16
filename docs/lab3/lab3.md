@@ -242,6 +242,9 @@ For the next step of this lab, we chose to generate a sawtooth wave. In the prev
 
 [see sawtooth wave demo here](https://www.youtube.com/watch?v=u8fw_ki_yeM)
 
+## Turning On/Off Your Sound With an Enable Signal
+For turning our sawtooth wave on and off, we used KEY[1]. Our on/off functionality is that if the button is pressed, then the sawtooth wave is off and the sawtooth wave is on when the button is not pressed. Our switch acts like a momentary switch.  
+
 ## Multiple Frequency Tune
 After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSM. We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
 
