@@ -238,8 +238,6 @@ In generating a square wave, we just need to toggle all of the pins at the same 
 ## Sawtooth Wave
 For the next step of this lab, we chose to generate a sawtooth wave. In the previously outlined square wave, to calculate the step duration of the wave, we used a similar calculation to the that of the square wave generator: [25MHz / (256 * desired frequency)] - 1. The 256 coefficient is needed because the ascent of our wave is split up into 256 steps (256 values for an 8-bit output declared in our Verilog code). We periodocially incremented the output value of the wave, which reverted back to zero after getting to 255 from 0. This range was the basis for our idea of using 256 steps. We subtracted 1 because this adjustment seemed to be just enough compensation for the function generator to consistently produce a wave form with our desired frequencies. 
 
-
-
 [see sawtooth wave demo here](https://www.youtube.com/watch?v=u8fw_ki_yeM)
 
 ## Turning On/Off Your Sound With an Enable Signal
@@ -251,8 +249,6 @@ After being able to play a tune, we wanted the ability to play a short song, whi
 Our formula to calculate how long between each step
 
 *25MHz/(256 * desired frequency) - 1 = step duration*
-
-//calculations of tune frequencies
 
 E_2 *25MHz/(256 * 82.4069Hz) - 1 = 1184*
 
@@ -266,8 +262,7 @@ There are two registers to hold state: the current state and the next state. At 
 
 1. RESET is high. In this case all the registers including the states are set to their initial values.
 2. DONE is high. DONE signals for the tone to start. When it is high, nextState is set to STATE_1. This allows the state to transition from the initial state to the first tone state at the next positive clock edge.
-3. // do we need to check DONE before going in here? 
-	This is the actual tone state logic. It begins by assigning nextState to currState and then nextState will be set in the case statement. The case statement is on the current state. When it is in the initial state, nextState is assigned to STATE_Initial so nothing happens. This is when the tone is done playing and is waiting for another DONE signal to start again.
+3. This is the actual tone state logic. It begins by assigning nextState to currState and then nextState will be set in the case statement. The case statement is on the current state. When it is in the initial state, nextState is assigned to STATE_Initial so nothing happens. This is when the tone is done playing and is waiting for another DONE signal to start again.
 
 States 1 to 3 have identical logic. Each state has a counter register associated with it. This counter initially stores the number of clock cycles each tone’s sawtooth is supposed to last. This counter value changes depending on the frequency of the tone. When the counter is less than 1, it is reset. Otherwise it is just decremented. Another register, duration is the number of clock cycles the entire state/tone is supposed to last. When it is less than 1, nextState is set to the next state and duration is reset. Otherwise, nextState is assigned to the current state and duration is decremented. State 4 is different in that it needs to handle termination. The only difference is that when duration is less than 1 and it is ready to move on, nextState is assigned to STATE_Initial which terminates the tune. 
 
