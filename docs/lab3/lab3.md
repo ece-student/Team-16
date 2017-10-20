@@ -6,9 +6,8 @@ The ultimate goal is to be able to map the robot's path through the maze on a sc
 - Reading external inputs to FPGA
 - Correctly updating a 4-bit array dependent on the inputs 
 - Drawing one box on the screen
-- Description of how the DAC on the provided VGA connectors works and how the resistor values were chosen
+- Description of how the resistor values were chosen for the DAC
 - Mapping external inputs to four different outputs on the screen
-
 
 ## Reading external inputs to FPGA
 
@@ -38,6 +37,7 @@ To best demonstrate this, we programmed the arduino pin to toggle from LOW to HI
   delay(2000);                     // waits for 2 seconds
 
 ```
+The built in led from the Arduino was used for debugging to check that if our implementation is correct the leds on the FPGA blink simultaneously with the built in LED from the Arduino. 
 
 In our Verilog code for the FPGA, we merely had to equate the LED's current state, led_state, with the external input, such that the HIGH of the external input corresponds to the HIGH of the led_state, and the LOW with the LOW. We did this using the following code:
 ``` verilog
@@ -52,7 +52,7 @@ In our Verilog code for the FPGA, we merely had to equate the LED's current stat
 	 end
 ```
 
-Note in the above code, GPIO_O_D[0] was our external input and led_state refers to the LED's current state.
+Note in the above code, GPIO_O_D[0] is the pin connected to our external input and led_state refers to the LED's current state.
 
 [See the demo here](https://youtu.be/QqNK1ildkJI)
 
@@ -145,11 +145,11 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
 ![](red.png)
 
 ## Description for how resistor values were chosen for VGA
-
-* We had three resistors for the red and green color output and two for the blue color output from the VGA.
+The resistors were used for Digital to Analog conversion of signals from the FPGA to the VGA since VGA uses analog signal where as FPGA uses digital signal. We had 8 resistors total which correspond to the 8 bits used for representing different colors in our code.  
+* Three resistors for the red and green color output and two resistors for blue color were used to direct our outputs to the VGA.
 * The resistor values were calculated using the concept of voltage division. 
-* We calculated the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
-* The voltage drop across R4 was determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
+* We calculated the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin.
+* The voltage drop across R4 was determined by the bit that is on and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
 
 * Red 
 
@@ -200,7 +200,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    *V2= 1/3V*  
    
-   Reistance computations for this by following similar procedure used for green and red colors. 
+   Reistance computations for Blue were done by following similar procedure used for green and red colors. 
       
 ## Mapping external inputs to four different outputs on the screen.
    
