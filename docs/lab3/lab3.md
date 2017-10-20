@@ -144,7 +144,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
 
 ![](red.png)
 
-## Description of how resistor values were chosen
+## Description for how resistor values were chosen for VGA
 
 * We had three resistors for the red and green color output and two for the blue color output from the VGA.
 * The resistor values were calculated using the concept of voltage division. 
@@ -156,15 +156,15 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    | Resistor    | Voltage output|  Voltage  |calculated  | Measured   |
    | ----------- | ------------- |-----------|----------- |------------|
    | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |269 Ohms    |
-   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |552.89Ohms  |
-   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1179.08 Ohms|
+   | R2 (2nd MSB)| V2=2V3        | 2/7V      |527.5 Ohms  |552.89Ohms  |
+   | R3 (3rd MSB)| V3            | 1/7V      |1105 Ohms   |1179.08 Ohms|
    
 * Green
    | Resistor    | Voltage output|  Voltage  |calculated  | Measured    |
    | ----------- | ------------- |-----------|----------- |-------------|
    | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |268.14 Ohms  |
-   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |559.4.89 Ohms|
-   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1180.79 Ohms |
+   | R2 (2nd MSB)| V2=2V3        | 2/7V      |527.5 Ohms  |559.4.89 Ohms|
+   | R3 (3rd MSB)| V3            | 1/7V      |1105 Ohms   |1180.79 Ohms |
    
    
    * Voltage computations:
@@ -188,7 +188,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    | Resistor    | Voltage    |  Voltage  |Calcualted|Measured   |
    | ----------- | -----------|-----------|----------|-----------|
    | R1  (MSB)   | V1=2V2     | 2/3       |197.5Ohms |268.31 Ohms|
-   | R2  (2nd MSB| V2         | 1/3       |445Ohms   |567 Ohms   |
+   | R2 (2nd MSB)| V2         | 1/3       |445Ohms   |567 Ohms   |
    
    Voltage computations:
    
@@ -198,7 +198,9 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    *3V2= 1V*
    
-   *V2= 1/3V*   
+   *V2= 1/3V*  
+   
+   Reistance computations for this by following similar procedure used for green and red colors. 
       
 ## Mapping external inputs to four different outputs on the screen.
    
