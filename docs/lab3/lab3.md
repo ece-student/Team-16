@@ -221,7 +221,7 @@ The DAC was connected to the FPGA on pins 15, 17, 19, 21, 23, 25, 27, and 31 on 
 ## Square Wave
 In generating a square wave, we just need to toggle all of the pins at the same time. To generate the wave, we calculate that the duration of how long the wave is on and how long of the wave is off with 25MHz / (2 * desired frequency). It is 2 * desired frequency because the always block triggers at the positive edge of the clock signal which results in halving our desired frequency. The resulting number does not always correspond to our desired frequency because we are dealing with discrete numbers. In testing our square wave, we generated a A440 square from the FPGA.
 
-![](IMG_2763.JPG)
+![](squareWave.jpg)
 [See square wave demo here](https://www.youtube.com/watch?v=R8MxmX5vwVQ)
 
 ## Sawtooth Wave
