@@ -218,6 +218,7 @@ We then used the code we had initially written to draw one box and updated it so
   
    
    [See the demo here](https://youtu.be/ltPyAFzCKdA)
+   [See the completed code here](DE0_NANO(fpgatovga).v)
   
   
   ![](d.png)
