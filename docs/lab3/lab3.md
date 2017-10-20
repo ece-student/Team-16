@@ -201,6 +201,8 @@ The resistors were used for Digital to Analog conversion of signals from the FPG
    *V2= 1/3V*  
    
    Reistance computations for Blue were done by following similar procedure used for green and red colors. 
+   
+   ![](res.jpg)
       
 ## Mapping external inputs to four different outputs on the screen.
    
