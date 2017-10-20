@@ -267,5 +267,7 @@ There are two registers to hold state: the current state and the next state. At 
 
 States 1 to 3 have identical logic. Each state has a counter register associated with it. This counter initially stores the number of clock cycles each tone’s sawtooth is supposed to last. This counter value changes depending on the frequency of the tone. When the counter is less than 1, it is reset. Otherwise it is just decremented. Another register, duration is the number of clock cycles the entire state/tone is supposed to last. When it is less than 1, nextState is set to the next state and duration is reset. Otherwise, nextState is assigned to the current state and duration is decremented. State 4 is different in that it needs to handle termination. The only difference is that when duration is less than 1 and it is ready to move on, nextState is assigned to STATE_Initial which terminates the tune. 
 
+[see tune demo here](https://www.youtube.com/watch?v=vP39ln-51xc)
+
 # Work distribution
 Firehiwot, Jidenna, and Lois were on the graphics subteam. Rohit, John, and Asad were on the Acoustic subteam. We worked seperately to complete our portions of the lab, but made sure to have communication between the subteams so everyone is aware of the whole team's progress. 
