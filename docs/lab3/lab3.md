@@ -151,13 +151,21 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
 * We calculated the voltage drop across the 50 Ohm resistor (labeled R4) by turning on only one resistor connected to the VGA pin. 
 * The voltage drop across R4 was determined by the bit that is one and each bit generates an output voltage that is twice the voltage output of the next least significant bit. 
 
-* For Red and Green colors
+* Red 
 
-   | Resistor    | Voltage output|  Voltage  |calculated | Measured|
-   | ----------- | ------------- |-----------|---------- |-------- |
-   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75Ohms |         |
-   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5Ohms  |         |
-   | R3  (3rd MSB| V3            | 1/7V      |1105Ohms   |         |
+   | Resistor    | Voltage output|  Voltage  |calculated  | Measured   |
+   | ----------- | ------------- |-----------|----------- |------------|
+   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |269 Ohms    |
+   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |552.89Ohms  |
+   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1179.08 Ohms|
+   
+* Green
+   | Resistor    | Voltage output|  Voltage  |calculated  | Measured   |
+   | ----------- | ------------- |-----------|----------- |------------|
+   | R1  (MSB)   | V1=2V2=4V3    | 4/7V      |238.75 Ohms |268.14 Ohms |
+   | R2  (2nd MSB| V2=2V3        | 2/7V      |527.5 Ohms  |559.4.89Ohms|
+   | R3  (3rd MSB| V3            | 1/7V      |1105 Ohms   |1180.79 Ohms|
+   
    
    * Voltage computations:
    
@@ -175,12 +183,12 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
    _Vi = [R4/(R4+Ri)] x Vin , i= 1,2,3_ 
    
-  * For Blue color
+  * Blue 
   
-   | Resistor    | Voltage    |  Voltage  |Calcualted|
-   | ----------- | -----------|-----------|----------|
-   | R1  (MSB)   | V1=2V2     | 2/3       |197.5Ohms |
-   | R2  (2nd MSB| V2         | 1/3       |445Ohms   |
+   | Resistor    | Voltage    |  Voltage  |Calcualted|Measured   |
+   | ----------- | -----------|-----------|----------|-----------|
+   | R1  (MSB)   | V1=2V2     | 2/3       |197.5Ohms |268.31 Ohms|
+   | R2  (2nd MSB| V2         | 1/3       |445Ohms   |567 Ohms   |
    
    Voltage computations:
    
