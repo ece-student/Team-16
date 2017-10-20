@@ -14,7 +14,8 @@ Agenda
    * Firehiwot
    
    Rubric for lab 4
-   * Wirelss team
+   
+   Wirelss team
     
     * 2 points: Sending information wirelessly between Arduino’s
     
@@ -22,7 +23,7 @@ Agenda
     
     * 3 points: Updating the maze array, dependent only on the updated robot information
    
-   * Graphics team
+   Graphics team
     
     * 1 point: Displaying a full 4-by-5 grid array on the screen
     
