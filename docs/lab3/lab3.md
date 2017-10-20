@@ -198,7 +198,7 @@ which basically sets up a boundary, such that for each pixel from the VGA driver
    
 Once we had completed the tasks of correctly updating a 4-bit array with inputs and drawing boxes on the screen, we were finally ready to combine all we had accomplished thus far and map the external inputs to outputs on the computer screen. 
 
-We decided it would make sense to use a 2x2 grid as our output so that we can begin to work on what will eventually be a larger 4x5 grid in future labs. We declared an 8 bit 2x2 array named grid and then assigned each bit to a different color, which would correspond to a different location on the grid. 
+We decided it would make sense to use a 2x2 grid as our output so that we can begin to work on what will eventually be a larger 4x5 grid in future labs. We declared an 8 bit 2x2 array named grid and then assigned each bit to a different color, which would correspond to a different location on the grid.
    
    ![](ac.png)
    
@@ -212,19 +212,27 @@ We then used the code we had initially written to draw one box and updated it so
   
   ![](d.png)
    
-In this portion of the lab, we were task with generating audio via an FPGA and an 8-bit R2R DAC. The DAC was connected to the FPGA on pins 15, 17, 19, 21, 23, 25, 27, and 31 on GPIO-0 header. These pins were then connected to DAC pins 1 through 8. The output (pin 16) from the DAC was connected to a 1uF capacitor to block DC voltage from the speaker. The capacitor is then connected to a stereo 3.5mm audio jack. In switching the audio signal on and off we used KEY[1]. The pin that we used when we used the Arduino to trigger the FPGA to play the tune was pin 33.
+In this portion of the lab, we were task with generating audio via an FPGA and an 8-bit R2R DAC. We produced a square wave, a sawtooth wave, and a finite state machine (FSM) based tune (in that order). 
+
+The DAC was connected to the FPGA on pins 15, 17, 19, 21, 23, 25, 27, and 31 on GPIO-0 header. These pins were then connected to DAC pins 1 through 8. The output (pin 16) from the DAC was connected to a 1uF capacitor to block DC voltage from the speaker. The capacitor is then connected to a stereo 3.5mm audio jack. In switching the audio signal on and off we used KEY[1]. The pin that we used when we used the Arduino to trigger the FPGA to play the tune was pin 33.
 
 ![](FPGADAC.png)
 
 ## Square Wave
 In generating a square wave, we just need to toggle all of the pins at the same time. To generate the wave, we calculate that the duration of how long the wave is on and how long of the wave is off with 25MHz / (2 * desired frequency). It is 2 * desired frequency because the always block triggers at the positive edge of the clock signal which results in halving our desired frequency. The resulting number does not always correspond to our desired frequency because we are dealing with discrete numbers. In testing our square wave, we generated a A440 square from the FPGA.
 
-![](squareWave.jpg)
+![](IMG_2763.JPG)
+[See square wave demo here](https://www.youtube.com/watch?v=R8MxmX5vwVQ)
 
-[See the demo here](https://www.youtube.com/watch?v=R8MxmX5vwVQ)
+## Sawtooth Wave
+For the next step of this lab, we chose to generate a sawtooth wave. In the previously outlined square wave, to calculate the step duration of the wave, we used a similar calculation to the that of the square wave generator: [25MHz / (256 * desired frequency)] - 1. The 256 coefficient is needed because the ascent of our wave is split up into 256 steps (256 values for an 8-bit output declared in our Verilog code). We periodocially incremented the output value of the wave, which reverted back to zero after getting to 255 from 0. This range was the basis for our idea of using 256 steps. We subtracted 1 because this adjustment seemed to be just enough compensation for the function generator to consistently produce a wave form with our desired frequencies. 
 
-## Multiple frequency tune
-After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSMs (finite state machines). We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
+
+
+[see sawtooth wave demo here](https://www.youtube.com/watch?v=u8fw_ki_yeM)
+
+## Multiple Frequency Tune
+After being able to play a tune, we wanted the ability to play a short song, which would require playing multiple tunes sequentially. In Verilog, sequentiality can be implemented using FSM. We wanted to play Jaws. This was to be accomplished by playing 4 tones at different frequencies. 
 
 Our formula to calculate how long between each step
 
@@ -248,8 +256,6 @@ There are two registers to hold state: the current state and the next state. At 
 	This is the actual tone state logic. It begins by assigning nextState to currState and then nextState will be set in the case statement. The case statement is on the current state. When it is in the initial state, nextState is assigned to STATE_Initial so nothing happens. This is when the tone is done playing and is waiting for another DONE signal to start again.
 
 States 1 to 3 have identical logic. Each state has a counter register associated with it. This counter initially stores the number of clock cycles each tone’s sawtooth is supposed to last. This counter value changes depending on the frequency of the tone. When the counter is less than 1, it is reset. Otherwise it is just decremented. Another register, duration is the number of clock cycles the entire state/tone is supposed to last. When it is less than 1, nextState is set to the next state and duration is reset. Otherwise, nextState is assigned to the current state and duration is decremented. State 4 is different in that it needs to handle termination. The only difference is that when duration is less than 1 and it is ready to move on, nextState is assigned to STATE_Initial which terminates the tune. 
-
-[See the demo here](https://www.youtube.com/watch?v=vP39ln-51xc)
 
 # Work distribution
 Firehiwot, Jidenna, and Lois were on the graphics subteam. Rohit, John, and Asad were on the Acoustic subteam. We worked seperately to complete our portions of the lab, but made sure to have communication between the subteams so everyone is aware of the whole team's progress. 
