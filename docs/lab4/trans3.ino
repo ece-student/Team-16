@@ -172,8 +172,14 @@ void loop(void)
 unsigned char new_data;
 // Pack the bits in this pattern
 // x_coord | y_coord | data
-// 3 bits  | 3 bits  | 2 bits
-// This scheme supports a maze up to 8 x 8
+// 2 bits  | 3 bits  | 3 bits
+// 000-> unvisited
+// 001-> no wall
+// 010-> wall
+// 011-> treasure 7khz
+// 100-> treasure 12khz
+// 101-> treasure 17khz
+
 
 // Test data
 unsigned char x_coord = 4;
