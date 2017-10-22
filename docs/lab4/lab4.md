@@ -38,10 +38,14 @@ For more info check out this [Website](https://www.nordicsemi.com/eng/Products/2
 The code implementation is shown below. Ping_out for and ping_back roles are used for sending data back and forth or acknowledgement purposes. 
 
 * Writing: Only one pipe can be open at once
-  address	The 40-bit address of the pipe to open.
+
+  address: The 40-bit address of the pipe to open.
+
 * Reading: Up to 6 pipes can be open for reading at once
-    number	Which pipe# to open ( only address is also fine for this case since there is only one receiver) 
-    address	The 40-bit address of the pipe to open.
+    
+  number: Which pipe# to open ( only address is also fine for this case since there is only one receiver) 
+    
+  address: The 40-bit address of the pipe to open.
 
 ```arduino
 
