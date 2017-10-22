@@ -1,5 +1,6 @@
 
-Radio Team
+## Radio Team
+
 The main goals of radio team are:
 * Sending information wirelessly between Arduino’s
 * Sending the entire maze wirelessly
@@ -26,13 +27,13 @@ For more info check out this [Website](https://www.nordicsemi.com/eng/Products/2
 
 * 2(3D + N) + X: D=4 for friday, N=16 team number, X=0 for radio 1 , X=1 for radio 2
 
-#### _jidenna-> has 0_
-#### _2(3*4+16)+0=56_
-#### _In hex: 38_
+* #### _Sender-> has 0_
+  #### _2(3*4+16)+0=56_
+  #### _In hex: 38_
 
-#### _Lois-> has 1_
-#### _2(3*4+16)+1=57_
-#### _In hex: 39_
+* #### _Receiver-> has 1_
+  #### _2(3*4+16)+1=57_
+  #### _In hex: 39_
 
 The code implementation is shown below. Ping_out for and ping_back roles are used for sending data back and forth or acknowledgement purposes. 
 
