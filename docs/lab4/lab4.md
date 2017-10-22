@@ -25,7 +25,7 @@ For more info check out this [Website](https://www.nordicsemi.com/eng/Products/2
 * Then we set up the radio, we used the two level-converters and soldered a wire to 3.3 power pin and connected it to the 3.3V on the arduino.
 * We assigned the address number for the two pipes using the formulae below : in this case they represent the address of transmitter(0) and receiver. 
 
-* 2(3D + N) + X: D=4 for friday, N=16 team number, X=0 for radio 1 , X=1 for radio 2
+     2(3D + N) + X: D=4 for friday, N=16 team number, X=0 for radio 1 , X=1 for radio 2
 
 * #### _Sender-> has 0_
   #### _2(3*4+16)+0=56_
