@@ -66,7 +66,7 @@ if ( role == role_ping_out )
 
 
 
-Graphics Team
+## Graphics Team
 * Displaying a full 4-by-5 grid array on the screen
 * Communicating maze information from the Arduino to the FPGA
 * Display the robot location on the screen
