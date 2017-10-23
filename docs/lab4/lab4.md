@@ -72,9 +72,35 @@ if ( role == role_ping_out )
 
 ```
 
+# Sending the entire maze wirelessly
+
+For this part, we wanted to send a 4X5 matrix representing the maze from one arduino and receive it correctly on the other.
+The maze we used was the following, added near the top of the code:
+
+```arduino
+unsigned char maze[5][4] =
+{
+  3, 3, 3, 3,
+  3, 1, 1, 1,
+  3, 2, 0, 1,
+  3, 1, 3, 1,
+  0, 0, 0, 0,
+};
+```
+Using similar code to when we sent the unsigned long, we sent the maze using the following code. Note that this occurs within role 
 
 
+```arduino
+printf("Now sending the maze!\n");
+bool ok = radio.write( maze, sizeof(maze) );
 
+if (ok)
+  printf("ok...");
+else
+  printf("failed.\n\r");
+  ```
+  
+On the receiving end we
 
 ## Graphics Team
 * Displaying a full 4-by-5 grid array on the screen
