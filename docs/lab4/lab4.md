@@ -20,6 +20,8 @@ nRF24L01+:
 
 For more info check out this [Website](https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P).
 
+![](overview.png)
+
 # Sending information wirelessly between Arduino’s
 * We started by downloading and installing the [RF24 Arduino library](https://github.com/maniacbug/RF24) and updated the getting started sketch from the 3400 course website.
 * Then we set up the radio, we used the two level-converters and soldered a wire to 3.3 power pin and connected it to the 3.3V on the arduino.
