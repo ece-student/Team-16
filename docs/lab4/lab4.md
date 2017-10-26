@@ -112,7 +112,7 @@ unsigned char got_maze[5][4];
 bool done = false;
 while (!done)
 { 
-  // Fetch the payload.
+  // Fetch the maze.
   done = radio.read( got_maze, sizeof(got_maze) );
 
   // Print the maze
@@ -123,12 +123,14 @@ while (!done)
     printf("\n");
   }
 
-  // Delay just a little bit to let the other unit
-  // make the transition to receiver
   delay(20);
 
 }
 ```
+
+[Watch the demo here]()
+
+# Updating the maze array, dependent only on the updated robot information
 
 ## Graphics Team
 * Displaying a full 4-by-5 grid array on the screen
