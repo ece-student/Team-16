@@ -200,7 +200,7 @@ while (!done)
 
 Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
 
-There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins.
+There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
 
 
 ## Graphics Team
