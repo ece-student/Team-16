@@ -11,6 +11,7 @@ The main goals of radio team are:
 * Sending information wirelessly between Arduino’s
 * Sending the entire maze wirelessly
 * Updating the maze array, dependent only on the updated robot information
+* Communicating maze information from the Arduino to the FPGA
 
 Materials used:
 * 2 Nordic nRF24L01+ transceivers
@@ -195,9 +196,26 @@ while (!done)
 
 [Watch the demo here]()
 
+# Communicating maze information from the Arduino to the FPGA
+
+Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
+
+There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins.
+
 
 ## Graphics Team
+
 * Displaying a full 4-by-5 grid array on the screen
-* Communicating maze information from the Arduino to the FPGA
 * Display the robot location on the screen
 * Distinguish what sites have been visited and which haven’t on the screen
+
+The radio subteam went as far down the road of communication to send the robot state information through the receiving arduino to the FPGA. Now we are focused on taking that byte of information and turning it into a set of data which we can then translate visually onto the VGA.
+
+# Displaying a full 4-by-5 grid array on the screen
+
+Previously, in lab 3, the graphics subteam made a 2 by 2 grid...
+
+
+# Display the robot location on the screen
+
+# Distinguish what sites have been visited and which haven’t on the screen
