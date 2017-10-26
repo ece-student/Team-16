@@ -132,6 +132,70 @@ while (!done)
 
 # Updating the maze array, dependent only on the updated robot information
 
+When we are actually maze mappping, the robot has to send a lot of different information regarding the state of the robot and what it detects in real time. We also need to develop a system to put a signal that is easy to send through, such as having all the information within a single byte, which is what we ended up doing.
+
+This is how we decided to encode our information so we can send it.
+
+Pack the bits in this pattern
+x_coord | y_coord | data
+2 bits  | 3 bits  | 3 bits
+
+For the data part, we had to include several components of the state such as whether or  not the wall is visited, whether or not there is a wall, or treasure, and if there is a treasure, what kind of treasure is it? The below is how we decided to sort the information.
+
+000-> unvisited
+001-> no wall
+010-> wall
+011-> treasure 7khz
+100-> treasure 12khz
+101-> treasure 17khz
+
+As for our arduino code, it is again very similar to before, with the exception that we need to pack the information as a byte. Within the **transmitting** radio's code we added the following. Again, this code occurs within role_ping_out within the void loop. 
+
+The test data are just values we inputted manually into the code. This will eventually be replaced by the robot's actual signals.
+
+
+```arduino
+// Test data
+unsigned char x_coord = 4;
+unsigned char y_coord = 4;
+unsigned char pos_data = 3;
+
+// Use bit shifting to pack the bits
+// For deployment with a robot, something like this should be factored out into
+// a function, along with the code to unpack the bits
+new_data = x_coord << 5 | y_coord << 2 | pos_data;
+// For the test case of (5, 5, 3) the byte shoud look like: 10010011
+// In decimal this is 147
+
+// Take the time, and send it.  This will block until complete
+printf("Now sending new map data\n");
+bool ok = radio.write( &new_data, sizeof(unsigned char) );
+
+  ```
+  
+On the **receiving** radio's end we added the following code. Again, this code must be within the role_pong_back within the void loop.
+
+```arduino
+unsigned char got_data;
+bool done = false;
+while (!done)
+{
+  // Fetch the payload, and see if this was the last one.
+  done = radio.read( &got_data, sizeof(unsigned char) );
+
+  // Spew it
+  // Print the received data as a decimal
+  printf("Got payload %d...",got_data);
+
+  delay(20);
+
+}
+
+```
+
+[Watch the demo here]()
+
+
 ## Graphics Team
 * Displaying a full 4-by-5 grid array on the screen
 * Communicating maze information from the Arduino to the FPGA
