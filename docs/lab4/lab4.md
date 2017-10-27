@@ -74,7 +74,7 @@ Now that we've set up the basics, this first task is really just to test to see 
 
 In the following demo, you can see information about the communication being transmitted back and forth. Specifically the **transmitting** radio sends the information to the **receiving** radio. Then, immediately after the **receiving** radio reads the value, it will output a signal telling the **transmitting** radio that it has received the information successfully.
 
-[Watch the demo here]()
+[Watch the demo here](https://youtu.be/6SE5Zzr0TsY)
 
 # Sending the entire maze wirelessly
 
