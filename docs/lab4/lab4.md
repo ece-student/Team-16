@@ -144,7 +144,7 @@ x_coord | y_coord | data
 For the data part, we had to include several components of the state such as whether or  not the wall is visited, whether or not there is a wall, or treasure, and if there is a treasure, what kind of treasure is it? The below is how we decided to sort the information.
 
 000-> unvisited
-001-> no wall
+001-> visited
 010-> wall
 011-> treasure 7khz
 100-> treasure 12khz
