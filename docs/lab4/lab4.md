@@ -145,12 +145,13 @@ x_coord | y_coord | data
 
 For the data part, we had to include several components of the state such as whether or  not the wall is visited, whether or not there is a wall, or treasure, and if there is a treasure, what kind of treasure is it? The below is how we decided to sort the information.
 
-- 000-> unvisited
-- 001-> visited
-- 010-> wall
-- 011-> treasure 7khz
-- 100-> treasure 12khz
-- 101-> treasure 17khz
+000-> unvisited
+001-> visited
+010-> wall
+011-> treasure 7khz
+100-> treasure 12khz
+101-> treasure 17khz
+111-> robot location
 
 As for our arduino code, it is again very similar to before, with the exception that we need to pack the information as a byte. Within the **transmitting** radio's code we added the following. Again, this code occurs within role_ping_out within the void loop. 
 
@@ -226,5 +227,6 @@ Previously, in lab 3, the graphics subteam made a 2 by 2 grid...
 
 
 # Display the robot location on the screen
+The location of the robot will be indicated by a teal colored block in the grid. The FPGA receives a byte for every block in the grid. 5 bits encodes the location in the grid, and 3 bits encode the state of that block in the grid. If the state is 111, then that block is colored orange to show the robots current location.
 
 # Distinguish what sites have been visited and which haven’t on the screen
