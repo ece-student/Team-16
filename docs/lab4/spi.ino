@@ -11,12 +11,6 @@ void setup()
   // set the slaveSelectPin as an output:
   pinMode (ssFPGA, OUTPUT);
   
-// settings for SPI:
-  //SPI.setBitOrder(MSBFIRST);
-  //SPI.setDataMode(SPI_MODE0);
-  //SPI.setClockDivider(SPI_CLOCK_DIV32);
-
-  
   // initialize SPI:
   SPI.begin();
   digitalWrite(ssFPGA, HIGH);
