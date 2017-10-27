@@ -138,7 +138,9 @@ When we are actually maze mappping, the robot has to send a lot of different inf
 This is how we decided to encode our information so we can send it.
 
 Pack the bits in this pattern
+
 x_coord | y_coord | data
+
 2 bits  | 3 bits  | 3 bits
 
 For the data part, we had to include several components of the state such as whether or  not the wall is visited, whether or not there is a wall, or treasure, and if there is a treasure, what kind of treasure is it? The below is how we decided to sort the information.
