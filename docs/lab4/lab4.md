@@ -198,7 +198,37 @@ while (!done)
 
 ```
 
-[Watch the demo here]()
+[Watch the demo here](https://youtu.be/Q6yj9YIcTcg)
+
+Since we have to update the maze matrix continuouly to reflect changes that the robot detectx, we want to write the state information in the correct current robot position. Recall that of the byte we sent and received, the first two bites corresponded to the x and the next three correspond to the y. Thus in our arduino code, we used these values to get to a certain index within matrix and then change that value based on the state bits which are the last three bits of the byte.
+
+```arduino
+
+
+    for (int i = 0; i<5; i++) {
+      printf("\n");
+      for (int j = 0; j <4; j++) {
+        printf("%d", maze[i][j]);
+      }
+    }
+
+maze[x_coord][y_coord] = pos_data;
+printf("\n New updated maze \n");
+    for (int i = 0; i<5; i++) {
+      printf("\n");
+      for (int j = 0; j <4; j++) {
+        printf("%d", maze[i][j]);
+      }
+    }
+    printf("\n old maze \n");
+    
+```
+
+![](z.png)
+
+In this picture you can see we have the old matrix and then updated it to reflect the new state at the current x and y.
+
+
 
 # Communicating maze information from the Arduino to the FPGA
 
