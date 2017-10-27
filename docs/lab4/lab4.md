@@ -145,12 +145,12 @@ x_coord | y_coord | data
 
 For the data part, we had to include several components of the state such as whether or  not the wall is visited, whether or not there is a wall, or treasure, and if there is a treasure, what kind of treasure is it? The below is how we decided to sort the information.
 
-000-> unvisited
-001-> visited
-010-> wall
-011-> treasure 7khz
-100-> treasure 12khz
-101-> treasure 17khz
+- 000-> unvisited
+- 001-> visited
+- 010-> wall
+- 011-> treasure 7khz
+- 100-> treasure 12khz
+- 101-> treasure 17khz
 
 As for our arduino code, it is again very similar to before, with the exception that we need to pack the information as a byte. Within the **transmitting** radio's code we added the following. Again, this code occurs within role_ping_out within the void loop. 
 
