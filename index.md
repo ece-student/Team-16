@@ -25,7 +25,7 @@ Lab Section: Fridays 1:30-4:30pm
  
  * [Lab 3: FPGA Video Controller and Sound Generation](./docs/lab3/lab3.md)
  
- * [Lab 4: Radio Communication and Map Drawing](./docs/lab3/lab3.md)
+ * [Lab 4: Radio Communication and Map Drawing](./docs/lab4/lab4.md)
  
  * [Milestone 1](./docs/milestones/1.md)
  
