@@ -150,6 +150,7 @@ For the data part, we had to include several components of the state such as whe
 010-> wall
 011-> treasure 7khz
 100-> treasure 12khz
+110-> current position
 101-> treasure 17khz
 111-> robot location
 
