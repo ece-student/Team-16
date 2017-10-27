@@ -202,6 +202,13 @@ Now that we are successfully getting information from the **first transmitting a
 
 There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
 
+We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin since the FPGA will never have to write to the arduino. In the example, we entered some data 10010010 through the MOSI pin and got the following on the oscilloscope:
+
+![](pic.png)
+
+In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
+
+[Click here for the demo!](youtubestuff)
 
 ## Graphics Team
 
