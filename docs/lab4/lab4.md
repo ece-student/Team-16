@@ -129,7 +129,7 @@ while (!done)
 }
 ```
 
-[Watch the demo here]()
+[Watch the demo here](https://www.youtube.com/watch?v=UpGTPtXO6Dk)
 
 # Updating the maze array, dependent only on the updated robot information
 
