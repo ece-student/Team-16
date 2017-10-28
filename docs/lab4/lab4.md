@@ -307,6 +307,9 @@ The different states are repeated here for convenience along with their color as
 - 17KHz treasure-> 8'b00000011 BLUE
 - Current Position-> 8'b11101100 ORANGE
 
+Here is a visual:
+![](col.png)
+
 In order to update colors, we check the state in the signal at every clock edge as in the following code:
 
 ```verilog
