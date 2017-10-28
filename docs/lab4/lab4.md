@@ -231,6 +231,7 @@ In this picture you can see we have the old matrix and then updated it to reflec
 
 
 
+
 # Communicating maze information from the Arduino to the FPGA
 
 Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
@@ -256,6 +257,17 @@ The radio subteam went as far down the road of communication to send the robot s
 # Displaying a full 4-by-5 grid array on the screen
 
 In lab 3, we created 2-by-2 grid on the screen. To make the 4-by-5 grid, we just added more if statements to make the whole 4-by-5 grid. In the FPGA, we assigned the color white to all of the boxes and applied black to the rest of the screen. A pixel's color is determined by its position on the screen. If the pixel is within the bounds of a box with a color other than black, then its color is the color of the rest of the box.  
+
+The code below determines the color of the box in the top left color
+
+``` verilog
+     if(PIXEL_COORD_X < 10'd64 && PIXEL_COORD_Y < 10'd64)begin
+	     PIXEL_COLOR <= grid[0][0];
+		if(PIXEL_COORD_X == 63 && PIXEL_COORD_Y == 63) begin
+		     counter <= counter + 1;
+		end
+	end
+```
 
 
 # Display the robot location on the screen
