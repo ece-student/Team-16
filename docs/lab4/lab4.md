@@ -269,17 +269,6 @@ In the following demo, we can be sure that the FPGA received the information cor
 Of course, this process required that a method of receiving the information from the arduino was implemented on the FPGA side. Below is the code used to receive and package the data sent from the arduino.
 
 ```
-module RECEIVE (
-	CLOCK,
-	DATA,
-	ENABLE,
-	OUT
-);
-
-input CLOCK;
-input DATA;
-input ENABLE;
-
 output [7:0] OUT;
 
 reg [2:0] index;
@@ -322,9 +311,6 @@ Wall                8'b00111111 TEAL
 17KHz               8'b00000011 BLUE
 
 Current Position    8'b11101100 ORANGE
-
-Here is a visual:
-![](col.png)
 
 In order to update colors, we check the state in the signal at every clock edge. 
 ```verilog
