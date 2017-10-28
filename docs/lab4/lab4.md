@@ -323,6 +323,9 @@ Wall                8'b00111111 TEAL
 
 Current Position    8'b11101100 ORANGE
 
+Here is a visual:
+![](col.png)
+
 In order to update colors, we check the state in the signal at every clock edge. 
 ```verilog
 	if (out[2:0] == 3'b000) begin
