@@ -239,6 +239,8 @@ In this picture you can see we have the old matrix and then updated it to reflec
 
 The radio subteam went as far down the road of communication to send the robot state information through the receiving arduino to the FPGA. Now we are focused on taking that byte of information and turning it into a set of data which we can then translate visually onto the VGA.
 
+![](stuff.png)
+
 # Displaying a full 4-by-5 grid array on the screen
 
 In lab 3, we created 2-by-2 grid on the screen. To make the 4-by-5 grid, we just added more if statements to make the whole 4-by-5 grid. In the FPGA, we assigned the color white to all of the boxes and applied black to the rest of the screen. A pixel's color is determined by its position on the screen. If the pixel is within the bounds of a box with a color other than black, then its color is the color of the rest of the box.  
