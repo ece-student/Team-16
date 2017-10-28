@@ -266,7 +266,7 @@ We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin
 
 In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
 
-[Click here for the demo!](youtubestuff)
+[Click here for the demo!](https://www.youtube.com/watch?v=3dgv_5fl8Mg)
 
 Of course, this process required that a method of receiving the information from the arduino was implemented on the FPGA side. Below is the code used to receive and package the data sent from the arduino.
 
