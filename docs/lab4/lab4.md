@@ -224,6 +224,7 @@ printf("\n New updated maze \n");
     
 ```
 
+
 ![](z.png)
 
 In this picture you can see we have the old matrix and then updated it to reflect the new state at the current x and y.
@@ -261,12 +262,19 @@ Previously, in lab 3, the graphics subteam made a 2 by 2 grid...
 The location of the robot will be indicated by a teal colored block in the grid. The FPGA receives a byte for every block in the grid. 5 bits encodes the location in the grid, and 3 bits encode the state of that block in the grid. If the state is 110, then that block is colored orange to show the robots current location.
 
 The different states are:
+
 Unvisited           8'b11111111 WHITE
+
 Visited             8'b11111100 YELLOW
+
 Wall                8'b00111111 TEAL
+
 7KHz                8'b11100000 RED
+
 12KHz               8'b00011100 GREEN
+
 17KHz               8'b00000011 BLUE
+
 Current Position    8'b11101100 ORANGE
 
 # Distinguish what sites have been visited and which haven’t on the screen
