@@ -293,26 +293,22 @@ endmodule
 ```
 Once the index has counted up adequately enough to have iterated through the entire "accumulate" register variable, we passed the accumulated value into pastOut. pastOut is assigned to our OUT variable, which is what is wha is ultimately processed by the rest of our verilog code. The details of how the output is processed is further outlined in the following sections.
 
+
 # Display the robot location on the screen
-The location of the robot will be indicated by a teal colored block in the grid. The FPGA receives a byte for every block in the grid. 5 bits encodes the location in the grid, and 3 bits encode the state of that block in the grid. If the state is 110, then that block is colored orange to show the robots current location.
+The current location of the robot will be indicated by a orange colored block in the grid. In order to capture the entire maze's information, the FPGA receives a byte for every block in the grid. The first 5 bits encodes the x and location in the grid, correspondeing to a matrix position. The last 3 bits encode the state of that block in the grid. If the state is 110, then that block is colored orange to show the robot's current location.
 
-The different states are:
+The different states are repeated here for convenience along with their color assignments:
 
-Unvisited           8'b11111111 WHITE
+- Unvisited-> 8'b11111111 WHITE
+- Visited-> 8'b11111100 YELLOW
+- Wall-> 8'b00111111 TEAL
+- 7KHz treasure-> 8'b11100000 RED
+- 12KHz treasure-> 8'b00011100 GREEN
+- 17KHz treasure-> 8'b00000011 BLUE
+- Current Position-> 8'b11101100 ORANGE
 
-Visited             8'b11111100 YELLOW
+In order to update colors, we check the state in the signal at every clock edge as in the following code:
 
-Wall                8'b00111111 TEAL
-
-7KHz                8'b11100000 RED
-
-12KHz               8'b00011100 GREEN
-
-17KHz               8'b00000011 BLUE
-
-Current Position    8'b11101100 ORANGE
-
-In order to update colors, we check the state in the signal at every clock edge. 
 ```verilog
 	if (out[2:0] == 3'b000) begin
 		grid[out[7:6]][out[5:3]] <= unvisited;
@@ -323,5 +319,18 @@ In order to update colors, we check the state in the signal at every clock edge.
 ```
 The colors are stored in the grid register. Based on the 3 bit encoding we update the color stored in the grid that is then rendered on through the VGA.
 
+![](omg.png)
+
+To test this out we outputted a dummy matrix into the arduino. In our dummy matrix, we set all of the boxes as being unvisited and set the matrix box in the position 01001 (so the second box to the left and the second box down) as being the current position.
+
+As seen in the above image, we had some glitches regarding some of the boxes not showing up, however, it still correctly displays the current position and outputs the right color based on the state, which was the goal of this part.
+
 # Distinguish what sites have been visited and which haven’t on the screen
-We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color.
+
+We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color. 
+
+From the previous part, we have visited as being assigned the color yellow and white as unvisited. We made yet another dummy with a visited matrix position 00000 (the topmost leftmost box). However we also wanted to test other states, so in the image, you can see we have a blue box indicating a treasure, as well as orange box indicating the current position from the last part. 
+
+Again, we had the minor glitch resulting in some of the boxes not showing up, but we just wanted to test that it could distinguish and update the color based on state which we were able to do correctly.
+
+![](3.png)
