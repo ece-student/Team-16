@@ -290,14 +290,14 @@ Wall                8'b00111111 TEAL
 Current Position    8'b11101100 ORANGE
 
 In order to update colors, we check the state in the signal at every clock edge. 
-''' verilog
+```verilog
 	if (out[2:0] == 3'b000) begin
 		grid[out[7:6]][out[5:3]] <= unvisited;
 	end
 	else if (out[2:0] == 3'b001) begin
 		grid[out[7:6]][out[5:3]] <= visited;
 	end
-'''
+```
 The colors are stored in the grid register. Based on the 3 bit encoding we update the color stored in the grid that is then rendered on through the VGA.
 
 # Distinguish what sites have been visited and which haven’t on the screen
