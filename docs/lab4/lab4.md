@@ -255,7 +255,7 @@ The radio subteam went as far down the road of communication to send the robot s
 
 # Displaying a full 4-by-5 grid array on the screen
 
-Previously, in lab 3, the graphics subteam made a 2 by 2 grid...
+In lab 3, we created 2-by-2 grid on the screen. To make the 4-by-5 grid, we just added more if statements to make the whole 4-by-5 grid. In the FPGA, we assigned the color white to all of the boxes and applied black to the rest of the screen. A pixel's color is determined by its position on the screen. If the pixel is within the bounds of a box with a color other than black, then its color is the color of the rest of the box.  
 
 
 # Display the robot location on the screen
