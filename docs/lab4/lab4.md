@@ -231,6 +231,21 @@ In this picture you can see we have the old matrix and then updated it to reflec
 
 
 
+
+# Communicating maze information from the Arduino to the FPGA
+
+Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
+
+There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
+
+We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin since the FPGA will never have to write to the arduino. In the example, we entered some data 10010010 through the MOSI pin and got the following on the oscilloscope:
+
+![](pic.png)
+
+In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
+
+[Click here for the demo!](youtubestuff)
+
 ## Graphics Team
 
 * Displaying a full 4-by-5 grid array on the screen
@@ -254,20 +269,6 @@ The code below determines the color of the box in the top left color
 	end
 ```
 
-# Communicating maze information from the Arduino to the FPGA
-
-Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
-
-There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
-
-We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin since the FPGA will never have to write to the arduino. In the example, we entered some data 10010010 through the MOSI pin and got the following on the oscilloscope:
-
-![](pic.png)
-
-In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
-
-[Click here for the demo!](youtubestuff)
-
 
 # Display the robot location on the screen
 The location of the robot will be indicated by a teal colored block in the grid. The FPGA receives a byte for every block in the grid. 5 bits encodes the location in the grid, and 3 bits encode the state of that block in the grid. If the state is 110, then that block is colored orange to show the robots current location.
@@ -288,4 +289,16 @@ Wall                8'b00111111 TEAL
 
 Current Position    8'b11101100 ORANGE
 
+In order to update colors, we check the state in the signal at every clock edge. 
+''' verilog
+	if (out[2:0] == 3'b000) begin
+		grid[out[7:6]][out[5:3]] <= unvisited;
+	end
+	else if (out[2:0] == 3'b001) begin
+		grid[out[7:6]][out[5:3]] <= visited;
+	end
+'''
+The colors are stored in the grid register. Based on the 3 bit encoding we update the color stored in the grid that is then rendered on through the VGA.
+
 # Distinguish what sites have been visited and which haven’t on the screen
+We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color.
