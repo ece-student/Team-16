@@ -231,21 +231,6 @@ In this picture you can see we have the old matrix and then updated it to reflec
 
 
 
-
-# Communicating maze information from the Arduino to the FPGA
-
-Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
-
-There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
-
-We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin since the FPGA will never have to write to the arduino. In the example, we entered some data 10010010 through the MOSI pin and got the following on the oscilloscope:
-
-![](pic.png)
-
-In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
-
-[Click here for the demo!](youtubestuff)
-
 ## Graphics Team
 
 * Displaying a full 4-by-5 grid array on the screen
@@ -268,6 +253,20 @@ The code below determines the color of the box in the top left color
 		end
 	end
 ```
+
+# Communicating maze information from the Arduino to the FPGA
+
+Now that we are successfully getting information from the **first transmitting arduino** on the robot to the **second receiving arduino** connected to the FPGA which is connected to the VGA, we need to get the receiving arduino's information and relay it to the FPGA.
+
+There are many ways to do this, including parallel and serial communication. In the end we decided on using SPI, which is harder to implement but saves pins. To learn more about SPI on arduino, [use this link](https://www.arduino.cc/en/Reference/SPI)
+
+We implemented SPI on the arduino [here](spi.ino). However we forgoed a MISO pin since the FPGA will never have to write to the arduino. In the example, we entered some data 10010010 through the MOSI pin and got the following on the oscilloscope:
+
+![](pic.png)
+
+In the following demo, we can be sure that the FPGA received the information correctly, since the graphics subteam coded in verilog such that the LEDs will light up for a low signal and turn off for a high signal. In the video, the FPGA's LEDs correspond correctly to the 10010010 we sent through the arduino.
+
+[Click here for the demo!](youtubestuff)
 
 
 # Display the robot location on the screen
