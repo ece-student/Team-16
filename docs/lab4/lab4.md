@@ -302,4 +302,9 @@ To test this out we outputted a dummy matrix into the arduino. In our dummy matr
 As seen in the above image, we had some glitches regarding some of the boxes not showing up, however, it still correctly displays the current position and outputs the right color.
 
 # Distinguish what sites have been visited and which haven’t on the screen
-We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color.
+
+We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color. 
+
+From the previous part, we have visited as being assigned the color yellow and white as unvisited. We made yet another dummy with a visited matrix position 00000 (the topmost leftmost box). However we also wanted to test other states, so in the image, you can see we have a blue box indicating a treasure, as well as orange box indicating the current position from the last part.
+
+![](3.png)
