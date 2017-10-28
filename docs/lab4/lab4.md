@@ -299,12 +299,14 @@ The colors are stored in the grid register. Based on the 3 bit encoding we updat
 
 To test this out we outputted a dummy matrix into the arduino. In our dummy matrix, we set all of the boxes as being unvisited and set the matrix box in the position 01001 (so the second box to the left and the second box down) as being the current position.
 
-As seen in the above image, we had some glitches regarding some of the boxes not showing up, however, it still correctly displays the current position and outputs the right color.
+As seen in the above image, we had some glitches regarding some of the boxes not showing up, however, it still correctly displays the current position and outputs the right color based on the state, which was the goal of this part.
 
 # Distinguish what sites have been visited and which haven’t on the screen
 
 We use the same functionality as displaying the current robot location on the screen. The arduino sends signals through the SPI to indicate which sites in the grids are visited and which are not visited. This information is used by the FPGA to set the appropriate color. 
 
-From the previous part, we have visited as being assigned the color yellow and white as unvisited. We made yet another dummy with a visited matrix position 00000 (the topmost leftmost box). However we also wanted to test other states, so in the image, you can see we have a blue box indicating a treasure, as well as orange box indicating the current position from the last part.
+From the previous part, we have visited as being assigned the color yellow and white as unvisited. We made yet another dummy with a visited matrix position 00000 (the topmost leftmost box). However we also wanted to test other states, so in the image, you can see we have a blue box indicating a treasure, as well as orange box indicating the current position from the last part. 
+
+Again, we had the minor glitch resulting in some of the boxes not showing up, but we just wanted to test that it could distinguish and update the color based on state which we were able to do correctly.
 
 ![](3.png)
