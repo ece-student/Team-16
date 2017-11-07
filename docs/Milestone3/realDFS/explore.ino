@@ -53,9 +53,20 @@ int middleRightVal = 0;
 int outerLeftVal = 0;
 int outerRightVal = 0;
 
+int visitedBox = 0;
+
 byte robotX = 3;
 byte robotY = 4;
 byte robotOrientation = NORTH;
+
+byte xleft=robotX;
+byte yleft=robotY;
+byte xfront=robotX;
+byte yfront=robotY;
+byte xright=robotX;
+byte yright=robotY;
+byte xback=robotX;
+byte yback=robotY;
 
 bool detectFWall = true;
 bool detectRWall = true;
@@ -130,33 +141,54 @@ void loop() {
   
   // intersection
     if((outerLeftVal > threshold) && (outerRightVal > threshold)){
-      // use wall sensors to check walls on each side = done 
-      //translate local walls to global walls using counter = done
+
+      // use wall sensors to check walls on each side 
+      //translate local walls to global walls  = done
+      wallOrientation();
       //visited matrix location to find current pos = done
+      currentPosition();
       //change the wall matrix to reflect current wall changes = done 
+      updateWallMatrix()
       //dfs to choose where to go next
+
+/***********************************************************************/
+//dfs
+//when we are at a new position
+//IF NEW PLACE EXISTS FROM CURRENT POSITION
+//check walls and surrounded areas' visited states
+
+
+
+//match this against priority and choose the one with the highest priority
+//add to stack
+
+//IF NO NEW PLACE EXISTS FROM CURRENT POSITION
+//case where all areas around have been visited or have walls, then backtrack and 
+//pop from stack
+//turn 180 degrees and go back
+/***********************************************************************/
+
+
+      
       //go to next pos
-      //if turn, update orientation = done 
-      //change and update visited matrix
+      //if turn, update orientation = done (if 180, then update twice)
+      //change and update visited matrix DON'T FORGET TO IMPLEMENT NEW POSITION STUFF
+      updateVisited();
+
+
+      if (visitedBox==20){
+      // check if done with maze, aka, all have been visited
+            rightServo.write(rightServoMap(90));
+            leftServo.write(90);  
+            delay(100);
+            pinMode (ledPin, HIGH);
+        }
       
-      
-      /*int currTurn = turns[intersection];
-      if(currTurn == 0){
-        rightServoAngle = rightServoMap(180);
-        leftServoAngle = 180;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(150);
-        intersection += 1;
-      } //straight
-      if(currTurn == 1){
-        leftturn();
-      }
-      if(currTurn == 2){
-        rightturn();
-      }
-      digitalWrite(ledPin, LOW);
-    */
+      /*
+      rightServo.write(rightServoMap(90));
+      leftServo.write(90);  
+      delay(100);
+      */
     }
   } 
   else
@@ -169,4 +201,3 @@ void loop() {
       
   
 }
-
