@@ -9,6 +9,64 @@ int rightServoMap(int angle) {
   return newAngle;
 }
 
+void rightOrientation(){
+  if(robotOrientation == NORTH){
+    robotOrientation = EAST;
+  }
+  if(robotOrientation == EAST) {
+    robotOrientation = SOUTH;
+  }
+  if(robotOrientation == SOUTH) {
+    robotOrientation = WEST;
+  }
+  if(robotOrientation == WEST) {
+    robotOrientation = NORTH;
+  }
+}
+
+void indexstuff(){
+   if(robotOrientation == NORTH){
+     xleft=robotX-1;
+     yleft=robotY;
+     xfront=robotX;
+     yfront=robotY+1;
+     xright=robotX+1;
+     yright=robotY;
+     xback=robotX;
+     yback=robotY-1;
+  }
+  if(robotOrientation == EAST) {
+     xleft=robotX;
+     yleft=robotY+1;
+     xfront=robotX+1;
+     yfront=robotY;
+     xright=robotX;
+     yright=robotY-1;
+     xback=robotX-1;
+     yback=robotY;
+  }
+  if(robotOrientation == SOUTH) {
+     xleft=robotX+1;
+     yleft=robotY;
+     xfront=robotX;
+     yfront=robotY-1;
+     xright=robotX-1;
+     yright=robotY;
+     xback=robotX;
+     yback=robotY+1;
+  }
+  if(robotOrientation == WEST) {
+     xleft=robotX;
+     yleft=robotY-1;
+     xfront=robotX-1;
+     yfront=robotY;
+     xright=robotX;
+     yright=robotY+1;
+     xback=robotX+1;
+     yback=robotY;
+  }
+}
+
 void rightturn() {
   leftServoAngle = 180;
   rightServoAngle = rightServoMap(0);
@@ -28,18 +86,34 @@ void rightturn() {
   rightServo.write(rightServoAngle);
   delay(200);
 
-  if(robotOrientation == NORTH){
-    robotOrientation = EAST;
+  rightOrientation();
+}
+
+void opposite() {
+  leftServoAngle = 180;
+  rightServoAngle = rightServoMap(0);
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(300);
+
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
+    leftServo.write(leftServoAngle);
+    rightServo.write(rightServoAngle);
+    delay(delayTime);
   }
-  if(robotOrientation == EAST) {
-    robotOrientation = SOUTH;
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
+    leftServo.write(leftServoAngle);
+    rightServo.write(rightServoAngle);
+    delay(delayTime);
   }
-  if(robotOrientation == SOUTH) {
-    robotOrientation = WEST;
-  }
-  if(robotOrientation == WEST) {
-    robotOrientation = NORTH;
-  }
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(200);
+
+  rightOrientation();
+  rightOrientation();
 }
 
 void leftturn(){
@@ -75,6 +149,14 @@ void leftturn(){
   }
 }
 
+void goStraight(){
+    rightServoAngle = rightServoMap(180);
+    leftServoAngle = 180;
+    rightServo.write(rightServoAngle);
+    leftServo.write(leftServoAngle);
+    delay(150);
+}
+
 void currentPosition() {
   for (int i =0; i<5;i++){
     for (int j=0; j<4; j++){
@@ -87,6 +169,7 @@ void currentPosition() {
 }
 
 void updateVisited() {
+  visitedBox++;
   for (int i =0; i<5;i++){
     for (int j=0; j<4; j++){
      if (visited[i][j]== 6){
@@ -94,6 +177,7 @@ void updateVisited() {
       // add new current position
     }
   }
+}
 }
 
 void updateWallMatrix() {
@@ -147,4 +231,5 @@ byte wallOrientation() {
     } 
   }  
 } 
+
 
