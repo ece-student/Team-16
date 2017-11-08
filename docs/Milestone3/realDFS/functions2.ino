@@ -77,6 +77,19 @@ void indexstuff(){
   }
 }
 
+
+void updateVisited() {
+  visitedBox++;
+  for (int i =0; i<5;i++){
+    for (int j=0; j<4; j++){
+     if (visited[i][j]== 6){
+      visited[i][j]==1;
+      // add new current position
+    }
+  }
+}
+}
+
 void rightturn() {
   leftServoAngle = 180;
   rightServoAngle = rightServoMap(0);
@@ -97,6 +110,8 @@ void rightturn() {
   delay(200);
 
   rightOrientation();
+  updateVisited();
+  visited[xright][yright]=6;
 }
 
 void opposite() {
@@ -124,6 +139,8 @@ void opposite() {
 
   rightOrientation();
   rightOrientation();
+  updateVisited();
+  visited[xback][yback]=6;
 }
 
 void leftturn(){
@@ -157,6 +174,8 @@ void leftturn(){
   if(robotOrientation == EAST) {
     robotOrientation = NORTH;
   }
+  updateVisited();
+  visited[xleft][yleft]=6;
 }
 
 void goStraight(){
@@ -165,6 +184,10 @@ void goStraight(){
     rightServo.write(rightServoAngle);
     leftServo.write(leftServoAngle);
     delay(150);
+    
+    updateVisited();
+    visited[xleft][yleft]=6;
+    
 }
 
 void currentPosition() {
@@ -178,17 +201,7 @@ void currentPosition() {
   }
 }
 
-void updateVisited() {
-  visitedBox++;
-  for (int i =0; i<5;i++){
-    for (int j=0; j<4; j++){
-     if (visited[i][j]== 6){
-      visited[i][j]==1;
-      // add new current position
-    }
-  }
-}
-}
+
 
 void updateWallMatrix() {
   wall[robotY][robotX] = wallOrientation();
@@ -241,5 +254,4 @@ byte wallOrientation() {
     } 
   }  
 } 
-
 
