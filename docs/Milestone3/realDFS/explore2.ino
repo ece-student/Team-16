@@ -158,39 +158,46 @@ void loop() {
 //check walls and surrounded areas' visited states
 
 
-indexstuff();
+indexstuff();   //so it'll set front back left right indexes correctly based on the robot orientation
+
 //front priority
 //check wall sensor
 if (!detectFwall) {
   //check visited (so if unvisited go straight)
   if (visited[xfront][yfront]==0){
     //go front
-    goStraight()
+    //update visited to reflect new current position and set the old current position to 1
+    //I changed the movement functions so that they'll update the old pos and new pos according to how they move
+    goStraight();
     //add to stack 
     
   }
 }
 else (!detectLwall) {
   if (visited[xleft][yleft]==0){
-    //go front
-    leftturn()
+    //go left
+    //update visited to reflect new current position and set the old current position to 1
+    leftturn();
     //add to stack 
   }
 }
 
 else (!detectLwall) {
   if (visited[xright][yright]==0){
-    //go front
-    rightturn()
+    //go right
+    //update visited to reflect new current position and set the old current position to 1
+    rightturn();
     //add to stack 
   }
 }
 else {
-  opposite()
+  opposite();
   }
 
+currentPosition();    // so it'llset robotX and robotY to current position
+resetindexstuff();    //so it'll set all of x and y values of back left right forward to robot x and y 
 
-resetindexstuff()
+
 /***********************************************************************/
 
       //change and update visited matrix DON'T FORGET TO IMPLEMENT NEW POSITION STUFF
