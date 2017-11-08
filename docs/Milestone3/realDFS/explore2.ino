@@ -190,6 +190,7 @@ else (!detectRwall) {
     //add to stack 
   }
 }
+      //GOING BACK DOESN'T NECESSARILY MEAN GOING THE OPPOSITE DIRECTION....
 else {
   opposite();
   }
@@ -200,8 +201,8 @@ resetindexstuff();    //so it'll set all of x and y values of back left right fo
 
 /***********************************************************************/
 
-      //change and update visited matrix DON'T FORGET TO IMPLEMENT NEW POSITION STUFF
-      updateVisited();
+      
+     
 
 
       if (visitedBox==20){
