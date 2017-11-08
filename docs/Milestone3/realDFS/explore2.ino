@@ -190,7 +190,7 @@ else (!detectRwall) {
     //add to stack 
   }
 }
-      //GOING BACK DOESN'T NECESSARILY MEAN GOING THE OPPOSITE DIRECTION....
+      
 else {
   opposite();
   }
