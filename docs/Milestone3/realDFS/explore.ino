@@ -1,5 +1,5 @@
 /* 
- *    Line Following Robot
+ *    Maze Mapping Robot
  *  
  *  
  *  
