@@ -182,7 +182,7 @@ else (!detectLwall) {
   }
 }
 
-else (!detectLwall) {
+else (!detectRwall) {
   if (visited[xright][yright]==0){
     //go right
     //update visited to reflect new current position and set the old current position to 1
