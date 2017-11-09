@@ -193,6 +193,7 @@ else (!detectRwall) {
       
 else {
   opposite();
+  // this will make infinite loop though....
   }
 
 currentPosition();    // so it'llset robotX and robotY to current position
