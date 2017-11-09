@@ -1,3 +1,8 @@
+ 
+ Real Simulation
+ * Helper functions
+ * DFS
+ * Demo
  algorithm for real simulation code
  *  use wall sensors to see wher ethe walls are locally
  * translate local postion to global positon(that is going to be used by countring counters)
