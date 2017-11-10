@@ -53,7 +53,7 @@
 * **leftOrientation**: has the opposite implemntation of rightOrientation. 
 * **resetIndex**: resets the left, front, right, and left X and Y axis locations of the robot. 
 * **neighbourIndex**- sets front, back, right and left x and Y indices of the neighboring grid locations relative to the robot's orientation. 
-* **update visited**: updates the visited matrix whenever the robot moves along a specific grid so that it doesn't revisit it again unless it has to backtrack.  
+* **updateVisited**: updates the visited matrix whenever the robot moves along a specific grid so that it doesn't revisit it again unless it has to backtrack.  
 * **rightTurn**- in addition to making the robot make a right turn from the previous code in lab1, this function calls right Orientation, updateVisited matrices to update the robot's location and direction. The grid to the right side is now the current location of the robot once it makes the turn. 
 * **leftTurn**- opposite implemntation of rightTurn. 
 * **lineFollow**- used for making a robot follow a line using the line sensors. 
