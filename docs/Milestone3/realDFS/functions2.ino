@@ -178,6 +178,32 @@ void leftturn(){
   visited[xleft][yleft]=6;
 }
 
+void lineFollow(){
+      if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
+        rightServoAngle = rightServoMap(180);
+        leftServoAngle = 95;
+        rightServo.write(rightServoAngle);
+        leftServo.write(leftServoAngle);
+        delay(delayTime);
+      }
+  
+      if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
+        rightServoAngle = rightServoMap(95);
+        leftServoAngle = 180;
+        rightServo.write(rightServoAngle);
+        leftServo.write(leftServoAngle);
+        delay(delayTime);
+      }
+  
+      if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
+        rightServoAngle = rightServoMap(180);
+        leftServoAngle = 180;
+        rightServo.write(rightServoAngle);
+        leftServo.write(leftServoAngle);
+        delay(delayTime);
+      }    
+}
+
 void goStraight(){
     rightServoAngle = rightServoMap(180);
     leftServoAngle = 180;
@@ -255,3 +281,67 @@ byte wallOrientation() {
   }  
 } 
 
+/**************************************************************************/
+//stack helper functions
+
+void stack_push(byte x, byte y) {
+  byte pos [2]= [x, y];
+  stack[stackIndex] = pos;
+  on_stack[pos] = true;
+  stackIndex++;
+}
+
+// Return true if the stack is empty. Only works on the stack defined globally as int stack[50].
+bool stack_empty() {
+  return (stackIndex == 0);
+}
+
+// Return the value on top of the stack.
+// int stack_top() {
+//   if (stack_empty()) return NULL;
+//   return stack[stackIndex-1];
+// }
+
+
+
+void stack_pop() {
+  if (stack_empty()) return ;
+  stackIndex--;
+}
+
+
+
+/**************************************************************************/
+
+//backtracking helper function
+
+//helper function: pop current position, go to previous position, 
+//check left and right sides for unvisited and walls (priority)
+//if both are not possible, then go to previous in stack
+  
+void backtrack() {
+  stack_pop();
+  lineFollow();
+  
+  
+if (!detectLwall) {
+  if (visited[xleft][yleft]==0){
+    //go left
+    //update visited to reflect new current position and set the old current position to 1
+    leftturn();
+    //add to stack 
+    stack_push(robotX, robotY);
+  }
+}
+
+else (!detectRwall) {
+  if (visited[xright][yright]==0){
+    //go right
+    //update visited to reflect new current position and set the old current position to 1
+    rightturn();
+    //add to stack 
+    stack_push(robotX, robotY);
+  }
+}
+  
+  
