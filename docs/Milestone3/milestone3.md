@@ -26,7 +26,7 @@
 * wallOrientation- uses global variables that detect front, left and right wall sensors. Uses a local variable "wall" which is initialized to zero. Then the wall variable is updated depending on the orientation of the robot and where the wall location is.
 * update_WallMatrix- updates the wall matrix depending on the results from wall orientation.
 
-For additional information on the implementation of the line following and turning algorithms check out our previous work from [milestone1]()
+For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](./docs/milestones/1.md)
 
 ##### Stack and Back tracking Functions
 * opposite- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
