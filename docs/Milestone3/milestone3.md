@@ -7,6 +7,8 @@
  * Below are the major components of the code that will finally be used in order to implement depth first search algorithm.
       * Visited Matrix
       * Wall matrix
+  
+  * Amplifier for wall sensors
       
  
  
