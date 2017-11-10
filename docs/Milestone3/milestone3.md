@@ -1,14 +1,7 @@
  
 ## Milestone3
 
-
- ### Simulation
- algorithm for real simulation code
- *  use wall sensors to see wher ethe walls are locally
- * translate local postion to global positon(that is going to be used by countring counters)
- * use the visited matrix to determine the current position and then use that current position to write to the wall matrix
- * determine where to go next and then update the visited matrix, and go to that position
- 
+### Simulation Team
  #### Coding Environment
  We used python 3 for development. In our opinion python is the best language for rapid development and prototyping algorithms. 
  
@@ -44,7 +37,7 @@
  ```
  The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop.
 
-#### Real-time Maze mapping
+#### Real Team
  * The real-time maze mapping is the real time implementation of the simulation done above using a robot. In order to do this, we started by adding helper functions that would allow us to incorporate the additional wallsensors, backtracking, and mainly searching algorithm. We used modular design by dividing our code into main explorer and helper function codes. 
  * Below are the major components of the codes that will finally be used in order to implement depth first search algorithm.
      * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
