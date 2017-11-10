@@ -36,7 +36,7 @@ A stack was needed because we need to keep track of the robot's motion in case i
 #### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
-![](overview.png)
+![](wallSensor_amplifier(1).png)
 
 
 
