@@ -23,6 +23,23 @@ void rightOrientation(){
     robotOrientation = NORTH;
   }
 }
+
+void leftOrientation(){
+  if(robotOrientation == NORTH){
+    robotOrientation = WEST;
+  }
+  if(robotOrientation == WEST) {
+    robotOrientation = SOUTH;
+  }
+  if(robotOrientation == SOUTH) {
+    robotOrientation = EAST;
+  }
+  if(robotOrientation == EAST) {
+    robotOrientation = NORTH;
+  }
+}
+
+
 void resetindexstuff(){
    xleft=robotX; 
    yleft=robotY;
@@ -161,19 +178,7 @@ void leftTurn(){
   leftServo.write(leftServoAngle);
   rightServo.write(rightServoAngle);
   delay(200);
-
-  if(robotOrientation == NORTH){
-    robotOrientation = WEST;
-  }
-  if(robotOrientation == WEST) {
-    robotOrientation = SOUTH;
-  }
-  if(robotOrientation == SOUTH) {
-    robotOrientation = EAST;
-  }
-  if(robotOrientation == EAST) {
-    robotOrientation = NORTH;
-  }
+  leftOrientation();
   updateVisited();
   visited[xleft][yleft]=6;
 }
@@ -229,9 +234,6 @@ void currentPosition() {
 
 
 
-void updateWallMatrix() {
-  wall[robotY][robotX] = wallOrientation();
-}
 
 byte wallOrientation() {
   byte wall = 0;
@@ -281,6 +283,10 @@ byte wallOrientation() {
   }  
 } 
 
+
+void updateWallMatrix() {
+  wall[robotY][robotX] = wallOrientation();
+}
 /**************************************************************************/
 //stack helper functions
 
