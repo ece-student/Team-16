@@ -71,6 +71,7 @@ byte yback=robotY;
 bool detectFWall = true;
 bool detectRWall = true;
 bool detectLWall = true;
+bool accessGranted = false;
 
 byte visited[5][4] =  {{0,0,0,0},
                        {0,0,0,0},
@@ -83,6 +84,9 @@ byte wall[5][4] = {{9,1,1,3},
                    {8,0,0,2},
                    {8,0,0,2},
                    {12,4,4,6}};
+
+byte posStack [20][2];
+int stackIndex=0;
 
 void setup() {
   rightServo.attach(rightServoPin);
@@ -115,29 +119,9 @@ void loop() {
   // less than 750 off the line
    
   if(!detectFWall){
-    if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
-        rightServoAngle = rightServoMap(180);
-        leftServoAngle = 95;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }
+   lineFollow()
   
-      if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
-        rightServoAngle = rightServoMap(95);
-        leftServoAngle = 180;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }
-  
-      if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
-        rightServoAngle = rightServoMap(180);
-        leftServoAngle = 180;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }    
+    
   
   // intersection
     if((outerLeftVal > threshold) && (outerRightVal > threshold)){
@@ -170,7 +154,7 @@ if (!detectFwall) {
     //I changed the movement functions so that they'll update the old pos and new pos according to how they move
     goStraight();
     //add to stack 
-    
+    stack_push(robotX, robotY);
   }
 }
 else (!detectLwall) {
@@ -179,6 +163,7 @@ else (!detectLwall) {
     //update visited to reflect new current position and set the old current position to 1
     leftturn();
     //add to stack 
+    stack_push(robotX, robotY);
   }
 }
 
@@ -188,24 +173,26 @@ else (!detectRwall) {
     //update visited to reflect new current position and set the old current position to 1
     rightturn();
     //add to stack 
+    stack_push(robotX, robotY);
   }
 }
       
 else {
+  //turn 180 degrees
   opposite();
-  // this will make infinite loop though....
+  //backtracking code to prevent infinite loop
+  
+  //helper function: pop current position, go to previous position, 
+  //check left and right sides for unvisited and walls (priority)
+  //if both are not possible, then go to previous in stack
+  
   }
 
-currentPosition();    // so it'llset robotX and robotY to current position
+currentPosition();    // so it'll set robotX and robotY to current position
 resetindexstuff();    //so it'll set all of x and y values of back left right forward to robot x and y 
 
 
 /***********************************************************************/
-
-      
-     
-
-
       if (visitedBox==20){
       // check if done with maze, aka, all have been visited
             rightServo.write(rightServoMap(90));
@@ -223,6 +210,7 @@ resetindexstuff();    //so it'll set all of x and y values of back left right fo
   } 
   else
   {    
+    
     rightServo.write(rightServoMap(90));
     leftServo.write(90);  
     delay(100);
