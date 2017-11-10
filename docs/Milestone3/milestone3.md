@@ -31,15 +31,10 @@ For additional information on the implementation of the line following and turni
 ##### Stack and Back tracking Functions
 A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
 * opposite- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
-* backtrack- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. When implementing the stack,    
+* backtrack- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack.  
   
-      
- 
- 
- 
-
- algorithm for real simulation code
- *  use wall sensors to see wher ethe walls are locally
+ Algorithm for real simulation code
+ * use wall sensors to see where the walls are locally
  * translate local postion to global positon(that is going to be used by countring counters)
  * use the visited matrix to determine the current position and then use that current position to write to the wall matrix
  * determine where to go next and then update the visited matrix, and go to that position
