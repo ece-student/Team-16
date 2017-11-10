@@ -1,5 +1,5 @@
  
-## Milestone3
+## Milestone 3
 
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
