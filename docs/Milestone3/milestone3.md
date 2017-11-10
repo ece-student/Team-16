@@ -29,6 +29,7 @@
 For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](https://lois-lee.github.io/Team-16/docs/milestones/1.html)
 
 ##### Stack and Back tracking Functions
+A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. 
 * opposite- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
 * stack_push- 
 * stack_pop-
