@@ -1,11 +1,11 @@
  
-# Milestone 3
+## Milestone 3
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
 We used DFS for our map mazing implementation. [Click here to learn more](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
 ## Simulation Team
-#### Coding Environment
+ #### Coding Environment
  We used python 3 for development. In our opinion, python is the best language for rapid development and prototyping algorithms. 
  
 #### Maze representation
@@ -57,14 +57,23 @@ The real-time maze mapping is the real time implementation of the simulation don
 However, we cannot simply translate the Python code into Arduino programming and expect it to work. There are certain logistical issues we need to take care of first, mainly wall sensors and direction.
 
 Below are the major components of the codes that we used to implement depth first search algorithm.
-   * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
-   * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
-   * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
+     * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
+     * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
+     * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
          * unvisited =0 , visited =1, current= 6
-   * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
+     * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
-### Helper Functions
-#### Wall, Turning and Orientation Functions
+     
+Here are some visual explanations of the more important parts of implementation:
+
+![](orientation.png)
+![](wall.png)
+![](visited.png)
+![](move.png)
+     
+#### Helper Functions
+
+##### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
 * **leftOrientation()**: has the opposite implemntation of rightOrientation. 
 * **resetIndex()**: resets the left, front, right, and left X and Y axis locations of the robot. 
@@ -80,22 +89,18 @@ Below are the major components of the codes that we used to implement depth firs
 
 For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](https://lois-lee.github.io/Team-16/docs/milestones/1.html)
 
-#### Stack and Back tracking Functions
+##### Stack and Back tracking Functions
 A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
 * **opposite()**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
 * **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
 
 ##### Depth First Search Implementation
 
-     
-Here are some visual explanations of the more important parts of implementation:
-
-![](orientation.png)
-![](wall.png)
-![](visited.png)
-![](move.png)
-   
 #### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
     ![](wallSensoramplifier.png)
+    
+    
+    
+We ran into a lot of technical difficulties, especially with our sensors (wall sensors as described above but also line sensors) and so we ran out of time in debugging. Because we spent so much time fixing the broken sensors and making a circuit to amplify other sensors, replacing the batteries, etc etc, we ended without fixing our code completely. As you can see in [this first demo](https://youtu.be/T0lW_HS7i0o) the robot line follows correctly and stops at the correct distance when detecting the wall, but where it is supposed to turn, it shudders and halts completely. We think that this may be because the pin assignments may have been incorrect and so the robot thinks that there is a wall to it's right when it does not in the demo. Our inference is backed up by this [second demo](https://youtu.be/XLtpgK0RFUs) where the robot turns to the right because it seems to have mixed up its right and front sensors.
