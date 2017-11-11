@@ -61,7 +61,7 @@ Below are the major components of the codes that we used to implement depth firs
    * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
    * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
    * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
-    * unvisited =0 , visited =1, current= 6
+    *unvisited =0 , visited =1, current= 6*
    * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
      
