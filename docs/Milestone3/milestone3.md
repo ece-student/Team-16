@@ -57,12 +57,11 @@ The real-time maze mapping is the real time implementation of the simulation don
 However, we cannot simply translate the Python code into Arduino programming and expect it to work. There are certain logistical issues we need to take care of first, mainly wall sensors and direction.
 
 Below are the major components of the codes that we used to implement depth first search algorithm.
-     
-   * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
-   * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
-   * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
-    *unvisited =0 , visited =1, current= 6*
-   * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
+     * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
+     * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
+     * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
+         * unvisited =0 , visited =1, current= 6
+     * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
      
 Here are some visual explanations of the more important parts of implementation:
@@ -98,11 +97,22 @@ A stack was needed because we need to keep track of the robot's motion in case i
 * **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
 
 
+### Signaling Finish
+
+Although we did not finish the milestone completely, and thus could not test whether the signal would signal correctly, we implemented a simple function that would run in the loop. 
+
+We wanted a simple way to show that the robot knew that the entirety of the maze (minus unaccessible, blocked off parts) was traversed. Although primarily we had the function check the visited matrix within the loop to see if all of the values were 1, signaling visited, or 6, signaling current position.
+
+However, we have to take into account if there are some areas we cannot traverse. For example, if there is a closed off box in the maze, the robot cannot get to that position, as therefore, even when all areas have been traversed, it would be hard to recognize it as being so.
+
+Thus we implemented a helper function lightUp() which would light up an LED on the condition that either the stack was not empty or all areas have been traversed.
 
 #### Additional components
-* The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
+* The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transistor that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
     ![](wallSensoramplifier.png)
+    
+   
     
 #### Challenges  
 * We ran into a lot of technical difficulties, especially with our sensors (wall sensors as described above but also line sensors) and so we ran out of time in debugging. Because we spent so much time fixing the broken sensors and making a circuit to amplify other sensors, replacing the batteries, etc etc, we ended without fixing our code completely. 
