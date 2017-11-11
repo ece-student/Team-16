@@ -63,14 +63,6 @@ Below are the major components of the codes that we used to implement depth firs
          * unvisited =0 , visited =1, current= 6
      * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
-     
-Here are some visual explanations of the more important parts of implementation:
-
-![](orientation.png)
-![](wall.png)
-![](visited.png)
-![](move.png)
-     
 #### Helper Functions
 
 ##### Wall, Turning and Orientation Functions
@@ -96,6 +88,14 @@ A stack was needed because we need to keep track of the robot's motion in case i
 
 ##### Depth First Search Implementation
 
+     
+Here are some visual explanations of the more important parts of implementation:
+
+![](orientation.png)
+![](wall.png)
+![](visited.png)
+![](move.png)
+   
 #### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
