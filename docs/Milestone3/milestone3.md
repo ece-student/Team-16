@@ -48,6 +48,8 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
  ```
  The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop.
 
+The complete maze simulation code can be found [here](MazeSimulation.md)
+
 ### Real Team
  * The real-time maze mapping is the real time implementation of the simulation done above using a robot. In order to do this, we started by adding helper functions that would allow us to incorporate the additional wallsensors, backtracking, and mainly searching algorithm. We used modular design by dividing our code into main explorer and helper function codes. 
  * Below are the major components of the codes that will finally be used in order to implement depth first search algorithm.
