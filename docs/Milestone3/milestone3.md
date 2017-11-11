@@ -1,6 +1,5 @@
  
 ## Milestone 3
-
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
 We used DFS for our map mazing implementation. [Click here to learn more](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
@@ -86,8 +85,3 @@ A stack was needed because we need to keep track of the robot's motion in case i
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
     ![](wallSensoramplifier.png)
-
-
-
-
- 
