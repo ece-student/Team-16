@@ -2,7 +2,9 @@
 ## Milestone 3
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
-We used Depth First Search (DFS) for our map mazing implementation. DFS as the name implies traverses the path until it finds the goal. In our case, even though there is no target specific target, the robot wants to traverse each location on the 4x5 maze unless it is a blocked area. The simulation implemented both DFS and BFS while the real code only involved DFS. We plan to scale up our the DFS algorithm to incorporate Dijkstra's algorithm so that our maze can make path choices that will minimize the cost of choosing one direction over the other.[Click here to learn more about DFS](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
+We used Depth First Search (DFS) for our map mazing implementation. DFS as the name implies traverses the path until it finds the goal. In our case, even though there is no target specific target, the robot wants to traverse each location on the 4x5 maze unless it is a blocked area. The simulation implemented both DFS and BFS while the real code only involved DFS. We plan to scale up our the DFS algorithm to incorporate Dijkstra's algorithm so that our maze can make path choices that will minimize the cost of choosing one direction over the other.
+
+[Click here to learn more about DFS](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
 ## Simulation Team
  #### Coding Environment
@@ -77,7 +79,7 @@ Here are some visual explanations of the more important parts of implementation:
      
 #### Helper Functions
 
-To see the complete file of all helper functions click here [Helper Functions](RealFunctions.md) and to view our code click here [Real Code](RealMainCode.md)
+To see the complete file of all helper functions click here [Helper Functions](RealFunctions.md) and to view our code click here [Real Code](RealMainCode.md). 
 
 ##### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
