@@ -60,23 +60,18 @@ However, we cannot simply translate the Python code into Arduino programming and
 
 Below are the major components of the codes that we used to implement depth first search algorithm.
 * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
-
 * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
-
 * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
     *unvisited =0 , visited =1, current= 6*
-
 * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
-     
-     
-Here are some visual explanations of the more important parts of implementation:
+       
+Below are some visual explanations of the more important parts of implementation:
 
 ![](orientation.png)
 
 ![](wall.png)
 
 ![](visited.png)
-
 
 ![](move.png)
      
@@ -120,9 +115,7 @@ Thus we implemented a helper function lightUp() which would light up an LED on t
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transistor that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
     ![](wallSensoramplifier.png)
-    
-   
-    
+     
 #### Challenges  
 * We ran into a lot of technical difficulties, especially with our sensors (wall sensors as described above but also line sensors) and so we ran out of time in debugging. Because we spent so much time fixing the broken sensors and making a circuit to amplify other sensors, replacing the batteries, etc etc, we ended without fixing our code completely. 
 * As you can see in [this first demo](https://youtu.be/T0lW_HS7i0o) the robot line follows correctly and stops at the correct distance when detecting the wall, but where it is supposed to turn, it shudders and halts completely. We think that this may be because the pin assignments may have been incorrect and so the robot thinks that there is a wall to it's right when it does not in the demo. Our inference is backed up by this [second demo](https://youtu.be/XLtpgK0RFUs) where the robot turns to the right because it seems to have mixed up its right and front sensors.
