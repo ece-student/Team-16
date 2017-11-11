@@ -47,7 +47,7 @@ We used Depth first search for our map mazing implementation. DFS as the name im
  ```
  The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop.
 
-The complete maze simulation code can be found [here](MazeSimulation.md)
+The complete maze simulation code can be found here [Simulation Code](MazeSimulation.md)
 
 ## Real Team
 
@@ -73,9 +73,7 @@ Here are some visual explanations of the more important parts of implementation:
      
 #### Helper Functions
 
-To see the complete file of all helper functions see here [helper functions](currentfunctions.ino)
-
-To see our code see here [code](currentexplore.ino)
+To see the complete file of all helper functions click here [Helper Functions](/realDFS/functions4.ino) and to view our code click here [Real Code](/realDFS/explore4.ino)
 
 ##### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
