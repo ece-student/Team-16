@@ -2,7 +2,7 @@
 ## Milestone 3
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
-We used Depth first search for our map mazing implementation. DFS as the name implies traverses the path until it finds the goal. In our case, even though there is no target specific target, the robot wants to traverse each location on the 4x5 maze unless it is a blocked area. The simulation implemented both DFS and BFS while the real code only involved DFS. We plan to scale up our the DFS algorithm into Dikjstra's algorithm so that our maze can make path choices that entail the cost of choosing one direction over the other.[Click here to learn more about DFS](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
+We used Depth First Search (DFS) for our map mazing implementation. DFS as the name implies traverses the path until it finds the goal. In our case, even though there is no target specific target, the robot wants to traverse each location on the 4x5 maze unless it is a blocked area. The simulation implemented both DFS and BFS while the real code only involved DFS. We plan to scale up our the DFS algorithm to incorporate Dijkstra's algorithm so that our maze can make path choices that will minimize the cost of choosing one direction over the other.[Click here to learn more about DFS](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
 ## Simulation Team
  #### Coding Environment
@@ -57,18 +57,22 @@ The real-time maze mapping is the real time implementation of the simulation don
 However, we cannot simply translate the Python code into Arduino programming and expect it to work. There are certain logistical issues we need to take care of first, mainly wall sensors and direction.
 
 Below are the major components of the codes that we used to implement depth first search algorithm.
-     * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
-     * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
-     * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
-         * unvisited =0 , visited =1, current= 6
-     * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
+     - Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
+     - Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
+     - Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
+         - unvisited =0 , visited =1, current= 6
+     - Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
      
 Here are some visual explanations of the more important parts of implementation:
 
 ![](orientation.png)
+
 ![](wall.png)
+
 ![](visited.png)
+
+
 ![](move.png)
      
 #### Helper Functions
@@ -92,7 +96,7 @@ To see the complete file of all helper functions click here [Helper Functions](/
 For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](https://lois-lee.github.io/Team-16/docs/milestones/1.html)
 
 ##### Stack and Back tracking Functions
-A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
+A stack was needed because we need to keep track of the robot's motion for the case that we need to back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
 * **opposite()**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
 * **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
 
