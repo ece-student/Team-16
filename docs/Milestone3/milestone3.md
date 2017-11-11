@@ -1,10 +1,10 @@
  
 ## Milestone 3
-The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms. Then we implemented this on the Arduino so that the robot can navigate through the maze.
+The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
 We used DFS for our map mazing implementation. [Click here to learn more](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
-### Simulation Team
+## Simulation Team
  #### Coding Environment
  We used python 3 for development. In our opinion, python is the best language for rapid development and prototyping algorithms. 
  
@@ -49,9 +49,14 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
 
 The complete maze simulation code can be found [here](MazeSimulation.md)
 
-### Real Team
- * The real-time maze mapping is the real time implementation of the simulation done above using a robot. In order to do this, we started by adding helper functions that would allow us to incorporate the additional wallsensors, backtracking, and mainly searching algorithm. We used modular design by dividing our code into main explorer and helper function codes. 
- * Below are the major components of the codes that will finally be used in order to implement depth first search algorithm.
+## Real Team
+
+
+The real-time maze mapping is the real time implementation of the simulation done above using a robot. In order to do this, we started by adding helper functions that would allow us to incorporate the additional wallsensors, backtracking, and mainly searching algorithm. We used modular design by dividing our code into main explorer and helper function codes. 
+
+However, we cannot simply translate the Python code into Arduino programming and expect it to work. There are certain logistical issues we need to take care of first, mainly wall sensors and direction.
+
+Below are the major components of the codes that we used to implement depth first search algorithm.
      * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
      * Turn specification: FORWARD = 0 , LEFT =1, RIGHT=2
      * Visited Matrix: used to keep track of the matrices that are already visited by the robot. We assume that all matrices are unvisited except for the matrix on the bottom right corner which is where the robot starts its exploration on the maze. 
