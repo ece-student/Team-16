@@ -111,11 +111,11 @@ However, we have to take into account if there are some areas we cannot traverse
 
 Thus we implemented a helper function lightUp() which would light up an LED on the condition that either the stack was not empty or all areas have been traversed.
 
-#### Additional components
+### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transistor that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
 
     ![](wallSensoramplifier.png)
      
-#### Challenges  
+### Challenges  
 * We ran into a lot of technical difficulties, especially with our sensors (wall sensors as described above but also line sensors) and so we ran out of time in debugging. Because we spent so much time fixing the broken sensors and making a circuit to amplify other sensors, replacing the batteries, etc etc, we ended without fixing our code completely. 
 * As you can see in [this first demo](https://youtu.be/T0lW_HS7i0o) the robot line follows correctly and stops at the correct distance when detecting the wall, but where it is supposed to turn, it shudders and halts completely. We think that this may be because the pin assignments may have been incorrect and so the robot thinks that there is a wall to it's right when it does not in the demo. Our inference is backed up by this [second demo](https://youtu.be/XLtpgK0RFUs) where the robot turns to the right because it seems to have mixed up its right and front sensors.
