@@ -14,13 +14,13 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
  
  We have many helper functions to make it easy to work with the maze:
  
- **maze.addWall(x1,y1, x2,y2)**
+ * **maze.addWall(x1,y1, x2,y2)**
  This function is meant to create a wall between the nodes (x1,y1) and (x2,y2). This involves setting the right boolean to False in both of the nodes. This function handles invalid inputs such as nodes that are not adjacents and invalid coordindates. For the coorindates to be valid one of the coordinates must be equal: either x or y. The nonequal coordinate must be off by only one. Also these coordinates must be in the array, i.e. nonnegatives and less than the number of rows or columns. With nested conditionals we can check these conditions and if they are met determine the relative position of the nodes. For example, if node1 is to the left of node2, we set node1.right = False and node2.left = False.
  
- **maze.printMaze()**
+ * **maze.printMaze()**
  This prints a textual representation of the maze state to the console. Although this is not a GUI display, it shows all the necessary information of the maze state as the search algorithms run. The state of each mazeNode is represented by a different letter: "R": current robot location, "o": unvisited, "x": visited. "|" and "-" are used to display walls. Once all locations have been visited the code prints "Done!"
  
- **maze.drawMaze()**
+ * **maze.drawMaze()**
  This creates the animated representation of the maze state to the console. It works similarly to the printMaze function, as it updates due to the different states as the search algorithm runs. However, it actually draws the grid out with the white blocks showing the unvisited grid positions, red blocks marking locations that have been visited, and a blue block which represents the current location of the robot. We also added line drawing functions to represent walls. Once all positions have been visited the animation closes.
  
  This video exhibits the maze.drawMaze() animation as the simulated robot DFS searches through the maze until all positions have been visited. At the end you can see the last iteration of the maze.printMaze() function with the "Done!" statement marking the end of the simulation.
