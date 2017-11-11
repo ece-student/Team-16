@@ -58,6 +58,12 @@ The complete maze simulation code can be found [here](MazeSimulation.md)
          * unvisited =0 , visited =1, current= 6
      * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
+     
+![](orientation.png)
+![](wall.png)
+![](visited.png)
+![](move.png)
+     
 #### Helper Functions
 
 ##### Wall, Turning and Orientation Functions
