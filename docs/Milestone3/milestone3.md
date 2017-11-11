@@ -77,7 +77,7 @@ Here are some visual explanations of the more important parts of implementation:
      
 #### Helper Functions
 
-To see the complete file of all helper functions click here [Helper Functions](/realDFS/functions4.ino) and to view our code click here [Real Code](/realDFS/explore4.ino)
+To see the complete file of all helper functions click here [Helper Functions](RealFunctions.md) and to view our code click here [Real Code](RealMainCode.md)
 
 ##### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
