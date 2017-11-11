@@ -1,11 +1,11 @@
  
-## Milestone 3
+# Milestone 3
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
 We used DFS for our map mazing implementation. [Click here to learn more](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
 ## Simulation Team
- #### Coding Environment
+#### Coding Environment
  We used python 3 for development. In our opinion, python is the best language for rapid development and prototyping algorithms. 
  
 #### Maze representation
@@ -63,9 +63,9 @@ Below are the major components of the codes that we used to implement depth firs
          * unvisited =0 , visited =1, current= 6
      * Wall matrix: used to keep track of wall locations. It is initialized in a way that sets a boundary value for the walls across the 4x5 maze. For instance the (0,0) position has wall locations set by 9(1001) which implies that there is a wall on the NORTH and WEST side by default. 
      
-#### Helper Functions
+### Helper Functions
 
-##### Wall, Turning and Orientation Functions
+#### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
 * **leftOrientation()**: has the opposite implemntation of rightOrientation. 
 * **resetIndex()**: resets the left, front, right, and left X and Y axis locations of the robot. 
@@ -81,7 +81,7 @@ Below are the major components of the codes that we used to implement depth firs
 
 For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](https://lois-lee.github.io/Team-16/docs/milestones/1.html)
 
-##### Stack and Back tracking Functions
+#### Stack and Back tracking Functions
 A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
 * **opposite()**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
 * **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
