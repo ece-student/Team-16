@@ -30,7 +30,11 @@ We used Depth First Search (DFS) for our map mazing implementation. DFS as the n
  
 #### Search algorithms
  We implemented two fundemental search algorithms BFS and DFS. We are using DFS for the actual robot.
- A stack is implemented with a python list, and the current mazeNode is appended to it. In the while loop there is a heirarchy of directions: down, up, left, right.
+ A stack is implemented with a python list, and the current mazeNode is appended to it. In the while loop there is a heirarchy of directions: down, up, left, right. Below is a graphic to provide background on how the algorithm dictates the robot's movement.
+ 
+![](2.png)
+
+![](3.png)
  
  ```python
  def DFS(self):
@@ -47,9 +51,7 @@ We used Depth First Search (DFS) for our map mazing implementation. DFS as the n
 ...
    self.printMaze()
  ```
- The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop.
-
-The complete maze simulation code can be found here [Simulation Code](MazeSimulation.md)
+The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop. The position in this stack governs the "priority" mentioned in the above graphics. The complete maze simulation code can be found here [Simulation Code](MazeSimulation.md)
 
 ## Real Team
 
