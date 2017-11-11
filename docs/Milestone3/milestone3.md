@@ -7,9 +7,9 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
 
 ### Simulation Team
  #### Coding Environment
- We used python 3 for development. In our opinion python is the best language for rapid development and prototyping algorithms. 
+ We used python 3 for development. In our opinion, python is the best language for rapid development and prototyping algorithms. 
  
- #### Maze representation
+#### Maze representation
  We used a simple object oriented structure, with two main classes: maze and mazeNode. The maze holds a 2D-array of mazeNodes. Each mazeNode has x,y coordinates, and four direction booleans: top, right, bottom, and left. These booleans are set to True intially, but set to false if there is a wall in that direction. The mazeNodes also stores states, such as if it is visited or the current robot location. Then the maze is initialized with the perimeter being walled off by setting booleans to False along the border. 
  
  We have many helper functions to make it easy to work with the maze:
@@ -27,7 +27,7 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
  
 [Simulation Demo](https://youtu.be/wpXIaLFvQrc)
  
- #### Search algorithms
+#### Search algorithms
  We implemented two fundemental search algorithms BFS and DFS. We are using DFS for the actual robot.
  A stack is implemented with a python list, and the current mazeNode is appended to it. In the while loop there is a heirarchy of directions: down, up, left, right.
  
@@ -48,7 +48,7 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
  ```
  The algorithm checks if there is a wall to the left of the current node. If the node to the left is not visited, it is pushed to the stack for it to be visited in the next iteration of the while loop.
 
-#### Real Team
+### Real Team
  * The real-time maze mapping is the real time implementation of the simulation done above using a robot. In order to do this, we started by adding helper functions that would allow us to incorporate the additional wallsensors, backtracking, and mainly searching algorithm. We used modular design by dividing our code into main explorer and helper function codes. 
  * Below are the major components of the codes that will finally be used in order to implement depth first search algorithm.
      * Direction specification:  NORTH = 1(0001), EAST  = 2(0010), SOUTH = 4(0100), WEST  = 8(1000).
@@ -60,25 +60,25 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
 #### Helper Functions
 
 ##### Wall, Turning and Orientation Functions
-* **rightOrientation**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
-* **leftOrientation**: has the opposite implemntation of rightOrientation. 
-* **resetIndex**: resets the left, front, right, and left X and Y axis locations of the robot. 
-* **neighbourIndex**- sets front, back, right and left x and Y indices of the neighboring grid locations relative to the robot's orientation. 
-* **updateVisited**: updates the visited matrix whenever the robot moves along a specific grid so that it doesn't revisit it again unless it has to backtrack.  
-* **rightTurn**- in addition to making the robot make a right turn from the previous code in lab1, this function calls right Orientation, updateVisited matrices to update the robot's location and direction. The grid to the right side is now the current location of the robot once it makes the turn. 
-* **leftTurn**- opposite implemntation of rightTurn. 
-* **lineFollow**- used for making a robot follow a line using the line sensors. 
-* **goStraight**- used for making the robot go Straight ( doesn't use the line sensors). 
-* **currentPosition**- updates robotX and robotY global variables depending on the current positon of the robot. 
-* **wallOrientation**- uses global variables that detect front, left and right wall sensors. Uses a local variable "wall" which is initialized to zero. Then the wall variable is updated depending on the orientation of the robot and where the wall location is.
-* **update_WallMatrix**- updates the wall matrix depending on the results from wall orientation.
+* **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
+* **leftOrientation()**: has the opposite implemntation of rightOrientation. 
+* **resetIndex()**: resets the left, front, right, and left X and Y axis locations of the robot. 
+* **neighbourIndex()**- sets front, back, right and left x and Y indices of the neighboring grid locations relative to the robot's orientation. 
+* **updateVisited()**: updates the visited matrix whenever the robot moves along a specific grid so that it doesn't revisit it again unless it has to backtrack.  
+* **rightTurn()**- in addition to making the robot make a right turn from the previous code in lab1, this function calls right Orientation, updateVisited matrices to update the robot's location and direction. The grid to the right side is now the current location of the robot once it makes the turn. 
+* **leftTurn()**- opposite implemntation of rightTurn. 
+* **lineFollow()**- used for making a robot follow a line using the line sensors. 
+* **goStraight()**- used for making the robot go Straight ( doesn't use the line sensors). 
+* **currentPosition()**- updates robotX and robotY global variables depending on the current positon of the robot. 
+* **wallOrientation()**- uses global variables that detect front, left and right wall sensors. Uses a local variable "wall" which is initialized to zero. Then the wall variable is updated depending on the orientation of the robot and where the wall location is.
+* **update_WallMatrix()**- updates the wall matrix depending on the results from wall orientation.
 
 For additional information on the implementation of the line following and turning algorithms check out our previous work from [Milestone 1](https://lois-lee.github.io/Team-16/docs/milestones/1.html)
 
 ##### Stack and Back tracking Functions
 A stack was needed because we need to keep track of the robot's motion in case if we need back track when there is a dead end. In order to implement the stack, we used helper functions that would allow pushing and poping values to and from the stack. 
-* **opposite**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
-* **backtrack**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
+* **opposite()**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
+* **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
 
 #### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
