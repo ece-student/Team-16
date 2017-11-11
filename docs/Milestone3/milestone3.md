@@ -2,7 +2,7 @@
 ## Milestone 3
 The purpose of this milestone was to simulate maze mapping, which is a large part of our final robot design. We first implemented this using a more flexible programming language, in our case, we used Python, so that we could simulate and easily test out the efficiencies of certain algorithms and so we could also easily test out different optimization techniques. Then we implemented this on the Arduino so that the robot can navigate through the maze.
 
-We used DFS for our map mazing implementation. [Click here to learn more](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
+We used Depth first search for our map mazing implementation. DFS as the name implies traverses the path until it finds the goal. In our case, even though there is no target specific target, the robot wants to traverse each location on the 4x5 maze unless it is a blocked area. The simulation implemented both DFS and BFS while the real code only involved DFS. We plan to scale up our the DFS algorithm into Dikjstra's algorithm so that our maze can make path choices that entail the cost of choosing one direction over the other.[Click here to learn more about DFS](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/tutorial/) 
 
 ## Simulation Team
  #### Coding Environment
@@ -73,9 +73,6 @@ Here are some visual explanations of the more important parts of implementation:
      
 #### Helper Functions
 
-To see the complete file of all helper functions see here [helper functions](/realDFS/function4.ino)
-To see our code see here [code](/realDFS/explore4.ino)
-
 ##### Wall, Turning and Orientation Functions
 * **rightOrientation()**- To make a right orientation the current orientation is shifted 90 degrees in the clockwise direction. This is used to update the orientation of the robot when it makes a 180 degree turn before back tracking. 
 * **leftOrientation()**: has the opposite implemntation of rightOrientation. 
@@ -97,7 +94,7 @@ A stack was needed because we need to keep track of the robot's motion in case i
 * **opposite()**- used for back tracking. In this case the rightOrientation function is called twice to ensure that the direction is updated twice since the robot makes a 180 degree turn. 
 * **backtrack()**- this function runs when the robot encounters a dead end. The robot back tracks until it stops detecting walls either on the left and right wall sensors. Whenever it backtracks, it pops out the previous position from the stack and adds the current position into the stack. 
 
-##### Depth First Search Implementation
+
 
 #### Additional components
 * The wall sensor readings were sensitive to distance close to the robot. We wanted the sensors to detect walls right at the interesection so that the robot can turn around when it faces a dead end. Therefore, we made an inverter using a bipolar junction transisotr that would take the voltage reading from the sensor which is in milli volts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration. 
