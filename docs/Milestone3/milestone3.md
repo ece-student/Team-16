@@ -25,7 +25,7 @@ We used DFS for our map mazing implementation. [Click here to learn more](https:
  
  This video exhibits the maze.drawMaze() animation as the simulated robot DFS searches through the maze until all positions have been visited. At the end you can see the last iteration of the maze.printMaze() function with the "Done!" statement marking the end of the simulation.
  
- https://youtu.be/wpXIaLFvQrc
+[Simulation Demo](https://youtu.be/wpXIaLFvQrc)
  
  #### Search algorithms
  We implemented two fundemental search algorithms BFS and DFS. We are using DFS for the actual robot.
