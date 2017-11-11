@@ -137,7 +137,7 @@ void loop() {
     
   
   // intersection
-  if ((visitedBox==20)|| !stack_empty){
+
     if((outerLeftVal > threshold) && (outerRightVal > threshold)){
 
       // use wall sensors to check walls on each side 
@@ -211,22 +211,15 @@ resetIndex();    //so it'll set all of x and y values of back left right forward
 
 /***********************************************************************/
          
-      /*
-      rightServo.write(rightServoMap(90));
-      leftServo.write(90);  
-      delay(100);
-      */
+
     }
     lightUp();
   } 
   else
   {    
-//we commented this out bc it wouldn't move    
-//    rightServo.write(rightServoMap(90));
-//    leftServo.write(90);  
-//    delay(100);
-  }
 
   }
+
+  
   
 }
