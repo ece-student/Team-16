@@ -221,10 +221,10 @@ resetIndex();    //so it'll set all of x and y values of back left right forward
   } 
   else
   {    
-    
-    rightServo.write(rightServoMap(90));
-    leftServo.write(90);  
-    delay(100);
+//we commented this out bc it wouldn't move    
+//    rightServo.write(rightServoMap(90));
+//    leftServo.write(90);  
+//    delay(100);
   }
 
   }
