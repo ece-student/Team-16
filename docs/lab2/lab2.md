@@ -105,10 +105,10 @@ Our IR sensor circuit was connected as follows where the long lead was connected
 
 ![irsense](IR-Sense.png)
 
-Being that the sensor is NPN phototransistor, this configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that we more control over the gain of the circuit with the common collector circuit. In testing our circuit, we have found the do not need an amplifier to detect the IR treasures, but may need to in the future.
+Being that the sensor is NPN phototransistor, this configuration also known as common collector is useful in that it provides slightly less than unity gain but the output impedance is small. The reasoning behind using this configuration over the common emitter amplifier topology is that the common collector circuit allows us to have more control over the gain of the circuit. In testing our circuit, we have found that we do not need an amplifier to detect the IR treasures, but we may still need to make one in the future.
 
 
-By testing the device at different frequencies, we were able to determine which bins correspond to the frequencies. We used the serial plots to observe which freqenncies are affected by the signal.
+By testing the device at different frequencies, we were able to determine which bins correspond to the frequencies. We used the serial plots to observe which frequencies are affected by the signal.
 ![irsense](lab2_irgraph.png)
 When the signal is applied to the phototransistor, certain frequency bins peak. We took note of these peak bins for different frequency signal inputs and developed an algorithm to detect and output whether the signal is 7kHz, 12kHz, 17 kHz, or none.
 
