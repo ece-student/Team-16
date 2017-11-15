@@ -627,7 +627,7 @@ void loop() {
   
       }
 
-      currentPosition();    // so it'll set robotX and robotY to current position
+    
       resetIndex();    //so it'll set all of x and y values of back left right forward to robot x and y 
 
 
