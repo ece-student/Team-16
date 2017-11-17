@@ -436,6 +436,7 @@ void stack_pop() {
 //Needs work as a whole  
 void backtrack() {
   
+  
     if((outerLeftVal > threshold) && (outerRightVal > threshold)){
   
       stack_pop();  
@@ -465,17 +466,19 @@ void backtrack() {
           stack_push(robotX, robotY);
           return;
         }
-      }
-  
+      
+ 
       else if (!detectNoRWall && visited[yright][xright]==0) {
+      
           //go right
           //update visited to reflect new current position and set the old current position to 1
           rightTurn();
           //add to stack 
           stack_push(robotX, robotY);
           return;
-        }
-      } 
+        
+      }
+
   }
 }
 
@@ -613,7 +616,12 @@ void loop() {
       //check left and right sides for unvisited and walls (priority)
       //if both are not possible, then go to previous in stack
     }
-      }
+     
+
+    /***********************************************************************/
+         
+
+  }
   else{
     lightUp();
 
