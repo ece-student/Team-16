@@ -33,7 +33,7 @@ Servo leftServo;
 #define WALL_SOUTH  4 // 0100
 #define WALL_WEST   8 // 1000
 
-const int threshold = 800; 
+const int threshold = 900; 
 
 const int delayTime = 2;
 
@@ -609,9 +609,10 @@ void loop() {
     } 
     else {
       //turn 180 degrees
-      opposite();
+     //
+     //opposite();
       //backtracking code to prevent infinite loop
-      backtrack();
+     // backtrack();
       //helper function: pop current position, go to previous position, 
       //check left and right sides for unvisited and walls (priority)
       //if both are not possible, then go to previous in stack
@@ -627,4 +628,3 @@ void loop() {
 
   }
 }
-  
