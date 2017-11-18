@@ -9,6 +9,8 @@
 
 #include <Servo.h>
 
+
+/**************************************************************************************Pin assignments*/
 // Pin Assignments
 const int rightServoPin = 6;
 const int leftServoPin = 5;
@@ -50,6 +52,7 @@ typedef enum {
               RIGHT = 2,
               } TURN;
 
+/*************************************************************************************Global variables*/
 // Global Variables
 int leftServoAngle = 90;
 int rightServoAngle = 90;
@@ -196,6 +199,9 @@ void neighbourIndex(){
   }
 }
 
+
+/***********************************************************************************Movement functions*/
+
 //Need to verify when to update robot current position
 void rightTurn() {
   leftServoAngle = 180;
@@ -332,6 +338,7 @@ void stop(){
 }
 
 //OK
+/*********************************************************************************************Light up*/
 void lightUp(){
   // check if done with maze, aka, all have been visited
   pinMode (ledPin, HIGH);
@@ -390,9 +397,9 @@ byte wallOrientation() {
 //Need to check where to place this function
 void updateWallMatrix() {
   wall[robotY][robotX] = wallOrientation();
-}
 
-/**************************************************************************/
+}
+/**************************************************************************************Stack functions*/
 //stack helper functions
 
 //OK
@@ -426,9 +433,7 @@ void stack_pop() {
   stackIndex--;
 }
 
-/**************************************************************************/
-
-//backtracking helper function
+/********************************************************************************************Backtrack*/
 
 //helper function: pop current position, go to previous position, 
 //check left and right sides for unvisited and walls (priority)
@@ -436,7 +441,7 @@ void stack_pop() {
 //Needs work as a whole  
 void backtrack() {
   
-  
+    
     if((outerLeftVal > threshold) && (outerRightVal > threshold)){
   
       stack_pop();  
@@ -462,8 +467,6 @@ void backtrack() {
           //go left
           //update visited to reflect new current position and set the old current position to 1
           leftTurn();
-          //add to stack 
-          stack_push(robotX, robotY);
           return;
         }
       
@@ -473,8 +476,6 @@ void backtrack() {
           //go right
           //update visited to reflect new current position and set the old current position to 1
           rightTurn();
-          //add to stack 
-          stack_push(robotX, robotY);
           return;
         
       }
@@ -482,6 +483,8 @@ void backtrack() {
   }
 }
 
+
+/*******************************************************************************************Setting up*/
 //OK
 //Start robot behind first intersection, in the case where there is a
 //wall right in front of the robot
@@ -504,6 +507,8 @@ void setup() {
   delay(2000); //Wait 2 seconds
 }
 
+
+/*************************************************************************************************Loop*/
 void loop() { 
   //Could combine outer left and outer right line sensors 
   // greater than 750 on the line
@@ -569,7 +574,7 @@ void loop() {
     Serial.print(visited[4][1]);
     Serial.print(visited[4][2]);
     Serial.println(visited[4][3]);
-    /***********************************************************************/
+/**************************************************************************************************DFS*/
     //dfs
     //when we are at a new position (at intersection)
     //IF NEW PLACE EXISTS FROM CURRENT POSITION
@@ -609,22 +614,17 @@ void loop() {
     } 
     else {
       //turn 180 degrees
-     //
-     //opposite();
+      opposite();
       //backtracking code to prevent infinite loop
-     // backtrack();
+      backtrack();
       //helper function: pop current position, go to previous position, 
       //check left and right sides for unvisited and walls (priority)
       //if both are not possible, then go to previous in stack
     }
-     
-
-    /***********************************************************************/
-         
-
   }
   else{
     lightUp();
 
   }
 }
+  
