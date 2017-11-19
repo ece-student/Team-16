@@ -450,6 +450,7 @@ int to() {
 
 
 void cardinalTurn(){
+  
   //straight
   if (from==NORTH && to==NORTH){
     goStraight();
@@ -463,6 +464,7 @@ void cardinalTurn(){
   if (from==EAST && to==EAST){
     goStraight();
   }
+  
   //right
     if (from==NORTH && to==EAST){
     rightTurn();
@@ -476,8 +478,9 @@ void cardinalTurn(){
   if (from==EAST && to==SOUTH){
     rightTurn();
   }
-//left
-    if (from==NORTH && to==WEST){
+  
+  //left
+  if (from==NORTH && to==WEST){
     leftTurn();
   }
   if (from==SOUTH && to==EAST){
@@ -489,8 +492,9 @@ void cardinalTurn(){
   if (from==EAST && to==NORTH){
     leftTurn();
   }
+  
   //opposite
-    if (from==NORTH && to==SOUTH){
+  if (from==NORTH && to==SOUTH){
     opposite();
   }
   if (from==SOUTH && to==NORTH){
@@ -795,12 +799,6 @@ void loop() {
       stack_push(robotX, robotY);        
     } 
     else {
-      //turn 180 degrees
-      if (doOpposite==true){
-      opposite();
-     
-      }
-      //backtracking code to prevent infinite loop
       backtrack();
       //helper function: pop current position, go to previous position, 
       //check left and right sides for unvisited and walls (priority)
@@ -813,3 +811,6 @@ void loop() {
   }
 }
   
+
+
+
