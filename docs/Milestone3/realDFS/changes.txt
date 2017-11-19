@@ -1,0 +1,23 @@
+if (robotX == NULL && robotY == NULL) {
+      robotX = 3;
+      robotY = 4;
+      visited[robotY][robotX] = 6;
+    } 
+    else {
+      visited[yfront][xfront]=6;
+      visited[robotY][robotX] = 1;
+      robotX = xfront;
+      robotY = yfront;
+    }    
+    
+    if (robotX == NULL && robotY == NULL) {
+      robotX = 3;
+      robotY = 4;
+      visited[robotY][robotX] = 6;
+    } 
+    else {
+      visited[yleftt][xleftt]=6;
+      visited[robotY][robotX] = 1;
+      robotX = xleftt;
+      robotY = yleftt;
+    }    
