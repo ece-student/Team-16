@@ -43,7 +43,7 @@ typedef enum {
               NORTH = 1,
               EAST  = 2,
               SOUTH = 4,
-              WEST  = 8
+              WEST  = 8,
               } ORIENTATION;
 
 typedef enum {
@@ -85,6 +85,7 @@ bool detectNoFWall = true;
 bool detectNoRWall = true;
 bool detectNoLWall = true;
 bool accessGranted = false;
+bool doOpposite    = true;
 
 byte visited[5][4] =  {{0,0,0,0},
                        {0,0,0,0},
@@ -101,6 +102,8 @@ byte wall[5][4] = {{9,1,1,3},
 byte posStack [20][2];
 
 byte turnStack [20];
+
+byte cardinalStack [20];
 
 int stackIndex=0;
 
@@ -409,22 +412,104 @@ void stack_push(byte x, byte y) {
   stackIndex++;
 }
 
+
 //OK
 // Return true if the stack is empty. Only works on the stack defined globally as int stack[50].
+
+//problematic because when you add to turnstack, won't have same index, must also pop turnstack separately
 bool stack_empty() {
   return (stackIndex == 0);
 }
+
 
 //OK
 bool turnStack_empty() {
   return (stackIndex == 0);
 }
 
+bool cardinalStack_empty(){
+  return (stackIndex==0);
+}
 // Return the value on top of the stack.
 //Need to verify
-int turnStack_top() {
+int turnStack_top () {
   if (turnStack_empty()) return NULL;
   return turnStack[stackIndex];
+}
+
+//THIS IS FOR THE TURN STUFF, USE BOTH
+ORIENTATION from (){
+  robotOrientation;
+}
+
+ORIENTATION to() {
+  if (cardinalStack_empty()) return NULL;
+  return cardinalStack[stackIndex];
+}
+
+
+void cardinalTurn(){
+  
+  //straight
+  if (from==NORTH && to==NORTH){
+    goStraight();
+  }
+  if (from==SOUTH && to==SOUTH){
+    goStraight();
+  }
+  if (from==WEST && to==WEST){
+    goStraight();
+  }
+  if (from==EAST && to==EAST){
+    goStraight();
+  }
+  
+  //right
+    if (from==NORTH && to==EAST){
+    rightTurn();
+  }
+  if (from==SOUTH && to==WEST){
+    rightTurn();
+  }
+  if (from==WEST && to==NORTH){
+    rightTurn();
+  }
+  if (from==EAST && to==SOUTH){
+    rightTurn();
+  }
+  
+  //left
+  if (from==NORTH && to==WEST){
+    leftTurn();
+  }
+  if (from==SOUTH && to==EAST){
+    leftTurn();
+  }
+  if (from==WEST && to==SOUTH){
+    leftTurn();
+  }
+  if (from==EAST && to==NORTH){
+    leftTurn();
+  }
+  
+  //opposite
+  if (from==NORTH && to==SOUTH){
+    opposite();
+  }
+  if (from==SOUTH && to==NORTH){
+    opposite();
+  }
+  if (from==WEST && to==EAST){
+    opposite();
+  }
+  if (from==EAST && to==WEST){
+    opposite();
+  }
+  
+  
+  
+}
+  
 }
 
 //OK
@@ -433,55 +518,82 @@ void stack_pop() {
   stackIndex--;
 }
 
+void cardinalStackLeftTurn(){
+  if (robotOrientation==NORTH){
+    cardinalStack[stackIndex]=EAST;
+  }
+  if (robotOrientation==SOUTH){
+    cardinalStack[stackIndex]=WEST;
+  }
+  if (robotOrientation==EAST){
+    cardinalStack[stackIndex]=SOUTH;
+  }
+  if (robotOrientation==WEST){
+    cardinalStack[stackIndex]=NORTH;
+  }
+  return;
+}
+
+
+void cardinalStackRightTurn(){
+  
+  if (robotOrientation==NORTH){
+    cardinalStack[stackIndex]=WEST;
+  }
+  if (robotOrientation==SOUTH){
+    cardinalStack[stackIndex]=EAST;
+  }
+  if (robotOrientation==EAST){
+    cardinalStack[stackIndex]=NORTH;
+  }
+  if (robotOrientation==WEST){
+    cardinalStack[stackIndex]=SOUTH;
+  }
+  return;
+}
+
+void cardinalStackStraight(){
+  if (robotOrientation==NORTH){
+    cardinalStack[stackIndex]=SOUTH;
+  }
+  if (robotOrientation==SOUTH){
+    cardinalStack[stackIndex]=NORTH;
+  }
+  if (robotOrientation==EAST){
+    cardinalStack[stackIndex]=WEST;
+  }
+  if (robotOrientation==WEST){
+    cardinalStack[stackIndex]=EAST;
+  }
+  return;
+}
+
+
 /********************************************************************************************Backtrack*/
 
 //helper function: pop current position, go to previous position, 
 //check left and right sides for unvisited and walls (priority)
 //if both are not possible, then go to previous in stack
 //Needs work as a whole  
-void backtrack() {
-  
-    
-    if((outerLeftVal > threshold) && (outerRightVal > threshold)){
-  
-      stack_pop();  
-      
-      if (turnStack_top==0) {
-        goStraight();
-      }
-      else if (turnStack_top==1) {
-        leftTurn();
-      }
-      else if (turnStack_top==2) {
-        rightTurn();
-      }
-      neighbourIndex();   //so it'll set front back left right indexes correctly based on the robot orientation
-      
-      middleLeftVal = analogRead(middleLeftPin);
-      middleRightVal = analogRead(middleRightPin);
-      outerLeftVal = analogRead(outerLeftPin);
-      outerRightVal = analogRead(outerRightPin);
-      lineFollow();
-              
-      if (!detectNoLWall && visited[yleft][xleft]==0) {
-          //go left
-          //update visited to reflect new current position and set the old current position to 1
-          leftTurn();
-          return;
-        }
-      
- 
-      else if (!detectNoRWall && visited[yright][xright]==0) {
-      
-          //go right
-          //update visited to reflect new current position and set the old current position to 1
-          rightTurn();
-          return;
-        
-      }
 
+
+/*
+ * backtrack() puts the robot in the last previous position 
+ * from its stack that has an accessible, unvisited position to go to.
+ */
+void backtrack(){
+  
+  //while there is not unvisited neighbor 
+  while ((!detectNoLWall || visited[yleft][xleft]==1) && (!detectNoRWall || visited[yright][xright]==1) 
+  && (!detectNoFWall || visited[yfront][xfront]==1) && !cardinalStack_empty()){
+    //using from and to, determine direction of 
+    stack_pop();
+    cardinalTurn();
+    //at an intersection, read the current orientation and the orientation of the next on, 
+    
   }
 }
+
 
 
 /*******************************************************************************************Setting up*/
@@ -592,6 +704,7 @@ void loop() {
       goStraight();
       //add to stack
       turnStack[stackIndex] = FORWARD; 
+      cardinalStackStraight();
       stack_push(robotX, robotY);
     }
     else if (detectNoLWall && visited[yleft][xleft] == 0 && withinMazeX(xleft) && withinMazeY(yleft)) {
@@ -601,6 +714,7 @@ void loop() {
       leftTurn();
       //add to stack 
       turnStack[stackIndex] = RIGHT;
+      cardinalStackLeftTurn();
       stack_push(robotX, robotY);
     } 
     else if (detectNoRWall && visited[yright][xright] == 0 && withinMazeX(xright) && withinMazeY(yright)) {
@@ -610,12 +724,10 @@ void loop() {
       //update visited to reflect new current position and set the old current position to 1
       //add to stack
       turnStack[stackIndex] = LEFT; 
+      cardinalStackRightTurn();
       stack_push(robotX, robotY);        
     } 
     else {
-      //turn 180 degrees
-      opposite();
-      //backtracking code to prevent infinite loop
       backtrack();
       //helper function: pop current position, go to previous position, 
       //check left and right sides for unvisited and walls (priority)
