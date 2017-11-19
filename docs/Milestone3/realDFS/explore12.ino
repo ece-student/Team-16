@@ -427,11 +427,86 @@ bool turnStack_empty() {
   return (stackIndex == 0);
 }
 
+bool cardinalStack_empty(){
+  return (stackIndex==0);
+
 // Return the value on top of the stack.
 //Need to verify
 int turnStack_top() {
   if (turnStack_empty()) return NULL;
   return turnStack[stackIndex];
+}
+
+//THIS IS FOR THE TURN STUFF, USE BOTH
+int from() {
+  if (cardinalStack_empty()) return NULL;
+  return cardinalTurnStack[stackIndex];
+}
+
+int to() {
+  if (cardinalStack_empty()) return NULL;
+  return cardinalTurnStack[stackIndex-1];
+}
+
+
+void cardinalTurn(){
+  //straight
+  if (from==NORTH && to==NORTH){
+    goStraight();
+  }
+  if (from==SOUTH && to==SOUTH){
+    goStraight();
+  }
+  if (from==WEST && to==WEST){
+    goStraight();
+  }
+  if (from==EAST && to==EAST){
+    goStraight();
+  }
+  //right
+    if (from==NORTH && to==EAST){
+    rightTurn();
+  }
+  if (from==SOUTH && to==WEST){
+    rightTurn();
+  }
+  if (from==WEST && to==NORTH){
+    rightTurn();
+  }
+  if (from==EAST && to==SOUTH){
+    rightTurn();
+  }
+//left
+    if (from==NORTH && to==WEST){
+    leftTurn();
+  }
+  if (from==SOUTH && to==EAST){
+    leftTurn();
+  }
+  if (from==WEST && to==SOUTH){
+    leftTurn();
+  }
+  if (from==EAST && to==NORTH){
+    leftTurn();
+  }
+  //opposite
+    if (from==NORTH && to==SOUTH){
+    opposite();
+  }
+  if (from==SOUTH && to==NORTH){
+    opposite();
+  }
+  if (from==WEST && to==EAST){
+    opposite();
+  }
+  if (from==EAST && to==WEST){
+    opposite();
+  }
+  
+  
+  
+}
+  
 }
 
 //OK
@@ -507,20 +582,15 @@ void backtrack(){
   
   //while there is not unvisited neighbor 
   while ((!detectNoLWall || visited[yleft][xleft]==1) && (!detectNoRWall || visited[yright][xright]==1) 
-  && (!detectNoFWall || visited[yfront][xfront]==1) && stackIndex!=0){
-    
+  && (!detectNoFWall || visited[yfront][xfront]==1) && !cardinalStack_empty()){
+    //using from and to, determine direction of 
+    cardinalTurn();
     //at an intersection, read the current orientation and the orientation of the next on, 
     stack_pop();
-//maybe have a variable for the current and old and then use the helper function based on those?
-//here implement the new stuff
-
-  //from those determine how to turn
-  //turn in that direction
-  }
-  // else, it'll go to unvisited 
 
   }
 }
+
 
 void oldbacktrack() {
   //while there is not unvisited neighbor 
@@ -743,4 +813,3 @@ void loop() {
   }
 }
   
-
