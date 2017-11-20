@@ -1,5 +1,5 @@
 //ADDED RECEIVER CODE STARTS
-unsigned char got_maze[5][4];
+word got_maze[5][4];
 bool done = false;
 while (!done)
 { 
