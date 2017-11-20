@@ -20,14 +20,8 @@
 #include "nRF24L01.h"
 #include "RF24.h"
 #include "printf.h"
-
-word maze [5][4]=
-  { {0x0360, 0x4000, 0x8100, 0xC100},
-    {0x0E00, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5900, 0x9900, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE600},
-  };
+//this bool tells whether this maze is finished or not
+bool done = false;
 
 //
 // Hardware configuration
@@ -131,13 +125,9 @@ void loop(void)
   //
   // Ping out role.  Repeatedly send the current time
   //
-word maze [5][4]=
-  { {0x0360, 0x4000, 0x8100, 0xC100},
-    {0x0E00, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5900, 0x9900, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE600},
-  };
+ 
+//this bool tells whether this maze is finished or not
+bool done = false;
 
   if (role == role_ping_out)
   {
@@ -156,8 +146,8 @@ word maze [5][4]=
 
 
  // Send the maze in a single payload
-printf("Now sending the maze!\n");
-bool ok = radio.write( maze, sizeof(maze) );
+printf("Now sending the finish signal\n");
+bool ok = radio.write( done, sizeof(done) );
 
 if (ok)
   printf("ok...");
