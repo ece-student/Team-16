@@ -198,13 +198,13 @@ void loop(void)
 
 //**************************************************************************//
 //ADDED RECEIVER CODE STARTS
-      
+unsigned int got_rec;
 bool done = false;
 while (!done)
 { 
   // Fetch the payload.
   done = radio.read( got_rec, sizeof(got_rec) );
-  if (got_rec==true){
+  if (got_rec==0){
     PINMODE(doneSignal, OUTPUT);
     digitalWrite(doneSignal, HIGH);
   }
