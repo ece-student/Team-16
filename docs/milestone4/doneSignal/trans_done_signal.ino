@@ -21,7 +21,7 @@
 #include "RF24.h"
 #include "printf.h"
 //this bool tells whether this maze is finished or not
-bool done = false;
+int done_maze = 0;
 
 //
 // Hardware configuration
@@ -127,7 +127,7 @@ void loop(void)
   //
  
 //this bool tells whether this maze is finished or not
-bool done = false;
+int done_maze = 0;
 
   if (role == role_ping_out)
   {
@@ -147,7 +147,7 @@ bool done = false;
 
  // Send the maze in a single payload
 printf("Now sending the finish signal\n");
-bool ok = radio.write( done, sizeof(done) );
+bool ok = radio.write( done_maze, sizeof(done_maze) );
 
 if (ok)
   printf("ok...");
@@ -186,11 +186,6 @@ else
     // Try again 1s later
     delay(1000);
 
-    for (int i = 0; i<5; i++) {
-      for (int j = 0; j <4; j++) {
-        printf("%d", maze[i][j]);
-      }
-    }
   }
 
   //
