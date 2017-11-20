@@ -205,11 +205,11 @@ while (!done)
   // Fetch the payload.
   done = radio.read( got_rec, sizeof(got_rec) );
   if (got_rec==0){
-    PINMODE(doneSignal, OUTPUT);
+    pinMode(doneSignal, OUTPUT);
     digitalWrite(doneSignal, HIGH);
   }
   else{
-    PINMODE(doneSignal, OUTPUT);
+    pinMode(doneSignal, OUTPUT);
     digitalWrite(doneSignal, LOW);
   }
 
