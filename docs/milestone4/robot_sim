@@ -1,29 +1,16 @@
-
-  // include the SPI library:
-  #include <SPI.h>
+ // include the SPI library:
+#include <SPI.h>
 
   // declare the slave pin 
-  uint8_t ssFPGA = 10;
+uint8_t ssFPGA = 10;
 
 void setup()
 {
  SPI.begin(); 
 pinMode (ssFPGA, OUTPUT);
 Serial.begin(9600);
-//             |                  |                  |                   |
-//  { {B0000011001000000, B0100000000000000, B1000000000000000,  B1100000000000000}, 
-//    {B0000100000000000, B0100100000000000, B10001
-  // include the SPI library:
-  #include <SPI.h>
-
   // declare the slave pin 
   uint8_t ssFPGA = 10;
-
-void setup()
-{
- SPI.begin(); 
-pinMode (ssFPGA, OUTPUT);
-Serial.begin(9600);
 //             |                  |                  |                   |
 //  { {B0000011001000000, B0100000000000000, B1000000000000000,  B1100000000000000}, 
 //    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100000000000}, 
@@ -144,7 +131,43 @@ Serial.begin(9600);
 //    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 17
 //    {B0010000100000000, B0110000100010000, B1010000100010000,  B1110010100010000},
 //  };
-   
+ 
+ word maze [5][4]=
+  { {0x0640, 0x4000, 0x8000, 0xC000},
+    {0x0800, 0x4800, 0x8800, 0xC800},
+    {0x1000, 0x5000, 0x9000, 0xD000},
+    {0x1800, 0x5800, 0x9800, 0xD800},
+    {0x2000, 0x6000, 0xA000, 0xE000},
+  };
+  word maze2 [5][4]=
+  { {0x0140, 0x4640, 0x8000, 0xC000},
+    {0x0800, 0x4800, 0x8800, 0xC800},
+    {0x1000, 0x5000, 0x9000, 0xD000},
+    {0x1800, 0x5800, 0x9800, 0xD800},
+    {0x2000, 0x6000, 0xA000, 0xE000},
+  };
+ 
+ for (int i=0; i<5; i++){
+    for (int j=0; j<4; j++){
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
+      digitalWrite(ssFPGA, HIGH);
+      SPI.transfer16(maze[i][j]);
+      digitalWrite(ssFPGA, LOW);
+      SPI.endTransaction();
+      Serial.println(maze[i][j],BIN);
+    }
+  }
+  Serial.println("2");
+  for (int i=0; i<5; i++){
+    for (int j=0; j<4; j++){
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
+      digitalWrite(ssFPGA, HIGH);
+      SPI.transfer16(maze2[i][j]);
+      digitalWrite(ssFPGA, LOW);
+      SPI.endTransaction();
+      Serial.println(maze2[i][j],BIN);
+    }
+  }  
 }
 
 
@@ -287,21 +310,22 @@ word maze17 [5][4]=
     {0x1920, 0x5800, 0x9800, 0xD800},
     {0x2100, 0x6110, 0xA110, 0xE510},
   };
-
+  
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze[i][j]);
       digitalWrite(ssFPGA, LOW);
       SPI.endTransaction();
+      Serial.println(maze[i][j],BIN);
     }
   }
       delay(750);
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze2[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -312,7 +336,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze3[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -323,7 +347,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze4[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -334,7 +358,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze5[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -345,7 +369,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze6[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -356,7 +380,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze7[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -367,7 +391,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze8[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -378,7 +402,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze9[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -389,7 +413,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze10[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -400,7 +424,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze11[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -411,7 +435,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze12[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -422,7 +446,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze13[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -433,7 +457,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze14[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -444,7 +468,7 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze15[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -455,7 +479,7 @@ word maze17 [5][4]=
       
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze16[i][j]);
       digitalWrite(ssFPGA, LOW);
@@ -466,498 +490,14 @@ word maze17 [5][4]=
 
   for (int i=0; i<5; i++){
     for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(18000000,LSBFIRST,SPI_MODE0));
+      SPI.beginTransaction(SPISettings(900000,LSBFIRST,SPI_MODE0));
       digitalWrite(ssFPGA, HIGH);
       SPI.transfer16(maze17[i][j]);
       digitalWrite(ssFPGA, LOW);
       SPI.endTransaction();
     }
   }
-      delay(750);
-
+  delay(750);
 }
-00000000000,  B1100100000000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100011001000000, B1000000000000000,  B1100000000000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100000000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},2
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000011001000000,  B1100000000000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100000000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 3
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100011000000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100000000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},4
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100001100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100000000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},5
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100111010000000}, 6
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101000000000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100110000000}, 
-//    {B0001000000000000, B0101000000000000, B1001000000000000,  B1101011001000000},7
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000000000000, B0101000000000000, B1001011001010000,  B1101000101000000},8
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100000000000}, 
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000000000000, B0101011001010000, B1001000101010000,  B1101000101000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100100000000}, 9
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110011000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001011000010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100100000000}, 10
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001010000010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100000000000, B0101100000000000, B1001100000000000,  B1101100100000000}, 11
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001111000100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 12
-//    {B0010000000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 13
-//    {B0010011000000000, B0110000000000000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 14
-//    {B0010000100000000, B0110011000010000, B1010000000000000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 15
-//    {B0010000100000000, B0110000100010000, B1010011000010000,  B1110000000000000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 16
-//    {B0010000100000000, B0110000100010000, B1010000100010000,  B1110011000010000},
-//  };
-
-//  { {B0000000101000000, B0100000101000000, B1000000101000000,  B1100000100000000}, 
-//    {B0000100000000000, B0100100000000000, B1000100000000000,  B1100100100000000}, 
-//    {B0001000100010000, B0101000101010000, B1001000101010000,  B1101000101000000},
-//    {B0001100100100000, B0101100000000000, B1001100000000000,  B1101100100000000}, 17
-//    {B0010000100000000, B0110000100010000, B1010000100010000,  B1110010100010000},
-//  };
-   
-}
-
-
-void loop() 
-{
-//byte data= to the information from got_data transferred
-//(for now we will use a dummy)
-word maze [5][4]=
-  { {0x0640, 0x4000, 0x8000, 0xC000},
-    {0x0800, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze2 [5][4]=
-  { {0x0140, 0x4640, 0x8000, 0xC000},
-    {0x0800, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze3 [5][4]=
-  { {0x0140, 0x4140, 0x8640, 0xC000},
-    {0x0800, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze4 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC600},
-    {0x0800, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze5 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC300},
-    {0x0800, 0x4800, 0x8800, 0xC800},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze6 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xCE80},
-    {0x1000, 0x5000, 0x9000, 0xD000},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze7 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1000, 0x5000, 0x9000, 0xD640},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze8 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1000, 0x5000, 0x9650, 0xD140},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze9 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1000, 0x5650, 0x9150, 0xD140},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze10 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1610, 0x5150, 0x9150, 0xD140},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze11 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1410, 0x5150, 0x9150, 0xD140},
-    {0x1800, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze12 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1E20, 0x5800, 0x9800, 0xD800},
-    {0x2000, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze13 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1920, 0x5800, 0x9800, 0xD800},
-    {0x2600, 0x6000, 0xA000, 0xE000},
-  };
-
-word maze14 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1920, 0x5800, 0x9800, 0xD800},
-    {0x2100, 0x6610, 0xA000, 0xE000},
-  };
-
-word maze15 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1920, 0x5800, 0x9800, 0xD800},
-    {0x2100, 0x6110, 0xA610, 0xE000},
-  };
-
-word maze16 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1920, 0x5800, 0x9800, 0xD800},
-    {0x2100, 0x6110, 0xA110, 0xE610},
-  };
-
-word maze17 [5][4]=
-  { {0x0140, 0x4140, 0x8140, 0xC100},
-    {0x0800, 0x4800, 0x8800, 0xC980},
-    {0x1110, 0x5150, 0x9150, 0xD140},
-    {0x1920, 0x5800, 0x9800, 0xD800},
-    {0x2100, 0x6110, 0xA110, 0xE510},
-  };
-
-  for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze2[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze2[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze3[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze3[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze4[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze4[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze5[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze5[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze6[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze6[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze7[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze7[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze8[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze8[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-    for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze9[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze9[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze10[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze10[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze11[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze11[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze12[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze12[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze13[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze13[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze14[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze14[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze15[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze15[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze16[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze16[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-      for (int i=0; i<5; i++){
-    for (int j=0; j<4; j++){
-      SPI.beginTransaction(SPISettings(1000000,LSBFIRST,SPI_MODE0));
-      digitalWrite(ssFPGA, HIGH);
-      Serial.print(maze17[i][j], HEX);
-      Serial.print("\n");
-      SPI.transfer16(maze17[i][j]);
-      digitalWrite(ssFPGA, LOW);
-      SPI.endTransaction();
-      delay(100);
-    }
-  }
-
-}
+      
 
