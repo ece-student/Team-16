@@ -91,11 +91,11 @@ Below is a visual of how the process should work.
 We allocated a separate signal for the done. The arduino on the robot will set this signal high once it has finished, and send it to the arduino which will then send it to the FPGA. We coded the FPGA to draw an orange square on the outside of the matrix once it has finished and also start the tune.
 
 # What would happen in the actual Maze
-For the actual maze implementation, we needed make some modifications fromthe previous dfs and transmission code. To do this we need to have two radios that transmit and receive signals related to current position, treasure, and walls.
+For the actual maze implementation, we needed make some modifications from the previous dfs and transmission code. To do this we need to have two radios that transmit and receive signals related to current position, treasure, and walls.
 
 In our previous dfs code we had a separate matrix for walls, visited state and the robot's X and Y. We made a simple helper function to consolidate this information into one 16 bit piece, and put each of those into the 5 by 4 matrix to send to the receiving arduino at the base station.
 
-In order to do this we modified and merged the code from lab 4 and milestone 3. Previously, on lab 4 the 4 by five maze was declared as an input to the arduino. However, in this simulation this data should be received from the maze and no input code is required. 
+In order to do this we modified and merged the code from lab 4 and milestone 3. Previously, in lab 4 the 4 by 5 maze was declared as an input to the arduino. However, in this simulation this data should be received from the maze and no input code is required. 
 
 Therefore, this part will be similar to the simulation except that the robot itself does the simulation. 
 
