@@ -1,7 +1,7 @@
 # Displaying walls
 In order to display the walls on the FPGA the first thing we need is to set up the SPI transmission from the Arduino. The Arduino sends a 16 bit signal to the FPGA. 
   * First 2 bits represent X axis position (0,1,2,3) and next three bits represent Y axis position ( 0,1,2,3,4) for drawing the 4     by 5 maze
-  * The next four three bits represent the state of the robot such as current state, visited, unvisited, treasures (7kHz,12kHz,17kHz)
+  * The next three bits represent the state of the robot such as current state, visited, unvisited, treasures (7kHz,12kHz,17kHz)
   * The next four bits represent the 4 possible positions of walls ( north, south, east, west)
   * The last bits are not used or this milestone but we will use them in our final implementation
   
