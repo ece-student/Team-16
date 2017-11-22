@@ -35,4 +35,4 @@ always @(posedge CLOCK) begin
 
 # Displaying treasures
 
-# Signalling "done"
+# Signaling "done"
