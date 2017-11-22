@@ -97,8 +97,10 @@ In our previous dfs code we had a separate matrix for walls, visited state and t
 
 In order to do this we modified and merged the code from lab 4 and milestone 3. Previously, on lab 4 the 4 by five maze was declared as an input to the arduino. However, in this simulation this data should be received from the maze and no input code is required. 
 
-When we tried to test this out using the robot, we had issues with the battery dying and could not complete the simulation with the robot.
+Therefore, this part will be similar to the simulation except that the robot itself does the simulation. 
 
+This part of the lab is not fully complete. Our Depth first Search for the maze mapping works except for the backtracking algorithm. 
 Below are the links or our full DFS code and radio communication. 
 
 * [Receiving radio code](radioandFPGA.ino)
+
