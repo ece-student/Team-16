@@ -16,16 +16,16 @@ In order to display the walls on the FPGA the first thing we need is to set up t
 
 always @(posedge CLOCK) begin
   if(ENABLE) begin
-		   accumulate[index] <= DATA;
-		   if(index == 4'b1111) begin
-			     pastOut <= accumulate;
-		   end
-		   else begin
-		     pastOut <= 16'b1111111111111111;
-		  end
+  	accumulate[index] <= DATA;
+	if(index == 4'b1111) begin
+	     pastOut <= accumulate;
+	end
+	else begin
+	    pastOut <= 16'b1111111111111111;
+	end
 	index <= index + 1;
 	end
-end
+  end
  
  
  
