@@ -106,5 +106,5 @@ This part of the lab is not fully complete. Our Depth first Search for the maze 
 Below are the links or our full DFS code and radio communication which we will imporve and get to fully function for the final competition. 
 
 * [Receiving radio code](radioandFPGA.ino)
-* [Transmitting code merged with dfs](merged.ino)
+* [Transmitting code merged with DFS](merged.ino)
 
