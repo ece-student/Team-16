@@ -12,7 +12,7 @@ In order to display the walls on the FPGA the first thing we need is to set up t
   * The next four bits represent the 4 possible positions of walls ( north, south, east, west)
   * The last bits are not used or this milestone but we will use them in our final implementation
   
-  ![](z1.png)
+  ![](z4.png)
   
  In order to recevie data from the Arduino, we added another FPGA code that receives each bit sent from the Arduino, and stores them in an out variable that is used in the DE0_NANO.v code to draw the maze.
  ```verilog
