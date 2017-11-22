@@ -6,7 +6,7 @@ In order to display the walls on the FPGA the first thing we need is to set up t
   * The last bits are not used or this milestone but we will use them in our final implementation
   
  In order to recevie data from the Arduino, we added another FPGA code that receives each bit sent from the Arduino, and stores them in an out variable that is used in the DE0_NANO.v code to draw the maze.
- 
+ ```verilog
  module RECEIVE (
 	CLOCK,
 	DATA,
@@ -14,6 +14,7 @@ In order to display the walls on the FPGA the first thing we need is to set up t
 	OUT
 );
 
+...
 always @(posedge CLOCK) begin
   if(ENABLE) begin
   	accumulate[index] <= DATA;
@@ -26,7 +27,7 @@ always @(posedge CLOCK) begin
 	index <= index + 1;
 	end
   end
- 
+ ```
  
  
  
