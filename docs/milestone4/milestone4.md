@@ -4,9 +4,6 @@ The purpose of this milestone was to put all of the parts together. This mainly 
 
 The way we implemented our dfs incorporated a separate visited matrix, separate wall matrix and the robot's x and y position. Thus we added a simple helper function to shift the bits from each part and add them together to create our 16 bits of information
 
-[Click here to see the demo](https://www.youtube.com/watch?v=baXOMfLAL1I)
-
-
 # Displaying walls
 In order to display the walls on the FPGA the first thing we need is to set up the SPI transmission from the Arduino. The Arduino sends a 16 bit signal to the FPGA. 
   * The first 2 bits represent X axis position (0,1,2,3) and next three bits represent Y axis position ( 0,1,2,3,4) for drawing the 4     by 5 maze
@@ -94,6 +91,8 @@ Below is a visual of how the process should work.
   ![](z3.png)
 
 We allocated a separate signal for the done. The arduino on the robot will set this signal high once it has finished, and send it to the arduino which will then send it to the FPGA. We coded the FPGA to draw an orange square on the outside of the matrix once it has finished and also start the tune.
+
+[Click here to see the demo](https://www.youtube.com/watch?v=baXOMfLAL1I)
 
 # What would happen in the actual Maze
 For the actual maze implementation, we needed make some modifications from the previous dfs and transmission code. To do this we need to have two radios that transmit and receive signals related to current position, treasure, and walls.
