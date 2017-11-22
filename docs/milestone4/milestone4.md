@@ -12,6 +12,8 @@ In order to display the walls on the FPGA the first thing we need is to set up t
   * The next four bits represent the 4 possible positions of walls ( north, south, east, west)
   * The last bits are not used or this milestone but we will use them in our final implementation
   
+  ![](z1.png)
+  
  In order to recevie data from the Arduino, we added another FPGA code that receives each bit sent from the Arduino, and stores them in an out variable that is used in the DE0_NANO.v code to draw the maze.
  ```verilog
  module RECEIVE (
@@ -87,6 +89,7 @@ As the robot moves to the grid with the treasures these colors blink which is si
 When the robot finishes mapping the maze, it has to send a signal to the separate arduino connected to the FPGA or to our base station. We want to signal that the robot has finished on both the visual display as well as by our finished tune from a speaker.
 
 Below is a visual of how the process should work.
+  ![](z2.png)
 
 We allocated a separate signal for the done. The arduino on the robot will set this signal high once it has finished, and send it to the arduino which will then send it to the FPGA. We coded the FPGA to draw an orange square on the outside of the matrix once it has finished and also start the tune.
 
