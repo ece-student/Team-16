@@ -29,10 +29,6 @@ always @(posedge CLOCK) begin
   end
  ```
  
- 
- 
-  
 
-# Displaying treasures
-
-# Signaling "done"
+# Simulation for Signaling "done" and detecting Treasures
+For showing the done signal first we made a simple simulation code that changes the current position on the maze as if the robot was moving. I
