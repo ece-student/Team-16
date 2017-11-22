@@ -103,7 +103,7 @@ In order to do this we modified and merged the code from lab 4 and milestone 3. 
 Therefore, this part will be similar to the simulation except that the robot itself does the simulation. 
 
 This part of the lab is not fully complete. Our Depth first Search for the maze mapping works except for the backtracking algorithm. 
-Below are the links or our full DFS code and radio communication. 
+Below are the links or our full DFS code and radio communication which we will imporve and get to fully function for the final competition. 
 
 * [Receiving radio code](radioandFPGA.ino)
 * [Transmitting code merged with dfs](merged.ino)
