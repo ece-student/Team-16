@@ -4,7 +4,6 @@ The purpose of this milestone was to put all of the parts together. This mainly 
 
 The way we implemented our dfs incorporated a separate visited matrix, separate wall matrix and the robot's x and y position. Thus we added a simple helper function to shift the bits from each part and add them together to create our 16 bits of information
 
-[Watch the demo here!](https://www.youtube.com/watch?v=baXOMfLAL1I)
 
 # Displaying walls
 In order to display the walls on the FPGA the first thing we need is to set up the SPI transmission from the Arduino. The Arduino sends a 16 bit signal to the FPGA. 
@@ -36,11 +35,10 @@ always @(posedge CLOCK) begin
 	end
   end
  ```
-# Displaying treasures
 
-We had already previously programmed the FPGA to change colors depending on the bits allocated for treasure on the 16 bit information from the arduino. Thus we merely had to test it out using the 
- 
-# Signalling done
+# Simulation for Signaling "done" and detecting Treasures
+
+For showing the done signal first we made a simple arduino simulation code that changes the current position representing the robot's motion. We had already previously programmed the FPGA to change colors depending on the bits allocated for treasure on the 16 bit information from the arduino.  
 
 When the robot finishes mapping the maze, it has to send a signal to the separate arduino connected to the FPGA. We want to signal that the robot has finished on both the visual display as well as by our finished tune.
 
@@ -48,5 +46,4 @@ Below is a visual of how the process should work.
 
 We allocated a separate signal for the done. The arduino on the robot will set this signal high once it has finished, and send it to the arduino which will then send it to the fpga. We coded the FPGA to draw an orange square on the outside of the matrix once it has finished and also start the tune.
 
-# Simulation for Signaling "done" and detecting Treasures
-For showing the done signal first we made a simple simulation code that changes the current position on the maze as if the robot was moving. 
+ 
