@@ -1,3 +1,5 @@
+
+
 if (robotX == NULL && robotY == NULL) {
       robotX = 3;
       robotY = 4;
@@ -21,3 +23,15 @@ if (robotX == NULL && robotY == NULL) {
       robotX = xleftt;
       robotY = yleftt;
     }    
+
+
+
+word assemble(word x, word y) {
+word xShift = x;
+xShift << 14;
+word yShift = y;
+yShift << 11;
+word base = xShift || yShift;
+base = base || (visited[y][x] << 8);
+base = base || (wall[y][x] << 4); 
+}
