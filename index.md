@@ -19,6 +19,8 @@ Lab Section: Fridays 1:30-4:30pm
   
  * [Team Contract](./TeamContract.md)
  
+ * [Ethics Homework](./EthicsHomework.md)
+ 
  * [Lab 1: Microcontrollers](./docs/lab1/lab1.md)
  
  * [Lab 2: Analog Circuitry and FFTs](./docs/lab2/lab2.md)
