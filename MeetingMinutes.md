@@ -22,4 +22,22 @@
  * [Meeting Minutes 10-13](./docs/MeetingMinutes/oct13.md)
  
  * [Meeting Minutes 10-20](./docs/MeetingMinutes/oct20.md)
+ 
+ * [Meeting Minutes 10-27](./docs/MeetingMinutes/oct27.md)
+ 
+ * [Meeting Minutes 11-3](./docs/MeetingMinutes/nov3.md)
+ 
+ * [Meeting Minutes 11-10](./docs/MeetingMinutes/nov10.md)
+ 
+ * [Meeting Minutes 11-13](./docs/MeetingMinutes/nov13.md)
+  
+ * [Meeting Minutes 11-27](./docs/MeetingMinutes/nov27.md)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   
