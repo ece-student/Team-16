@@ -353,7 +353,7 @@ word assemble(word x, word y) {
   base = base || (wall[y][x] << 4); 
 }
 
-//CHECK
+//CHECK LOIS LOOK HERE INDEX STUFF
 void make2send(){
   for (int i=0; i<5; i++){
     for (int j=0; j<4; i++){
