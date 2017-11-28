@@ -393,11 +393,16 @@ void stop(){
 }
 
 //OK
-/*********************************************************************************************Light up*/
+/******************************************************************************************done helper function*/
 void lightUp(){
   // check if done with maze, aka, all have been visited
   pinMode (ledPin, HIGH);
 }
+
+
+  //LOOK HERE LOIS
+  //we haven't found out how the robot will know its done 
+  //but when it is we need to set the last bit equal to one
 
 //OK
 byte wallOrientation() {
@@ -796,49 +801,31 @@ void loop() {
       // Dump the payloads until we've gotten everything
       unsigned long got_time;
 
-//**************************************************************************//
-        
+//**************************************************************************//        
 //ADDED RECEIVER CODE STARTS
 
 unsigned char got_data;
 bool done = false;
 while (!done)
 {
-  // Fetch the payload, and see if this was the last one.
   done = radio.read( &got_data, sizeof(unsigned char) );
-
-  // Spew it
-  // Print the received data as a decimal
   printf("Got payload %d...",got_data);
   if (got_data==0){
     pinMode(doneSignalForMaze, OUTPUT);
     digitalWrite(doneSignalForMaze, HIGH);
   }
-
-  // Delay just a little bit to let the other unit
-  // make the transition to receiver
   delay(20);
 
 }
- 
 //**************************************************************************//
-  
-
       // First, stop listening so we can talk
       radio.stopListening();
-
       // Send the final one back.
       radio.write( 8, sizeof(unsigned long) );
       printf("Sent response.\n\r");
-
       // Now, resume listening so we catch the next packets.
       radio.startListening();
     }
-  
-
-  //
-  // Change roles
-  //
 
   if ( Serial.available() )
   {
