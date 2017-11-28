@@ -357,7 +357,7 @@ word assemble(word x, word y) {
 void make2send(){
   for (int i=0; i<5; i++){
     for (int j=0; j<4; i++){
-      makeSend[j][i]= assemble (j,i);
+      makeSend[i][j]= assemble (i,j);
     }
   }
 }
