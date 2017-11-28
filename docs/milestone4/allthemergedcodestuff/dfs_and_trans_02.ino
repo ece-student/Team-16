@@ -931,6 +931,8 @@ while (!done)
   done = radio.read( &got_data, sizeof(unsigned char) );
   printf("Got payload %d...",got_data);
   if (got_data==0){
+    
+    //LOIS LOOK HERE
 //    pinMode(doneSignalForMaze, OUTPUT);
 //    digitalWrite(doneSignalForMaze, HIGH);
   }
