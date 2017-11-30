@@ -1,5 +1,5 @@
 /* 
- *    Maze mapping Robot with transmission and dfs and audio frequency recognition
+ *    Maze mapping Robot with transmission and dfs
  *  
  *  
  *  
@@ -756,7 +756,7 @@ void setup() {
 digitalWrite(LED_BUILTIN, LOW); 
   // cli();  // UDRE interrupt slows this way down on arduino1.0
     while (startSignal == 0) {
-    for (int i = 0 ; i < 256 ; i += 2) { // save 256 samples
+    for (int i = 0 ; i < 256 ; i += 2) { // save 128 samples
       fft_input[i] = analogRead(audioPin); // put real data into even bins
       fft_input[i+1] = 0; // set odd bins to 0
     }
@@ -772,6 +772,7 @@ digitalWrite(LED_BUILTIN, LOW);
         if (fft_input[18] > 60){
           startSignal = 1;
           Serial.println("STOP!!");
+          delay(100);
           digitalWrite(LED_BUILTIN, HIGH);  
         }  
         }
@@ -782,7 +783,8 @@ digitalWrite(LED_BUILTIN, LOW);
 
 /*************************************************************************************************Loop*/
 void loop() { 
-
+  Serial.begin(115200);
+  Serial.println("Im IN the LOOP now!");
 
   //Could combine outer left and outer right line sensors 
   // greater than 750 on the line
