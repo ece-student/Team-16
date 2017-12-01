@@ -36,6 +36,8 @@ Lab Section: Fridays 1:30-4:30pm
  * [Milestone 3](./docs/Milestone3/milestone3.md)
  
  * [Milestone 4](./docs/milestone4/milestone4.md)
+ 
+ * [Final System Design](./docs/FinalSystemDesign/finalsystemdesign.md)
   
  * [Meeting Minutes](./MeetingMinutes.md)
  
