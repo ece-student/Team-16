@@ -5,7 +5,7 @@ Main tasks during the final week for our robot
     * Redesinging
     * Micamplifier - we made a mic amplifier using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output o
     * Push-button - the push button is our back up robot starting switch if in case our mic system fails to detect 600Hz and set the robot into motion. 
-    * Passive mixer for treasure sensors: since the Arduino has only five pins we needeed to figure out a way to limit the number of inputs that are needed to directly connect with the Arduino. The passive mixer helped us to  
+    * Passive mixer for treasure sensors: since the Arduino has only five pins we needeed to figure out a way to limit the number of inputs that are needed to directly connect with the Arduino. The passive mixer helped us to combine the inputs from the three treasure sensors detecting signals from the front, left and right side of the robot. The passive mixer has an RC high pass filter that detects signals above 5.5kHz. The output from each sensor is combined together. Two voltage divider resistors are used in order 
     * Wall sensor for distance modification:
 * Software
     * Merging Code
