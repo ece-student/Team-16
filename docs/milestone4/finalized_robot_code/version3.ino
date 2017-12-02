@@ -77,8 +77,7 @@ int rightServoAngle = 90;
 
 int middleLeftVal = 0;
 int middleRightVal = 0;
-int outerLeftVal = 0;
-int outerRightVal = 0;
+int intersectionVal = 0;
 
 int visitedBox = 0;
 
@@ -401,7 +400,7 @@ void stop(){
 /******************************************************************************************done helper function*/
 void lightUp(){
   // check if done with maze, aka, all have been visited
-  pinMode (ledPin, HIGH);
+//  pinMode (ledPin, HIGH);
 }
 
 
@@ -709,7 +708,7 @@ void setup() {
   pinMode(frontWall, INPUT);
   pinMode(rightWall, INPUT);
   pinMode(leftWall, INPUT);
-  pinMode(ledPin, OUTPUT);
+  //pinMode(ledPin, OUTPUT);
 
   Serial.begin(57600);
   TIMSK0 = 0; // turn off timer0 for lower jitter - delay() and millis() killed
@@ -792,8 +791,8 @@ void loop() {
   // less than 750 off the line
   middleLeftVal = analogRead(middleLeftPin);
   middleRightVal = analogRead(middleRightPin);
-  outerLeftVal = analogRead(outerLeftPin);
-  outerRightVal = analogRead(outerRightPin);
+  intersectionVal = analogRead(intersectionPin);
+ 
   
   lineFollow();
   
@@ -803,7 +802,7 @@ void loop() {
   detectNoLWall = digitalRead(leftWall);
 
   //intersection
-  if((outerLeftVal > threshold) && (outerRightVal > threshold)){
+  if((intersectionVal > threshold)){
       printer();
     // use wall sensors to check walls on each side 
     //translate local walls to global walls  = done
