@@ -1,54 +1,25 @@
+Redesigning the robot
+We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
 
-# Final System Design
-Main tasks during the final week for our robot
- * Hardware
-    * Redesinging
-    * Micamplifier - we made a mic amplifier using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output o
-    * Push-button - the push button is our back up robot starting switch if in case our mic system fails to detect 600Hz and set the robot into motion. 
-    * Passive mixer for treasure sensors: since the Arduino has only five pins we needeed to figure out a way to limit the number of inputs that are needed to directly connect with the Arduino. The passive mixer helped us to combine the inputs from the three treasure sensors detecting signals from the front, left and right side of the robot. The passive mixer has an RC high pass filter that detects signals above 5.5kHz. The output from each sensor is combined together. Two voltage divider resistors are used in order 
-    * Wall sensor for distance modification:
-* Software
-    * Merging Code
-     * Treasure sensor and line following
-     * Receiving code
- Specification for major components of robot
- * Pin List
- * Sensitivity of IR sensor:
-  * Output vs distane of treasure
-  * Signal to noise ratio
-  * Resistance to ambient light
- * Sensitivity of microphone
-  * Output vs distance
- * Bandwidth of communication
- * Computation speed and memory usage
- * Robot
-  * Worst and best case scenarios for robot or DFS
-  * speed and power of servos
-  * Straight line velocity
-  * Turn speed and radis
-  
- * Mapped system
- 
-  
- 
- 
- 
- 
- 
-      
-      
-    
-Upon completion of milestone 4, our robot still needed additional work on the following components in order to be fully-functioning for competition
-## Hardware Redesign
+The first breadboard contains hardware for the servos. Since we switched often from 5V and 9V batteries, we made a circuit to provide both options. Since the servos can only take 5V, we also used a regulator in the case that the 9V battery is used.
 
-## Code Merging
-In the line following/DFS code, we inserted the treasure detection code. Since the robot pauses momentarily to process its position and decide its next move at each intersection, we merged the treasure detection code into the block pertaining to interdsection processing. to save memory, we changed our 
-We also needed to implement a previously unfamiliar circuit, a passive mixer, in order to have all of our treasure detectors connect to a single pin. In theory, the basic treasure detection functionality was performing, but used three different analog inputs in the solution. Here, as we do not have the privilege of many available pins on our arduino, we used a passive mixer that would allow us to use only one pin. 
+The second breadboard contains our hardware for our wall sensors. We used short range sensors for our wall sensors and in the beginning the sensors had to be considerably close to the walls to detect them, so we added circuitry to amplify the signal so that the robot could detect the wall from further away. Specifically, we wanted to be able to detect the walls at each intersection.
 
-The passive mixer is required b
+The third breadboard, as mentioned before, has hardware for the line sensors and treasure detection. In order to save pins, we consolidated the left and right outer line sensors into one input into one arduino pin. Since our code only cares about when both of the left and right outer line sensors are high and detect something, we used an and gate. For treasure detection we used a passive mixer.
 
-## Radio Communication
+The fourth and last breadboard has our mic, mic amplifier and push button. The mic for the starting signal needed to be amplified so we created a simple circuit to do so and mounted it onto the top board and connected it with the mic. We also had the push button is our backup robot starting switch to manually start the robot if in case our mic system fails to detect 600Hz and set the robot into motion. 
 
-## Search Algorithm
+The sensors are located around the perimeter of the robot with line sensors and wall sensors and the treasure detectors. The sensors are then connected to the circuitry on the breadboard and then most of the circuitry on the breadboard connects as an output or input to the arduino.
 
-## Pin 
+Detailed description of Hardware and software components
+Hardware
+*Mic amplifier - we made a bandpass filter with gain using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output of (?). Therefore we used the filter we made during lab2 for our final system. 
+*Push-button - the push button is our backup robot starting switch if in case our mic system fails to detect 600Hz and set the robot into motion. It is made using a pulldown resistor which pulls the voltage down to near zero when an active device like a push button is not connected. 
+
+*Passive mixer for treasure sensors: since the Arduino has only five pins we needed to figure out a way to limit the number of inputs that are needed to directly connect with the Arduino. The passive mixer helped us to combine the inputs from the three treasure sensors detecting signals from the front, left and right side of the robot. The passive mixer has an RC high pass filter that detects signals above 5.5kHz. The capacitor is also used to block the DC signal from the other two sensors when one of them are active. The output from each sensor is combined together. Two voltage divider resistors are used in order to set a reference voltage for the output. 
+
+*Schmitt trigger: our treasure sensors were first combined with the passive mixer which worked when they were tested without the merged code of the entire system. The fourier transform for the treasures and mic required us to implement interrupts in order to detect treasures while the robot is moving. We build an opamp based schmitt trigger which is built from a non-inverting opamp with positive feedback. It is a comparator circuit that works by converting inputs below and above the threshold value as logical inputs. Values below above a certain threshold can be set to high and those that are low can be set to zero. It allowed us to easily convert the noisy signals from our treasure sensors to a cleaner square wave. 
+
+*Highpass filter:  a high pass filter was used from the input end in order to avoid low frequencies that were adding more noise to our Schmitt trigger. Particularly a 120 Hz signal was triggering the Schmitt trigger which was interfering with the threshold voltage that sets the boundary for the low and high signal on the square waves. 
+
+*Amplifier for wall sensors: Our wall sensors only detected walls only when the wall is very close. We needed the robot to detect walls from a distance that is approximately 15cm.Therefore, we made an inverter using a bipolar junction transistor that would take the voltage reading from the sensor which is in millivolts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration.
