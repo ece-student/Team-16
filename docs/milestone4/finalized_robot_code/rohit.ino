@@ -2,9 +2,6 @@
  *    Maze mapping Robot
  *  
  *  
- *  
- *  
- *  
  */
 
 #include <Servo.h>
@@ -12,7 +9,6 @@
 #include "nRF24L01.h"
 #include "RF24.h"
 #include "printf.h"
-
 
 /**************************************************************************************Pin assignments*/
 // Pin Assignments
@@ -32,7 +28,6 @@ const int rightWall = 3;
 
 Servo rightServo;
 Servo leftServo; 
-
 
 /************************************************************************************radio pins and defs*/
 RF24 radio(9,10);
@@ -70,6 +65,13 @@ typedef enum {
 int leftServoAngle = 90;
 int rightServoAngle = 90;
 
+void writeAngles(int left, int right){
+  rightServoAngle = rightServoMap(right);
+  leftServoAngle = left;
+  rightServo.write(rightServoAngle);
+  leftServo.write(leftServoAngle);
+  delay(delayTime);
+}
 int middleLeftVal = 0;
 int middleRightVal = 0;
 int outerLeftVal = 0;
@@ -113,15 +115,95 @@ byte wall[5][4] = {{9,1,1,3},
                    {8,0,0,2},
                    {12,4,4,6}};
 
+// printer functions
+void printCardinalStack(){
+  Serial.println("this is the cardinal stack!");
+  Serial.print("[");
+  Serial.print(cardinalStack[0]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[1]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[2]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[3]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[4]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[5]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[6]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[7]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[8]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[9]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[10]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[11]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[12]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[13]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[14]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[15]);
+  Serial.print("]");
+}
+
+void printState(){
+  //dfs to choose where to go next
+    Serial.print(robotX);
+    Serial.print(" ,");
+    Serial.println(robotY);
+
+    if (robotOrientation == NORTH){
+    Serial.println("NORTH");
+    }
+    else if (robotOrientation == EAST) {
+    Serial.println("EAST");
+    }
+    else if (robotOrientation == SOUTH) {
+    Serial.println("SOUTH");
+    }
+    else if (robotOrientation == WEST) {
+    Serial.println("WEST");
+    }
+    
+    Serial.print(visited[0][0]);
+    Serial.print(visited[0][1]);
+    Serial.print(visited[0][2]);
+    Serial.println(visited[0][3]);
+    
+    Serial.print(visited[1][0]);
+    Serial.print(visited[1][1]);
+    Serial.print(visited[1][2]);
+    Serial.println(visited[1][3]);
+
+    Serial.print(visited[2][0]);
+    Serial.print(visited[2][1]);
+    Serial.print(visited[2][2]);
+    Serial.println(visited[2][3]);
+
+    Serial.print(visited[3][0]);
+    Serial.print(visited[3][1]);
+    Serial.print(visited[3][2]);
+    Serial.println(visited[3][3]);
+
+    Serial.print(visited[4][0]);
+    Serial.print(visited[4][1]);
+    Serial.print(visited[4][2]);
+    Serial.println(visited[4][3]);
+}
+
 //the matrix that the robot is going to transmit            
 word makeSend [5][4];
 
 byte posStack [20][2];
-
 byte turnStack [20];
-
 byte cardinalStack [30];
-
 int stackIndex=0;
 
 int rightServoMap(int angle) {
@@ -223,10 +305,8 @@ void neighbourIndex(){
   }
 }
 
-
 /***********************************************************************************Movement functions*/
 
-//Need to verify when to update robot current position
 void rightTurn() {
   leftServoAngle = 180;
   rightServoAngle = rightServoMap(0);
@@ -253,7 +333,6 @@ void rightTurn() {
   robotY = yright;
 }
 
-//Need to verify when to update robot current position
 void opposite() {
   leftServoAngle = 180;
   rightServoAngle = rightServoMap(0);
@@ -289,7 +368,6 @@ void opposite() {
   robotY = yback;
 }
 
-//Need to verify when to update robot current position 
 void leftTurn(){
   leftServoAngle = 0;
   rightServoAngle = rightServoMap(180);
@@ -319,66 +397,41 @@ void leftTurn(){
       robotX = xleft;
       robotY = yleft;
     }    
-
 }
 
-//OK
 void lineFollow(){
-      if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
-        rightServoAngle = rightServoMap(180);
-        leftServoAngle = 95;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }
-  
-      if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
-        rightServoAngle = rightServoMap(95);
-        leftServoAngle = 180;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }
-  
-      if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
-        rightServoAngle = rightServoMap(180);
-        leftServoAngle = 180;
-        rightServo.write(rightServoAngle);
-        leftServo.write(leftServoAngle);
-        delay(delayTime);
-      }    
+  if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
+    writeAngles(95,180);
+  }
+  if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
+    writeAngles(180,95);
+  }
+  if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
+    writeAngles(180,180);
+  }    
 }
 
-//Need  to verify when to update robot current position
 void goStraight(){
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(150);
+  writeAngles(180,180);
+  delay(150);
     
-if (robotX == NULL && robotY == NULL) {
-      robotX = 3;
-      robotY = 4;
-      visited[robotY][robotX] = 6;
-    } 
-    else {
-      visited[yfront][xfront]=6;
-      visited[robotY][robotX] = 1;
-      robotX = xfront;
-      robotY = yfront;
-    }    
-    
-
+  if (robotX == NULL && robotY == NULL) {
+    robotX = 3;
+    robotY = 4;
+    visited[robotY][robotX] = 6;
+  } 
+  else {
+    visited[yfront][xfront]=6;
+    visited[robotY][robotX] = 1;
+    robotX = xfront;
+    robotY = yfront;
+  }    
 }
 
 void stop(){
-    rightServo.write(rightServoMap(90));
-    leftServo.write(90);  
-    delay(100);
+  writeAngles(90,90);
+  delay(100);
 }
-
-
 
 word assemble(word x, word y) {
   word xShift = x;
@@ -458,29 +511,22 @@ byte wallOrientation() {
 //Need to check where to place this function
 void updateWallMatrix() {
   wall[robotY][robotX] = wallOrientation();
-
 }
 /**************************************************************************************Stack functions*/
 //stack helper functions
 
-//OK
 void stack_push(byte x, byte y) {
   posStack[stackIndex][0] = x;
   posStack[stackIndex][1] = y;
   stackIndex++;
 }
 
-
-//OK
 // Return true if the stack is empty. Only works on the stack defined globally as int stack[50].
-
-//problematic because when you add to turnstack, won't have same index, must also pop turnstack separately
+// problematic because when you add to turnstack, won't have same index, must also pop turnstack separately
 bool stack_empty() {
   return (stackIndex == 0);
 }
 
-
-//OK
 bool turnStack_empty() {
   return (stackIndex == 0);
 }
@@ -488,8 +534,9 @@ bool turnStack_empty() {
 bool cardinalStack_empty(){
   return (stackIndex==0);
 }
+
 // Return the value on top of the stack.
-//Need to verify
+// Need to verify
 int turnStack_top () {
   if (turnStack_empty()) return NULL;
   return turnStack[stackIndex];
@@ -505,44 +552,7 @@ ORIENTATION to() {
   return cardinalStack[stackIndex];
 }
 
-void printer(){
-  
-  Serial.println("this is the cardinal stack!");
-  Serial.print("[");
-  Serial.print(cardinalStack[0]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[1]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[2]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[3]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[4]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[5]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[6]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[7]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[8]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[9]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[10]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[11]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[12]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[13]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[14]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[15]);
-  Serial.print("]");
 
-}
 
 void cardinalTurn(){
   //lois you moved this here
@@ -673,20 +683,16 @@ void cardinalStackStraight(){
 //if both are not possible, then go to previous in stack
 //Needs work as a whole  
 
-
 /*
  * backtrack() puts the robot in the last previous position 
  * from its stack that has an accessible, unvisited position to go to.
  */
 void backtrack(){
-  
   Serial.println("in backtrack");
-
   Serial.print("Stack Index:");
   Serial.println(stackIndex);
   cardinalTurn();
   stack_pop();
-  
   
   //while there is not unvisited neighbor 
   //lois why do we need this while loop?
@@ -700,17 +706,13 @@ void backtrack(){
 //  }
 }
 
-
-
 /*******************************************************************************************Setting up*/
-//OK
 //Start robot behind first intersection, in the case where there is a
 //wall right in front of the robot
 void setup() {
   rightServo.attach(rightServoPin);
   leftServo.attach(leftServoPin);
-  leftServoAngle = 90;
-  rightServoAngle = rightServoMap(90);
+  
 
   pinMode(frontWall, INPUT);
   pinMode(rightWall, INPUT);
@@ -719,8 +721,8 @@ void setup() {
 
   Serial.begin(9600);
   
-  rightServo.write(rightServoAngle);
-  leftServo.write(leftServoAngle);
+  writeAngles(90,90);
+
   delay(2000); //Wait 2 seconds
 
   /**************************************************************************************radio stuff start*/
@@ -758,8 +760,6 @@ void setup() {
 //  radio.printDetails();
 }
 
-
-
 /*************************************************************************************************Loop*/
 void loop() { 
 
@@ -780,51 +780,8 @@ void loop() {
 
   //intersection
   if((outerLeftVal > threshold) && (outerRightVal > threshold)){
-      printer();
-
-    
-    //dfs to choose where to go next
-//    Serial.print(robotX);
-//    Serial.print(" ,");
-//    Serial.println(robotY);
-
-    if (robotOrientation == NORTH){
-    Serial.println("NORTH");
-    }
-    else if (robotOrientation == EAST) {
-    Serial.println("EAST");
-    }
-    else if (robotOrientation == SOUTH) {
-    Serial.println("SOUTH");
-    }
-    else if (robotOrientation == WEST) {
-    Serial.println("WEST");
-    }
-    
-    Serial.print(visited[0][0]);
-    Serial.print(visited[0][1]);
-    Serial.print(visited[0][2]);
-    Serial.println(visited[0][3]);
-    
-    Serial.print(visited[1][0]);
-    Serial.print(visited[1][1]);
-    Serial.print(visited[1][2]);
-    Serial.println(visited[1][3]);
-
-    Serial.print(visited[2][0]);
-    Serial.print(visited[2][1]);
-    Serial.print(visited[2][2]);
-    Serial.println(visited[2][3]);
-
-    Serial.print(visited[3][0]);
-    Serial.print(visited[3][1]);
-    Serial.print(visited[3][2]);
-    Serial.println(visited[3][3]);
-
-    Serial.print(visited[4][0]);
-    Serial.print(visited[4][1]);
-    Serial.print(visited[4][2]);
-    Serial.println(visited[4][3]);
+    printCardinalStack();
+    printState();
 /**************************************************************************************************DFS*/
     //dfs
     //when we are at a new position (at intersection)
