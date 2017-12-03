@@ -129,16 +129,64 @@ byte turnStack [20];
 byte cardinalStack [30];
 
 int stackIndex=0;
+
+void printVisited(){
+  Serial.print(robotX);
+  Serial.print(" ,");
+  Serial.println(robotY);
+
+  if (robotOrientation == NORTH){
+  Serial.println("NORTH");
+  }
+  else if (robotOrientation == EAST) {
+  Serial.println("EAST");
+  }
+  else if (robotOrientation == SOUTH) {
+  Serial.println("SOUTH");
+  }
+  else if (robotOrientation == WEST) {
+  Serial.println("WEST");
+  }
+  
+  Serial.print(visited[0][0]);
+  Serial.print(visited[0][1]);
+  Serial.print(visited[0][2]);
+  Serial.println(visited[0][3]);
+  
+  Serial.print(visited[1][0]);
+  Serial.print(visited[1][1]);
+  Serial.print(visited[1][2]);
+  Serial.println(visited[1][3]);
+
+  Serial.print(visited[2][0]);
+  Serial.print(visited[2][1]);
+  Serial.print(visited[2][2]);
+  Serial.println(visited[2][3]);
+
+  Serial.print(visited[3][0]);
+  Serial.print(visited[3][1]);
+  Serial.print(visited[3][2]);
+  Serial.println(visited[3][3]);
+
+  Serial.print(visited[4][0]);
+  Serial.print(visited[4][1]);
+  Serial.print(visited[4][2]);
+  Serial.println(visited[4][3]);
+}
 /*******************************************************************************************Setting up*/
 //OK
 //Start robot behind first intersection, in the case where there is a
 //wall right in front of the robot
 void setup() {
   Serial.begin(115200);
+
   rightServo.attach(rightServoPin);
   leftServo.attach(leftServoPin);
+
+  // start at 0
   rightServoAngle=90;
   leftServoAngle=90;
+  
   pinMode(pushButton, INPUT);
   pinMode(frontWall, INPUT);
   pinMode(rightWall, INPUT);
@@ -150,37 +198,16 @@ void setup() {
   delay(1000); //Wait 2 seconds
 /****************************************************************************audio setup*/
   // cli();  // UDRE interrupt slows this way down on arduino1.0
-    while (!digitalRead(pushButton)){ //((startSignal == 0) || (digitalRead(pushButton)==LOW)) {
-        stop();
-        Serial.println("while");
-    /*for (int i = 0 ; i < 256 ; i += 2) { // save 128 samples
-      //Serial.println("hi");
-      //fft_input[i] = analogRead(audioPin); // put real data into even bins
-      fft_input[i+1] = 0; // set odd bins to 0
-    }*/
-
-    /*fft_window(); // window the data for better frequency response
-    fft_reorder(); // reorder the data before doing the fft
-    fft_run(); // process the data in the fft
-    fft_mag_log(); // take the output of the fft
-//    sei();*/
-
-    /*for (byte i = 0 ; i < FFT_N/2 ; i++) { 
-      Serial.println(fft_log_out[i]); // send out the data
-     }
-        if (fft_input[18] > 60){
-          //startSignal = 1;
-          Serial.println("STOP!!");
-          delay(100);
-          digitalWrite(LED_BUILTIN, HIGH);  
-        }  */
-    }
+  while (!digitalRead(pushButton)){ //((startSignal == 0) || (digitalRead(pushButton)==LOW)) {
+      stop();
+      Serial.println("Waiting to start");
+      delay(100);
+      // put start signal in junk filer
+  }
 
 /**************************************************************************************radio stuff start*/
 
   //CHANGED
-
- 
   radio.begin();
   radio.setRetries(15,15);
   radio.setAutoAck(true);
@@ -227,133 +254,14 @@ void loop() {
   //intersection
   if((intersectionVal > threshold)){
       printer();
+      printVisited();
     // use wall sensors to check walls on each side 
     //translate local walls to global walls  = done
     //visited matrix location to find current pos = done
     //change the wall matrix to reflect current wall changes = done 
     
     //dfs to choose where to go next
-    Serial.print(robotX);
-    Serial.print(" ,");
-    Serial.println(robotY);
 
-    if (robotOrientation == NORTH){
-    Serial.println("NORTH");
-    }
-    else if (robotOrientation == EAST) {
-    Serial.println("EAST");
-    }
-    else if (robotOrientation == SOUTH) {
-    Serial.println("SOUTH");
-    }
-    else if (robotOrientation == WEST) {
-    Serial.println("WEST");
-    }
-    
-    Serial.print(visited[0][0]);
-    Serial.print(visited[0][1]);
-    Serial.print(visited[0][2]);
-    Serial.println(visited[0][3]);
-    
-    Serial.print(visited[1][0]);
-    Serial.print(visited[1][1]);
-    Serial.print(visited[1][2]);
-    Serial.println(visited[1][3]);
-
-    Serial.print(visited[2][0]);
-    Serial.print(visited[2][1]);
-    Serial.print(visited[2][2]);
-    Serial.println(visited[2][3]);
-
-    Serial.print(visited[3][0]);
-    Serial.print(visited[3][1]);
-    Serial.print(visited[3][2]);
-    Serial.println(visited[3][3]);
-
-    Serial.print(visited[4][0]);
-    Serial.print(visited[4][1]);
-    Serial.print(visited[4][2]);
-    Serial.println(visited[4][3]);
-
-    /*cli();  // UDRE interrupt slows this way down on arduino1.0
-    for (int i = 0 ; i < 256 ; i += 2) { // save 128 samples
-      while(!(ADCSRA & 0x10)); // wait for adc to be ready
-      ADCSRA = 0xf5; // restart adc
-      byte m = ADCL; // fetch adc data
-      byte j = ADCH;
-      int k = (j << 8) | m; // form into an int
-      k -= 0x0200; // form into a signed int
-      k <<= 6; // form into a 16b signed int
-      fft_input[i] = k; // put real data into even bins
-      fft_input[i+1] = 0; // set odd bins to 0
-    }
-    // window data, then reorder, then run, then take output
-    fft_window(); // window the data for better frequency response
-    fft_reorder(); // reorder the data before doing the fft
-    fft_run(); // process the data in the fft
-    fft_mag_log(); // take the output of the fft
-    sei(); // turn interrupts back on
-    //Serial.write(255); // send a start byte
-    //Serial.write(fft_log_out, 128);
-    int range7 = 0;
-    int range12 = 0;
-    int range17 = 0;
-    for(int i = 10; i < 128; i++){
-      if(fft_log_out[i]>60){
-        Serial.print(fft_log_out[i]);
-        if(i>=45 && i<=47){
-          range7++;
-        }
-        if(i>=79 && i<=81){
-          range12++;
-        }
-        if(i>=113 && i<=115){
-          range17++;
-        }
-      } 
-      Serial.print(" ");
-    }
-    
-    
-    
-    if(range7>0 && range7>range12 &&range7>range17){
-      Serial.println("7 kHz");
-    }
-    else if(range12>0 && range12>range7 &&range12>range17){
-      Serial.println("12 kHz");
-    }
-    else if(range17>0 && range17>range12 &&range17>range7){
-      Serial.println("17 kHz");
-    }
-    else{
-      Serial.println("none");
-    }
-    Serial.println("");
-     // send out the data
-*/
-    
-    
-/************************************************************************************************AUDIO*/
-
-    
-//// cli();  // UDRE interrupt slows this way down on arduino1.0
-//    for (int i = 0 ; i < 256 ; i += 2) { // save 256 samples
-//      fft_input[i] = analogRead(audioPin); // put real data into even bins
-//      fft_input[i+1] = 0; // set odd bins to 0
-//    }
-//    fft_window(); // window the data for better frequency response
-//    fft_reorder(); // reorder the data before doing the fft
-//    fft_run(); // process the data in the fft
-//    fft_mag_log(); // take the output of the fft
-////    sei();
-//    Serial.println("start");
-//    for (byte i = 0 ; i < FFT_N/2 ; i++) { 
-//      Serial.println(fft_log_out[i]); // send out the data
-//      if (fft_input[18] > 60)
-//        digitalWrite(LED_BUILTIN, HIGH);      
-//    }
-
-    
 /**************************************************************************************************DFS*/
     //dfs
     //when we are at a new position (at intersection)
@@ -444,10 +352,7 @@ make2send();
       radio.read( &got_time, sizeof(unsigned long) );
       printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
     }
-    delay(1000);
-  
-
-  
+    delay(1000);  
 }
 }
 
@@ -501,7 +406,6 @@ bool withinMazeY(byte yCoord) {
     return true;
   } 
 }
-
 
 void neighbourIndex(){
   if(robotOrientation == NORTH){
@@ -618,8 +522,6 @@ void opposite() {
 
 //Need to verify when to update robot current position 
 void leftTurn(){
-
-  
   leftServoAngle = 0;
   rightServoAngle = rightServoMap(180);
   leftServo.write(leftServoAngle);
@@ -636,9 +538,6 @@ void leftTurn(){
   rightServo.write(rightServoAngle);
   delay(200);
   leftOrientation();
-  
-
-
 }
 
 //OK
@@ -687,16 +586,15 @@ void make2send(){
   }
 }
 
-
 //Need  to verify when to update robot current position
 void goStraight(){
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(150);
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  rightServo.write(rightServoAngle);
+  leftServo.write(leftServoAngle);
+  delay(150);
     
-if (robotX == NULL && robotY == NULL) {
+  if (robotX == NULL && robotY == NULL) {
       robotX = 3;
       robotY = 4;
       visited[robotY][robotX] = 6;
@@ -707,8 +605,6 @@ if (robotX == NULL && robotY == NULL) {
       robotX = xfront;
       robotY = yfront;
     }    
-    
-
 }
 
 void stop(){
@@ -721,14 +617,12 @@ void stop(){
 /******************************************************************************************done helper function*/
 void lightUp(){
   // check if done with maze, aka, all have been visited
-//  pinMode (ledPin, HIGH);
+  //  pinMode (ledPin, HIGH);
 }
-
 
   //LOOK HERE LOIS
   //we haven't found out how the robot will know its done 
   //but when it is we need to set the last bit equal to one
-
 //OK
 byte wallOrientation() {
   byte wall = 0;
@@ -782,7 +676,6 @@ byte wallOrientation() {
 //Need to check where to place this function
 void updateWallMatrix() {
   wall[robotY][robotX] = wallOrientation();
-
 }
 /**************************************************************************************Stack functions*/
 //stack helper functions
@@ -792,7 +685,6 @@ void stack_push(byte x, byte y) {
   posStack[stackIndex][1] = y;
   stackIndex++;
 }
-
 
 // Return true if the stack is empty. Only works on the stack defined globally as int stack[50].
 //problematic because when you add to turnstack, won't have same index, must also pop turnstack separately
@@ -825,7 +717,6 @@ ORIENTATION to() {
 }
 
 void printer(){
-  
   Serial.println("this is the cardinal stack!");
   Serial.print("[");
   Serial.print(cardinalStack[0]);
@@ -860,7 +751,6 @@ void printer(){
   Serial.print(", ");
   Serial.print(cardinalStack[15]);
   Serial.print("]");
-
 }
 
 void cardinalTurn(){
@@ -868,8 +758,8 @@ void cardinalTurn(){
   Serial.println(to());
   Serial.print("from :");
   Serial.println(from());
-  
-//  straight
+
+  //  straight
   if (from()==to()){
     goStraight;
   }
@@ -914,19 +804,13 @@ void cardinalTurn(){
   }
   else if (from()==2 && to()==8){
     opposite();
-  }
-  
-  
-  
-}
-  
+  } 
+} 
 
-//OK
 void stack_pop() {
   if (stack_empty()) return ;
   stackIndex--;
 }
-
 
 void cardinalStackLeftTurn(){
   Serial.println("cardinal stack left turn");
@@ -945,9 +829,8 @@ void cardinalStackLeftTurn(){
   return;
 }
 
-
 void cardinalStackRightTurn(){
-    Serial.println("cardinal stack right turn");
+  Serial.println("cardinal stack right turn");
   
   if (robotOrientation==NORTH){
     cardinalStack[stackIndex]=WEST;
@@ -981,7 +864,6 @@ void cardinalStackStraight(){
   return;
 }
 
-
 /********************************************************************************************Backtrack*/
 
 //helper function: pop current position, go to previous position, 
@@ -996,10 +878,8 @@ void cardinalStackStraight(){
  */
 void backtrack(){
   Serial.println("in backtrack");
-
   Serial.print("Stack Index:");
   Serial.println(stackIndex);
-  
   
   //while there is not unvisited neighbor 
   while ((!detectNoLWall || visited[yleft][xleft]==1) && (!detectNoRWall || visited[yright][xright]==1) 
@@ -1009,9 +889,5 @@ void backtrack(){
     neighbourIndex();
     stack_pop();
     //at an intersection, read the current orientation and the orientation of the next on, 
-    
   }
 }
-
-  
-

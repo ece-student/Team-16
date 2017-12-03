@@ -18,8 +18,8 @@ int turns[] = {0,2,2,2,0,1,1,1};
 int intersection = 0;
 
 Servo rightServo;
-Servo leftServo;
- 
+Servo leftServo; 
+
 const int rightServoPin = 6;
 const int leftServoPin = 5;
 
@@ -28,7 +28,11 @@ const int middleLeftPin = A1;
 const int outerRightPin = A2;
 const int outerLeftPin = A3;
 
-int threshold =800; 
+const int ledPin = 13;
+
+const int threshold = 800; 
+
+const int delayTime = 2;
 
 int leftServoAngle = 90;
 int rightServoAngle = 90;
@@ -44,85 +48,147 @@ int rightServoMap(int angle) {
 }
 
 void rightturn() {
-  leftServoAngle=180;
-  rightServoAngle=rightServoMap(0);
+  leftServoAngle = 180;
+  rightServoAngle = rightServoMap(0);
   leftServo.write(leftServoAngle);
   rightServo.write(rightServoAngle);
-  delay(10);
-  while (analogRead(outerLeftVal) < 750 && analogRead(outerRightVal) < 750){
+  delay(300);
+
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
     leftServo.write(leftServoAngle);
     rightServo.write(rightServoAngle);
-    delay(1);
+    delay(delayTime);
   }
+  
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(200);
+    
+  intersection += 1;
 }
 
 void leftturn(){
-  leftServoAngle=0;
-  rightServoAngle=rightServoMap(180);
+  leftServoAngle = 0;
+  rightServoAngle = rightServoMap(180);
   leftServo.write(leftServoAngle);
   rightServo.write(rightServoAngle);
-  delay(100);
-  while (analogRead(outerLeftVal) < 750 && analogRead(outerRightVal) < 750){
+  delay(300);
+
+  while ((analogRead(outerLeftPin) < threshold) && (analogRead(outerRightPin) < threshold)){
     leftServo.write(leftServoAngle);
     rightServo.write(rightServoAngle);
-    delay(1);
+    delay(delayTime);
   }
+  
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  leftServo.write(leftServoAngle);
+  rightServo.write(rightServoAngle);
+  delay(200);
+  
+  intersection += 1;
 }
 
 void setup() {
   rightServo.attach(rightServoPin);
   leftServo.attach(leftServoPin);
-  delay(2000); //Wait 2 seconds
-  Serial.begin(9600);
+  
+  //Serial.begin(9600);
 
-  leftServoAngle = 180;
-  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 90;
+  rightServoAngle = rightServoMap(90);
+  
+  pinMode(ledPin, OUTPUT);
 
   rightServo.write(rightServoAngle);
   leftServo.write(leftServoAngle);
-  delay(10);
+  delay(2000); //Wait 2 seconds
 }
 
 void loop() {
-  Serial.println(analogRead(outerLeftPin));
+  /*Serial.print("outer Left "); 
+  Serial.print(analogRead(outerLeftPin));
+  Serial.print("outer Right ");
+  Serial.print(analogRead(outerRightPin));
+  Serial.print("middle Left ");
+  Serial.print(analogRead(middleLeftPin));
+  Serial.print("middle Right ");
+  Serial.println(analogRead(middleRightPin));*/
+  
   middleLeftVal = analogRead(middleLeftPin);
   middleRightVal = analogRead(middleRightPin);
+  outerLeftVal = analogRead(outerLeftPin);
+  outerRightVal = analogRead(outerRightPin);
+
+  /*
+  rightServoAngle = rightServoMap(180);
+  leftServoAngle = 180;
+  rightServo.write(rightServoAngle);
+  leftServo.write(leftServoAngle);
+  */
+  //delay(5);
   
-    
   // greater than 750 on the line
   // less than 750 off the line
-  if (middleLeftVal > threshold && middleRightVal < threshold) {
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 98;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(1);
-  }
-  if (middleLeftVal < threshold && middleRightVal > threshold) {
-    rightServoAngle = rightServoMap(98);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(1);
-  }
-  if (middleLeftVal > threshold && middleRightVal > threshold) {
-    rightServoAngle = rightServoMap(180);
-    leftServoAngle = 180;
-    rightServo.write(rightServoAngle);
-    leftServo.write(leftServoAngle);
-    delay(1);
-  }
+
+  if ((middleLeftVal > threshold) && (middleRightVal < threshold)) {
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 95;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
+
+    if ((middleLeftVal < threshold) && (middleRightVal > threshold)) {
+      rightServoAngle = rightServoMap(95);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
+
+    if ((middleLeftVal > threshold) && (middleRightVal > threshold)) {
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(delayTime);
+    }
+  
 
 // intersection
- if(analogRead(outerLeftVal) > threshold && analogRead(outerRightVal) > threshold){
-  int currTurn = turns[intersection];
-  if(currTurn == 0){} //straight
-  if(currTurn == 1){
-    leftturn();
+  if((outerLeftVal > threshold) && (outerRightVal > threshold)){
+    if (intersection > 7) {
+      intersection = 0;
+    }
+    //digitalWrite(ledPin, HIGH);
+    /*rightServoAngle = rightServoMap(90);
+    leftServoAngle = 90;
+    rightServo.write(rightServoAngle);
+    leftServo.write(leftServoAngle);
+    */
+    //delay(1000);
+    
+    int currTurn = turns[intersection];
+    if(currTurn == 0){
+      rightServoAngle = rightServoMap(180);
+      leftServoAngle = 180;
+      rightServo.write(rightServoAngle);
+      leftServo.write(leftServoAngle);
+      delay(150);
+      intersection += 1;
+    } //straight
+    if(currTurn == 1){
+      leftturn();
+    }
+    if(currTurn == 2){
+      rightturn();
+    }
+    digitalWrite(ledPin, LOW);
   }
-  if(currTurn == 2){
-    rightturn();
-  }
-  intersection += 1;
-  }
+  
+      
+  
 }
