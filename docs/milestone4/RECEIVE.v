@@ -24,7 +24,7 @@ always @(posedge CLOCK) begin
 			pastOut <= accumulate;
 		end
 		else begin
-			pastOut <= 16'b1111111111111111;
+			pastOut <= 16'b1111100000000000;
 		end
 		index <= index + 1;
 	end
