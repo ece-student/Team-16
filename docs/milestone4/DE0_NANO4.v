@@ -147,9 +147,9 @@ module DE0_NANO(
 	);
 
 	RECEIVE receive(
-		.CLOCK(GPIO_0_D[29]),
-		.DATA(GPIO_0_D[31]),
-		.ENABLE(GPIO_0_D[33]),
+		.CLOCK(GPIO_0_D[29]), //sck 
+		.DATA(GPIO_0_D[31]), // mosi
+		.ENABLE(GPIO_0_D[33]), // pin 6
 		.OUT(out)
 	);
 	 
