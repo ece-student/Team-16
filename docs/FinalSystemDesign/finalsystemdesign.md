@@ -1,4 +1,4 @@
-##### Redesigning the robot
+## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
 
 The first breadboard contains hardware for the servos. Since we switched often from 5V and 9V batteries, we made a circuit to provide both options. Since the servos can only take 5V, we also used a regulator in the case that the 9V battery is used.
@@ -11,8 +11,8 @@ The fourth and last breadboard has our mic, mic amplifier and push button. The m
 
 The sensors are located around the perimeter of the robot with line sensors and wall sensors and the treasure detectors. The sensors are then connected to the circuitry on the breadboard and then most of the circuitry on the breadboard connects as an output or input to the arduino.
 
-##### Detailed description of Hardware and software components
-### Hardware
+### Detailed description of Hardware and software components
+#### Hardware
 * **Mic amplifier**: we made a bandpass filter with gain using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output of (?). Therefore we used the filter we made during lab2 for our final system. 
 *Push-button - the push button is our backup robot starting switch if in case our mic system fails to detect 600Hz and set the robot into motion. It is made using a pulldown resistor which pulls the voltage down to near zero when an active device like a push button is not connected. 
 
