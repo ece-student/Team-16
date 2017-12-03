@@ -21,7 +21,7 @@ The sensors are located around the perimeter of the robot with line sensors and 
 
 * **Passive mixer for treasure sensors**: since the Arduino has only five pins we needed to figure out a way to limit the number of inputs that are needed to directly connect with the Arduino. The passive mixer helped us to combine the inputs from the three treasure sensors detecting signals from the front, left and right side of the robot. The passive mixer has an RC high pass filter that detects signals above 5.5kHz. The capacitor is also used to block the DC signal from the other two sensors when one of them are active. The output from each sensor is combined together. Two voltage divider resistors are used in order to set a reference voltage for the output.
 
-![](treasure detector schematic-1.png)
+![](passiveMixer.png)
 
 * **Schmitt trigger**: our treasure sensors were first combined with the passive mixer which worked when they were tested without the merged code of the entire system. The fourier transform for the treasures and mic required us to implement interrupts in order to detect treasures while the robot is moving. We build an opamp based schmitt trigger which is built from a non-inverting opamp with positive feedback. It is a comparator circuit that works by converting inputs below and above the threshold value as logical inputs. Values below above a certain threshold can be set to high and those that are low can be set to zero. It allowed us to easily convert the noisy signals from our treasure sensors to a cleaner square wave. 
 
