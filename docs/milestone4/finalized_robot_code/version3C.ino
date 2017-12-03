@@ -173,6 +173,42 @@ void printVisited(){
   Serial.print(visited[4][2]);
   Serial.println(visited[4][3]);
 }
+void printCardinalStack(){
+  Serial.println("this is the cardinal stack!");
+  Serial.print("[");
+  Serial.print(cardinalStack[0]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[1]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[2]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[3]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[4]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[5]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[6]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[7]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[8]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[9]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[10]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[11]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[12]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[13]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[14]);
+  Serial.print(", ");
+  Serial.print(cardinalStack[15]);
+  Serial.print("]");
+}
 /*******************************************************************************************Setting up*/
 //OK
 //Start robot behind first intersection, in the case where there is a
@@ -186,7 +222,7 @@ void setup() {
   // start at 0
   rightServoAngle=90;
   leftServoAngle=90;
-  
+
   pinMode(pushButton, INPUT);
   pinMode(frontWall, INPUT);
   pinMode(rightWall, INPUT);
@@ -238,8 +274,7 @@ void loop() {
   //Could combine outer left and outer right line sensors 
   // greater than 750 on the line
   // less than 750 off the line
-  Serial.begin(115200);
-  Serial.print("loop");
+  Serial.println("loop");
   middleLeftVal = analogRead(middleLeftPin);
   middleRightVal = analogRead(middleRightPin);
   intersectionVal = analogRead(intersectionPin);
@@ -253,14 +288,12 @@ void loop() {
 
   //intersection
   if((intersectionVal > threshold)){
-      printer();
-      printVisited();
-    // use wall sensors to check walls on each side 
+    printCardinalStack();
+    printVisited();
+    //use wall sensors to check walls on each side 
     //translate local walls to global walls  = done
     //visited matrix location to find current pos = done
     //change the wall matrix to reflect current wall changes = done 
-    
-    //dfs to choose where to go next
 
 /**************************************************************************************************DFS*/
     //dfs
@@ -312,16 +345,15 @@ void loop() {
   }
   else{
     lightUp();
-
+    Serial.println("line following");
   }
 
   /******************************************************************************************radio start*/
-//need to call make2send so it updates the matrix makeSend
-make2send();
-//ping out 
+  //need to call make2send so it updates the matrix makeSend
+  make2send();
+  //ping out 
 
-  if (role == role_ping_out)
-  {
+  if (role == role_ping_out){
     radio.stopListening();
     
     //SENDING THE MAZE LOOK HERE 
@@ -353,7 +385,8 @@ make2send();
       printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
     }
     delay(1000);  
-}
+  }
+  
 }
 
 int rightServoMap(int angle) {
@@ -453,7 +486,6 @@ void neighbourIndex(){
     yfront=4;
   }
 }
-
 
 /***********************************************************************************Movement functions*/
 
@@ -714,43 +746,6 @@ ORIENTATION from (){
 ORIENTATION to() {
   if (cardinalStack_empty()) return NULL;
   return cardinalStack[stackIndex];
-}
-
-void printer(){
-  Serial.println("this is the cardinal stack!");
-  Serial.print("[");
-  Serial.print(cardinalStack[0]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[1]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[2]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[3]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[4]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[5]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[6]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[7]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[8]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[9]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[10]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[11]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[12]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[13]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[14]);
-  Serial.print(", ");
-  Serial.print(cardinalStack[15]);
-  Serial.print("]");
 }
 
 void cardinalTurn(){
