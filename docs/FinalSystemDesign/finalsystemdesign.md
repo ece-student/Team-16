@@ -36,7 +36,7 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ![](pinlis.png)
 
 
-## Final Problems
+## Final Problems 😢😢😢😢😢
 Unfortunately, we were not able to complete our project due to several difficult issues. Our search algorithm was functional, however we had some glitches in certain scenarios which lead to it crashing into walls. This is often due to skipping intersections and not properly maintaining its state in the maze. Knowing the state of the maze is critical to the backtracking portion because it needs to know where to go in order to reach unvisited nodes. If the robot skips a square, this algorithm will fail. We tried debugging this by testing the robot on different mazes and testing the sensors and logic individually.
 
 All of other components were tested to be fully functional, however, integrating them into one system was a major difficulty. For example, we could not use FFT on the start and treasure signals. This required us to spend a whole day redesigning the treasure detection system to use a comparator and interrupts.
