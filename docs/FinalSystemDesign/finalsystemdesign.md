@@ -35,6 +35,7 @@ The sensors are located around the perimeter of the robot with line sensors and 
 
 ## Pin List
 Below is a pin list for the robot. As mentioned above we used a passive mixer to save analog pins for detecting treasures. For two of the side line sensors that decect treasure, we built an and gate since we will be at an intersection only if both of the sensors are reading the same value corresponding to black line. However, the circuitry had connection and implementation problems. Since we had extra analog pin from our sensors, we decided to separate the readings from each side line sensor. 
+
 ![](pinlis.png)
 
 ![](PINLIST_FPGA.png)
