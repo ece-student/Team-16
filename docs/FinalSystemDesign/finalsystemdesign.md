@@ -14,7 +14,9 @@ The sensors are located around the perimeter of the robot with line sensors and 
 ### Detailed description of Hardware and software components
 #### Hardware
 * **Mic amplifier**: we made a bandpass filter with gain using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output of (?). Therefore we used the filter we made during lab2 for our final system. 
+
 ![](micConnector.png)
+
 * **Push-button**: the push button is our backup robot starting switch if in case our mic system fails to detect 600Hz and set the robot into motion. It is made using a pulldown resistor which pulls the voltage down to near zero when an active device like a push button is not connected. 
 
 ![](pulldownResistor.png)
@@ -34,6 +36,7 @@ The sensors are located around the perimeter of the robot with line sensors and 
 ## Pin List
 Below is a pin list for the robot. As mentioned above we used a passive mixer to save analog pins for detecting treasures. For two of the side line sensors that decect treasure, we built an and gate since we will be at an intersection only if both of the sensors are reading the same value corresponding to black line. However, the circuitry had connection and implementation problems. Since we had extra analog pin from our sensors, we decided to separate the readings from each side line sensor. 
 ![](pinlis.png)
+![](PINLIST_FPGA.png)
 
 
 ## Final Problems 😢😢😢😢😢
