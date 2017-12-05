@@ -26,6 +26,9 @@ The fifth and last breadboard has our mic, mic amplifier and push button. The mi
 
 The sensors are located around the perimeter of the robot with line sensors and wall sensors and the treasure detectors. The sensors are then connected to the circuitry on the breadboard and then most of the circuitry on the breadboard connects as an output or input to the arduino.
 
+Here is a detailed graphic about how all of the parts were integrated into the robot:
+![](z1.png)
+
 
 ## Detailed description of Hardware and software components
 ### Hardware
