@@ -52,7 +52,11 @@ We experimented and used several different circuits to increase the efficency an
 
 * **Amplifier for wall sensors**: Our wall sensors only detected walls only when the wall is very close. We needed the robot to detect walls from a distance that is approximately 15cm.Therefore, we made an inverter using a bipolar junction transistor that would take the voltage reading from the sensor which is in millivolts range and amplifies it 5 volts. This allowed us to detect the walls approximately from a distance of 15cm. Below is the schematic of the amplifier configuration.
 
+### other implementations
+
 Another implementation that simplified the design was using SPI for our arduino to FPGA communication. We chose to use SPI rather than parallel connections as many teams did to help save pins on the arduino.
+
+Also to allow flexibility in powering the robot, we made a circuit that would allow for both 5V and 9V battery usage.
 
 ## Pin List
 Below is a pin list for the robot. As mentioned above we used a passive mixer to save analog pins for detecting treasures. For two of the side line sensors that decect treasure, we built an and gate since we will be at an intersection only if both of the sensors are reading the same value corresponding to black line. However, the circuitry had connection and implementation problems. Since we had extra analog pin from our sensors, we decided to separate the readings from each side line sensor. 
