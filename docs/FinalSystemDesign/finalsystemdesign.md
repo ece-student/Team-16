@@ -18,7 +18,7 @@ The third breadboard, as mentioned before, has hardware for the line sensors and
 
 ### fourth breadboard
 
-The fourth breadboard had our Schmitt trigger on it, to prevent the issue with fft. he output from the passive mixer inputs into the Schmitt trigger and a highpass filter, which would then output into the arduino, using only one pin.
+The fourth breadboard had our Schmitt trigger on it, to prevent the issue with fft. The output from the passive mixer inputs into the Schmitt trigger and a highpass filter, which would then output into the arduino, using only one pin.
 
 ### fifth breadboard
 
