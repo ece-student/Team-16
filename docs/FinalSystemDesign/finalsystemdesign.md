@@ -111,4 +111,4 @@ Our search algorithm was functional, however we had some glitches in certain sce
 
 All of other components were tested to be fully functional, however, integrating them into one system was a major difficulty. For example, we could not use FFT on the start and treasure signals. This required us to spend a whole day redesigning the treasure detection system to use a comparator and interrupts.
 
-<img src="after3.png" alt="alt text" width="600" height="400">
+<img src="after3.png" alt="alt text" width="800" height="400">
