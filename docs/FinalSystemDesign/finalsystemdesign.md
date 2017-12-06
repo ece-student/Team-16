@@ -95,7 +95,7 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ![](specs2.png)
 
 ## Cost
-![](cost.PNG)
+![](cost1.PNG)
 
 ## Demos
 
