@@ -5,7 +5,7 @@ During the last week of the semester we were mainly focused on redesigning some 
 ## **IN PROGRESS**
 ![](robotLayers.png)
 ## **AFTER**
-![](after.png)
+![](after1.png)
 
 ## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
