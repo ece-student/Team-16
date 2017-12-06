@@ -54,8 +54,7 @@ BASESTATION SETUP:
 ![](z3.png)
 
 
-## Detailed description of Hardware and software components
-### Hardware
+## Detailed description of robot parts
 
 We experimented and used several different circuits to increase the efficency and increase the organization of our robot for simpler and easier usabiliy. These circuits included and gates for consolidating the line sensors, a schmitt trigger and passive mixer to consolidate our treasure detectors and prevent the problems with fft, physical amplifiers, manual starting with a pushbutton and more.
 
