@@ -1,6 +1,7 @@
 ## Introuduction
-During the last week of the semester we were mainly focused on redesigning some of our robot's hardwae components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
-
+During the last week of the semester we were mainly focused on redesigning some of our robot's hardware components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
+![](before.png)
+![](robotLayes.png)
 
 ## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
@@ -79,12 +80,6 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ![](PINLIST_FPGA.png)
 
-## Demos:
-
-* [VGA display](https://youtu.be/-LxioGsMQ7Y)
-* [dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
-* [starting with 660hz start signal](https://youtu.be/8Drk8CrjAT8)
-* [starting with manual override button](https://youtu.be/H8nQMf8gjuo)
 
 ## Final Problems 😢😢😢😢😢
 Unfortunately, we were not able to complete our project due to several difficult issues. 
