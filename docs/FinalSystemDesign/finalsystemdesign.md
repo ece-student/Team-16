@@ -94,6 +94,9 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ## Measurements and specs for robot components
 ![](specs2.png)
 
+## Cost
+![](cost.PNG)
+
 ## Demos
 
 * [VGA display](https://youtu.be/-LxioGsMQ7Y)
