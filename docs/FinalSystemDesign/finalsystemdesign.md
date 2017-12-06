@@ -66,6 +66,8 @@ We experimented and used several different circuits to increase the efficency an
 
 Another implementation that simplified the design was using SPI for our arduino to FPGA communication. We chose to use SPI rather than parallel connections as many teams did to help save pins on the arduino.
 
+Within the coding, we also coded so that the robot would never map outside of the 3X4 matrix using a simple function that would check whether or not the indexes went out of range. This allowed for easier testing since we didn't need the extra wood and prevented some systematic errors.
+
 Also to allow flexibility in powering the robot, we made a circuit that would allow for both 5V and 9V battery usage.
 
 ## Pin List
