@@ -5,7 +5,9 @@ During the last week of the semester we were mainly focused on redesigning some 
 ## **IN PROGRESS**
 <img src="robotLayers.png" alt="alt text" width="200" height="200">
 ## **AFTER**
+
 ![](after1.png)
+
 ![](after2.png)
 
 ## Redesigning the robot
