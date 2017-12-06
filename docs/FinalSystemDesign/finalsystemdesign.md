@@ -16,15 +16,15 @@ We've consolidated all of our hardware on 5 different breadboards stacked up. Th
 Here is the top-down look at our final design:
 ![](z5.png)
 
-### first perfboard
+### First Perfboard
 
 The first perfboard contains hardware for the servos. Since we switched often from 5V and 9V batteries, we made a circuit to provide both options. Since the servos can only take 5V, we also used a regulator in the case that the 9V battery is used.
 
-### second perfboard
+### Second Perfboard
 
 The second perfboard contains our hardware for our wall sensors. We used short range sensors for our wall sensors and in the beginning the sensors had to be considerably close to the walls to detect them, so we added circuitry to amplify the signal so that the robot could detect the wall from further away. Specifically, we wanted to be able to detect the walls at each intersection.
 
-### third perfboard
+### Third Perfboard
 
 The third perfboard, as mentioned before, has hardware for the line sensors and treasure detection. In order to save pins, we consolidated the left and right outer line sensors into one input into one arduino pin. Since our code only cares about when both of the left and right outer line sensors are high and detect something, we used an AND gate. For treasure detection we used a passive mixer. The passive mixer is used since we just need to detect whether or not there is a treasure in the current square.
 
@@ -32,11 +32,11 @@ The third perfboard, as mentioned before, has hardware for the line sensors and 
 
 The fourth breadboard had an amplifier and a Schmitt trigger on it. The combination was used to implement treasure detection. In first implementation of treasure detection, we used the FFT library. However, this caused issues with the analog reads in the rest of our code. In detecting the treasures, we counted the time between pulses. to prevent the issue with fft. The output from the passive mixer inputs into an inverting amplifier. The output of the amplifier goes to a Schmitt trigger and a highpass filter which converts the nearly sinusoidal output to square wave, which the arduino can use the digitalRead function to count the time between pulses.
 
-### fifth prefboard
+### Fifth Prefboard
 
 The fifth and last perfboard has our microphone, microphone amplifier and push button. The mic for the starting signal needed to be amplified so we created a simple circuit to do so and mounted it onto the top board and connected it with the mic. We also had the push button. The button is our backup robot starting switch to manually start the robot if in case our mic system fails to detect 660Hz and set the robot into motion. 
 
-### Side breadboard
+### Side Breadboard
 
 We have placed a small strip of breadboard to the side of our perfboard stack. The perfboard holds LEDs for when the robot detects a treasure and when the robot is done exploring the maze. We have these LEDs because we had some issues merging the radio code with the rest of the code. Since the radio was not included, the FPGA would not receive any information from the robot. The FPGA would not be able to display the robot's progress or the detected treasures. In addition, we would not be able display our done signal or play our done tune. To show that we detected a treasure, we had corresponding LEDs to turn on when the corresponding treasure was detected. We had a red LED for the 7KHz treasure, a green LED for the 12KHz treasure, and a blue LED for the 17KHz treasure. To show that the robot was done exploring, we a white LED turn on.
 
