@@ -1,13 +1,13 @@
 ## Introduction
 During the last week of the semester we were mainly focused on redesigning some of our robot's hardware components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
 ## **BEFORE** 
-<img src="before.png" alt="alt text" width="400" height="500">
+<img src="before.png" alt="alt text" width="600" height="400">
 
 ## **IN PROGRESS**
-<img src="robotLayers.png" alt="alt text" width="400" height="500">
+<img src="robotLayers.png" alt="alt text" width="600" height="400">
 
 ## **AFTER**
-<img src="after1.png" alt="alt text" width="400" height="50">
+<img src="after1.png" alt="alt text" width="600" height="400">
 
 
 ## Redesigning the robot
@@ -104,4 +104,4 @@ Our search algorithm was functional, however we had some glitches in certain sce
 
 All of other components were tested to be fully functional, however, integrating them into one system was a major difficulty. For example, we could not use FFT on the start and treasure signals. This required us to spend a whole day redesigning the treasure detection system to use a comparator and interrupts.
 
-<img src="after2.png" alt="alt text" width="400" height="500">
+<img src="after2.png" alt="alt text" width="600" height="400">
