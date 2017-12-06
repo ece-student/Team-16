@@ -91,7 +91,7 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ![](PINLIST_FPGA.png)
 
 ## Measurements and specs for robot components
-![](specs.png)
+![](specs2.png)
 
 ## Demos
 
