@@ -7,7 +7,8 @@ During the last week of the semester we were mainly focused on redesigning some 
 <img src="robotLayers.png" alt="alt text" width="300" height="300">
 
 ## **AFTER**
-<img src="after.png" alt="alt text" width="300" height="300">
+![](after1.png)
+![](after2.png)
 
 ## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
@@ -85,6 +86,13 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ![](pinlis.png)
 
 ![](PINLIST_FPGA.png)
+
+## Demos
+
+* [VGA display](https://youtu.be/-LxioGsMQ7Y)
+* [dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
+* [starting with 660hz start signal](https://youtu.be/8Drk8CrjAT8)
+* [starting with manual override button](https://youtu.be/H8nQMf8gjuo)
 
 
 ## Final Problems 😢😢😢😢😢
