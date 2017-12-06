@@ -96,6 +96,10 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ## Cost
 ![](cost1.png)
 
+
+## Competition video
+[Click here to watch our competition video.](https://youtu.be/bRo7fvanVwk)
+
 ## Demos
 
 * [VGA display](https://youtu.be/-LxioGsMQ7Y)
