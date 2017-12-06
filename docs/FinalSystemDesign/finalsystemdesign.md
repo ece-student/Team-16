@@ -1,4 +1,4 @@
-## Introuduction
+## Introduction
 During the last week of the semester we were mainly focused on redesigning some of our robot's hardware components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
 ## **BEFORE** 
 <img src="before.png" alt="alt text" width="500" height="300">
@@ -7,6 +7,7 @@ During the last week of the semester we were mainly focused on redesigning some 
 <img src="robotLayers.png" alt="alt text" width="500" height="600">
 
 ## **AFTER**
+
 ![](after1.png)
 ![](after2.png)
 
