@@ -1,3 +1,4 @@
+
 ## Introduction
 During the last week of the semester we were mainly focused on redesigning some of our robot's hardware components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
 ## **BEFORE** 
@@ -49,7 +50,6 @@ ON THE ROBOT:
 ![](z2.png)
 
 
-
 BASESTATION SETUP:
 ![](z3.png)
 
@@ -59,7 +59,7 @@ BASESTATION SETUP:
 
 We experimented and used several different circuits to increase the efficency and increase the organization of our robot for simpler and easier usabiliy. These circuits included and gates for consolidating the line sensors, a schmitt trigger and passive mixer to consolidate our treasure detectors and prevent the problems with fft, physical amplifiers, manual starting with a pushbutton and more.
 
-* **Microphone amplifier**: we made a bandpass filter with gain using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get an output of (?). Therefore we used the filter we made during lab2 for our final system. 
+* **Microphone amplifier**: we made a bandpass filter with gain using the PCB for the final system. Unfortunately, there were connection problems on the amplifier that prevented it from working properly. Based on the results we had from lab2 we were expecting to get a gain of 20. Therefore we used the filter we made during lab2 for our final system. When we tested the amplifier during the final week the gain reduced to only 8. We made a back up push button to start the robot in case the mic fails to detect the 660 Hz start signal. 
 
 ![](micConnector.png)
 
@@ -93,9 +93,6 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ## Measurements and specs for robot components
 ![](specs2.png)
-
-## Cost
-![](cost.PNG)
 
 ## Demos
 
