@@ -72,7 +72,6 @@ We experimented and used several different circuits to increase the efficency an
 ![](passiveMixer.png)
 
 * **Schmitt trigger**: our treasure sensors were first combined with the passive mixer which worked when they were tested without the merged code of the entire system. The fourier transform for the treasures and mic required us to implement interrupts in order to detect treasures while the robot is moving. We build an opamp based schmitt trigger which is built from a non-inverting opamp with positive feedback. It is a comparator circuit that works by converting inputs below and above the threshold value as logical inputs. Values below above a certain threshold can be set to high and those that are low can be set to zero. It allowed us to easily convert the noisy signals from our treasure sensors to a cleaner square wave. 
-
 ![](schmittTrigAmp.png)
 
 * **Highpass filter**: a high pass filter was used from the input end in order to avoid low frequencies that were adding more noise to our Schmitt trigger. Particularly a 120 Hz signal was triggering the Schmitt trigger which was interfering with the threshold voltage that sets the boundary for the low and high signal on the square waves. 
@@ -95,7 +94,7 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 ![](specs2.png)
 
 ## Cost
-![](cost1.PNG)
+![](cost1.png)
 
 ## Demos
 
