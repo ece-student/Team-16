@@ -16,4 +16,10 @@ Last week things to do
  * Lois 
  * Rohit
  * Firehiwot
+ 
+ Final Report
+ * Make graphics for robot and overall system
+ * Explain hardaware components
+ * Explain about issues ecountered during design
+ 
 
