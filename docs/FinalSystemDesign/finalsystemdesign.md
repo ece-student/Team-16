@@ -79,6 +79,10 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ![](PINLIST_FPGA.png)
 
+## Demos:
+
+[dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
+[]()
 
 ## Final Problems 😢😢😢😢😢
 Unfortunately, we were not able to complete our project due to several difficult issues. 
