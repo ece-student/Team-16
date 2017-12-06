@@ -28,7 +28,7 @@ The second perfboard contains our hardware for our wall sensors. We used short r
 
 The third perfboard, as mentioned before, has hardware for the line sensors and treasure detection. In order to save pins, we consolidated the left and right outer line sensors into one input into one arduino pin. Since our code only cares about when both of the left and right outer line sensors are high and detect something, we used an AND gate. For treasure detection we used a passive mixer. The passive mixer is used since we just need to detect whether or not there is a treasure in the current square.
 
-### fourth perfboard
+### Fourth Perfboard
 
 The fourth breadboard had an amplifier and a Schmitt trigger on it. The combination was used to implement treasure detection. In first implementation of treasure detection, we used the FFT library. However, this caused issues with the analog reads in the rest of our code. In detecting the treasures, we counted the time between pulses. to prevent the issue with fft. The output from the passive mixer inputs into an inverting amplifier. The output of the amplifier goes to a Schmitt trigger and a highpass filter which converts the nearly sinusoidal output to square wave, which the arduino can use the digitalRead function to count the time between pulses.
 
