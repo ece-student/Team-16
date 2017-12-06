@@ -33,7 +33,7 @@ The third perfboard, as mentioned before, has hardware for the line sensors and 
 
 The fourth breadboard had an amplifier and a Schmitt trigger on it. The combination was used to implement treasure detection. In first implementation of treasure detection, we used the FFT library. However, this caused issues with the analog reads in the rest of our code. In detecting the treasures, we counted the time between pulses. to prevent the issue with fft. The output from the passive mixer inputs into an inverting amplifier. The output of the amplifier goes to a Schmitt trigger and a highpass filter which converts the nearly sinusoidal output to square wave, which the arduino can use the digitalRead function to count the time between pulses.
 
-### Fifth Prefboard
+### Fifth Perfboard
 
 The fifth and last perfboard has our microphone, microphone amplifier and push button. The mic for the starting signal needed to be amplified so we created a simple circuit to do so and mounted it onto the top board and connected it with the mic. We also had the push button. The button is our backup robot starting switch to manually start the robot if in case our mic system fails to detect 660Hz and set the robot into motion. 
 
