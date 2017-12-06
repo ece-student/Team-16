@@ -1,16 +1,11 @@
 ## Introuduction
 During the last week of the semester we were mainly focused on redesigning some of our robot's hardware components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
-## **BEFORE**
-![](before.png) 
+## **BEFORE** 
+<img src="before.png" alt="alt text" width="300" height="300">
 ## **IN PROGRESS**
-<img src="robotLayers.png" alt="alt text" width="200" height="200">
-
-
+<img src="robotLayers.png" alt="alt text" width="300" height="300">
 ## **AFTER**
-
-![](after1.png)
-
-![](after2.png)
+<img src="after.png" alt="alt text" width="300" height="300">
 
 ## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
