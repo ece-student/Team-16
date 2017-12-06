@@ -1,3 +1,7 @@
+## Introuduction
+During the last week of the semester we were mainly focused on redesigning some of our robot's hardwae components, adding additional components and merging the systems together to be ready for the competition. Our robot has a tower like design with separate hardware components that include amplifiers, schmitt trigger, and powering components. On the software side the major components were DFS, treasure detection, start signal, radio communication and FPGA code. Merging all these was the biggest challenge for our team. 
+
+
 ## Redesigning the robot
 We've consolidated all of our hardware on 5 different breadboards stacked up. The first breadboard contains hardware for the servos, the second breadboard contains hardware for the wall sensors, the third breadboard contains hardware for our line sensors and treasure detection passive mixer, the fourth one is a Schmitt trigger and amplifier for our treasure sensors and our last breadboard contains the mic, mic amplifier and a push-button.
 
@@ -65,8 +69,6 @@ We experimented and used several different circuits to increase the efficency an
 ### other implementations
 
 Another implementation that simplified the design was using SPI for our arduino to FPGA communication. We chose to use SPI rather than parallel connections as many teams did to help save pins on the arduino.
-
-Within the coding, we also coded so that the robot would never map outside of the 3X4 matrix using a simple function that would check whether or not the indexes went out of range. This allowed for easier testing since we didn't need the extra wood and prevented some systematic errors.
 
 Also to allow flexibility in powering the robot, we made a circuit that would allow for both 5V and 9V battery usage.
 
