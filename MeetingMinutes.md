@@ -31,7 +31,7 @@
  
  * [Meeting Minutes 11-13](./docs/MeetingMinutes/nov13.md)
   
- * [Meeting Minutes 11-27 - 12-1](./docs/MeetingMinutes/nov27.md)
+ * [Meeting Minutes 11-27](./docs/MeetingMinutes/nov27.md)
  
  
  
