@@ -4,6 +4,8 @@ During the last week of the semester we were mainly focused on redesigning some 
 ![](before.png) 
 ## **IN PROGRESS**
 <img src="robotLayers.png" alt="alt text" width="200" height="200">
+
+
 ## **AFTER**
 
 ![](after1.png)
