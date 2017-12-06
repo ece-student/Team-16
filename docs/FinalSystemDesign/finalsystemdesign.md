@@ -81,8 +81,10 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ## Demos:
 
+* [VGA display](https://youtu.be/-LxioGsMQ7Y)
 * [dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
 * [starting with 660hz start signal](https://youtu.be/8Drk8CrjAT8)
+* [starting with manual override button](https://youtu.be/H8nQMf8gjuo)
 
 ## Final Problems 😢😢😢😢😢
 Unfortunately, we were not able to complete our project due to several difficult issues. 
