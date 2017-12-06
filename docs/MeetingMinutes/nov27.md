@@ -21,5 +21,6 @@ Last week things to do
  * Make graphics for robot and overall system
  * Explain hardaware components
  * Explain about issues ecountered during design
+ * Take measurements of robot speed, line sensor threshold ...
  
 
