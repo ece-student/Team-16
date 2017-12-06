@@ -49,6 +49,7 @@ ON THE ROBOT:
 ![](z2.png)
 
 
+
 BASESTATION SETUP:
 ![](z3.png)
 
@@ -92,6 +93,9 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ## Measurements and specs for robot components
 ![](specs2.png)
+
+## Cost
+![](cost.png)
 
 ## Demos
 
