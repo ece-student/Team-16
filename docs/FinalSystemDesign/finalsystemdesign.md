@@ -81,8 +81,8 @@ Below is a pin list for the robot. As mentioned above we used a passive mixer to
 
 ## Demos:
 
-[dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
-[]()
+* [dfs with unaccessible areas](https://youtu.be/RdsfLIyhaFA)
+* [starting with 660hz start signal](https://youtu.be/8Drk8CrjAT8)
 
 ## Final Problems 😢😢😢😢😢
 Unfortunately, we were not able to complete our project due to several difficult issues. 
